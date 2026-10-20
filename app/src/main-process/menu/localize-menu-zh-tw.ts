@@ -12,6 +12,8 @@ const labels: Readonly<Record<string, string>> = {
   'Branch': '分支',
   'Help': '說明',
   'New Repository…': '新增儲存庫…',
+  'Create New Repository…': '建立新儲存庫…',
+  'Add Existing Repository…': '加入現有儲存庫…',
   'Add Local Repository…': '加入本機儲存庫…',
   'Clone Repository…': '複製儲存庫…',
   'Options…': '選項…',
@@ -49,6 +51,7 @@ const labels: Readonly<Record<string, string>> = {
   'Contract Active Resizable': '縮小目前窗格',
   'Reload': '重新載入',
   'Toggle Developer Tools': '切換開發人員工具',
+  'Command Line Tool': '命令列工具',
   'Push': '推送',
   'Pull': '提取',
   'Fetch': '擷取',
@@ -98,15 +101,18 @@ const labels: Readonly<Record<string, string>> = {
 /** Keep one-letter Windows access keys, even when the visible label is Chinese. */
 export function localizeMenuLabel(label: string): string {
   const accessKey = /&([a-z])/i.exec(label)
-  const english = label.replace(/&(?=[a-z])/gi, '')
+  const english = label.replace(/&(?=[a-z])/gi, '').replace(/\.\.\./g, '…')
 
-  let translated = labels[english]
+  const key = Object.keys(labels).find(
+    candidate => candidate.toLowerCase() === english.toLowerCase()
+  )
+  let translated = key === undefined ? undefined : labels[key]
   if (translated === undefined) {
-    if (english.startsWith('Update from ')) {
+    if (english.toLowerCase().startsWith('update from ')) {
       translated = '從 ' + english.slice('Update from '.length) + ' 更新'
-    } else if (english.startsWith('Open in ')) {
+    } else if (english.toLowerCase().startsWith('open in ')) {
       translated = '使用 ' + english.slice('Open in '.length) + ' 開啟'
-    } else if (english.startsWith('Compare to ')) {
+    } else if (english.toLowerCase().startsWith('compare to ')) {
       translated = '與 ' + english.slice('Compare to '.length) + ' 比較'
     } else {
       return label
