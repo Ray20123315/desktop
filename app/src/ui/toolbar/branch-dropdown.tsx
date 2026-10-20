@@ -140,7 +140,7 @@ export class BranchDropdown extends React.Component<IBranchDropdownProps> {
     let icon: OcticonSymbol = octicons.gitBranch
     let iconClassName: string | undefined = undefined
     let title: string
-    let description = __DARWIN__ ? '當前分支' : '當前分支'
+    let description = __DARWIN__ ? '目前分支' : '當前分支'
     let canOpen = true
     let disabled = false
     let tooltip: string
@@ -154,7 +154,7 @@ export class BranchDropdown extends React.Component<IBranchDropdownProps> {
       return null
     } else if (tip.kind === TipState.Unborn) {
       title = tip.ref
-      tooltip = `當前分支為 ${tip.ref}`
+      tooltip = `目前分支為 ${tip.ref}`
       canOpen = branchesState.allBranches.some(
         b => !b.isDesktopForkRemoteBranch
       )

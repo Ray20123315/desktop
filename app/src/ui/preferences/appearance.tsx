@@ -148,14 +148,14 @@ export class Appearance extends React.Component<
         return (
           <span>
             <img src={lightThemeImage} alt="" />
-            <span className="theme-value-label">Light</span>
+            <span className="theme-value-label">淺色</span>
           </span>
         )
       case ApplicationTheme.Dark:
         return (
           <span>
             <img src={darkThemeImage} alt="" />
-            <span className="theme-value-label">Dark</span>
+            <span className="theme-value-label">深色</span>
           </span>
         )
       case ApplicationTheme.System:
@@ -170,7 +170,7 @@ export class Appearance extends React.Component<
               <img src={lightThemeImage} alt="" />
               <img src={darkThemeImage} alt="" />
             </span>
-            <span className="theme-value-label">System</span>
+            <span className="theme-value-label">跟隨系統</span>
           </span>
         )
     }
@@ -191,7 +191,7 @@ export class Appearance extends React.Component<
 
     return (
       <div className="appearance-section">
-        <h2 id="theme-heading">Theme</h2>
+        <h2 id="theme-heading">佈景主題</h2>
 
         <RadioGroup<ApplicationTheme>
           ariaLabelledBy="theme-heading"
@@ -212,7 +212,7 @@ export class Appearance extends React.Component<
 
     return (
       <div className="appearance-section formatting-section">
-        <h2 id="formatting-heading">Formatting</h2>
+        <h2 id="formatting-heading">格式</h2>
 
         <Row>
           <Select
@@ -274,7 +274,7 @@ export class Appearance extends React.Component<
 
     return (
       <div className="appearance-section">
-        <h2 id="miscellaneous-heading">Miscellaneous</h2>
+        <h2 id="miscellaneous-heading">其他</h2>
 
         <Select
           value={this.state.selectedTabSize.toString()}
@@ -290,7 +290,7 @@ export class Appearance extends React.Component<
 
         <Checkbox
           className="always-show-worktree-list"
-          label="Always show worktree list"
+          label="一律顯示工作樹清單"
           value={
             this.props.alwaysShowWorktreeList
               ? CheckboxValue.On

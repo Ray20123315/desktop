@@ -439,7 +439,7 @@ export class NoChanges extends React.Component<
         menuItemId={itemId}
         description={description}
         discoverabilityContent={discoverabilityContent}
-        buttonText="檢視暫存區"
+        buttonText="檢視暫存的變更"
         type="primary"
         disabled={menuItem !== null && !menuItem.enabled}
         onClick={this.onViewStashClicked}
@@ -769,7 +769,7 @@ export class NoChanges extends React.Component<
         <div className="content">
           <div className="interstitial-header">
             <div className="text">
-              <h1>無本地變更</h1>
+              <h1>沒有本機變更</h1>
               <p>
                 There are no uncommitted changes in this repository. Here are
                 some friendly suggestions for what to do next.

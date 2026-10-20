@@ -395,9 +395,9 @@ export class Integrations extends React.Component<
           <h2>GitHub Copilot</h2>
         </legend>
         <p>
-          Experience agent-driven development built natively on GitHub.{' '}
+          體驗整合於 GitHub 的 AI 代理程式開發功能。{' '}
           <LinkButton uri={copilotAppMarketingUrl}>
-            Learn more about GitHub Copilot
+            深入了解 GitHub Copilot
           </LinkButton>
           .
         </p>
@@ -405,7 +405,7 @@ export class Integrations extends React.Component<
           <div className="custom-integration-form-container">
             <div className="custom-integration-form-path-container">
               <TextBox
-                label="自定義提交風格"
+                label="GitHub Copilot 應用程式路徑"
                 value={this.state.copilotAppPath}
                 placeholder={
                   __DARWIN__
@@ -419,7 +419,7 @@ export class Integrations extends React.Component<
                     : 'copilot-app-path-error'
                 }
               />
-              <Button onClick={this.onChooseCopilotAppPath}>Choose…</Button>
+              <Button onClick={this.onChooseCopilotAppPath}>選擇…</Button>
             </div>
             {this.props.copilotAppPathError !== undefined && (
               <div className="custom-integration-form-error">

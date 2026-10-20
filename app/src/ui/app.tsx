@@ -3554,7 +3554,7 @@ export class App extends React.Component<IAppProps, IAppState> {
       <ToolbarDropdown
         icon={icon}
         title={title}
-        description={__DARWIN__ ? '當前儲存庫' : '當前儲存庫'}
+        description={__DARWIN__ ? '目前的儲存庫' : '當前儲存庫'}
         tooltip={tooltip}
         foldoutStyle={foldoutStyle}
         onContextMenu={this.onRepositoryToolbarButtonContextMenu}

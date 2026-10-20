@@ -24,7 +24,7 @@ export class Accessibility extends React.Component<
         <div className="accessibility-section">
           <h2>輔助功能</h2>
           <Checkbox
-            label="連結新增下劃線"
+            label="在連結下方顯示底線"
             value={
               this.props.underlineLinks ? CheckboxValue.On : CheckboxValue.Off
             }
@@ -41,7 +41,7 @@ export class Accessibility extends React.Component<
           </p>
 
           <Checkbox
-            label="在差異對比中顯示勾號"
+            label="在差異比較中顯示勾選標記"
             value={
               this.props.showDiffCheckMarks
                 ? CheckboxValue.On

@@ -202,7 +202,7 @@ export class Prompts extends React.Component<
     return (
       <div className="advanced-section">
         <h2 id="switch-branch-heading">
-          If I have changes and I switch branches...
+          切換分支時若有尚未提交的變更…
         </h2>
 
         <RadioGroup<UncommittedChangesStrategy>
@@ -235,7 +235,7 @@ export class Prompts extends React.Component<
       <DialogContent>
         <div className="advanced-section">
           <h2 id="show-confirm-dialog-heading">
-            Show a confirmation dialog before...
+            執行下列操作前顯示確認視窗…
           </h2>
           <div role="group" aria-labelledby="show-confirm-dialog-heading">
             <Checkbox
@@ -311,7 +311,7 @@ export class Prompts extends React.Component<
               onChange={this.onConfirmCommitMessageOverrideChanged}
             />
             <Checkbox
-              label="Removing worktrees"
+              label="移除工作樹"
               value={
                 this.state.confirmWorktreeRemoval
                   ? CheckboxValue.On
