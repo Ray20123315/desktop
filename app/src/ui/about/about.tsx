@@ -51,7 +51,7 @@ interface IAboutProps {
 
   readonly onShowAcknowledgements: () => void
 
-  /** A function to call when the user wants to see Terms and Conditions. */
+  /** A function to call when the user wants to see 服務條款. */
   readonly onShowTermsAndConditions: () => void
   readonly onQuitAndInstall: () => void
 
@@ -107,7 +107,7 @@ export class About extends React.Component<IAboutProps> {
         return (
           <Row>
             <Button onClick={this.props.onQuitAndInstall}>
-              Quit and Install Update
+              結束並安裝更新
             </Button>
           </Row>
         )
@@ -121,7 +121,7 @@ export class About extends React.Component<IAboutProps> {
             UpdateStatus.UpdateNotAvailable,
           ].includes(updateStatus) || isOSNoLongerSupportedByElectron()
 
-        const buttonTitle = 'Check for Updates'
+        const buttonTitle = '檢查更新'
 
         return (
           <Row>
@@ -149,8 +149,7 @@ export class About extends React.Component<IAboutProps> {
     if (!this.canCheckForUpdates) {
       return (
         <p>
-          The application is currently running in development and will not
-          receive any updates.
+          目前執行的是開發版本，不會自動接收更新。
         </p>
       )
     }
@@ -159,9 +158,9 @@ export class About extends React.Component<IAboutProps> {
 
     switch (status) {
       case UpdateStatus.CheckingForUpdates:
-        return <UpdateInfo message="Checking for updates…" loading={true} />
+        return <UpdateInfo message="正在檢查更新…" loading={true} />
       case UpdateStatus.UpdateAvailable:
-        return <UpdateInfo message="Downloading update…" loading={true} />
+        return <UpdateInfo message="正在下載更新…" loading={true} />
       case UpdateStatus.UpdateNotAvailable:
         if (!lastSuccessfulCheck) {
           return null
@@ -169,8 +168,8 @@ export class About extends React.Component<IAboutProps> {
 
         const richMessage = (
           <p>
-            You have the latest version (last checked{' '}
-            <RelativeTime date={lastSuccessfulCheck} />)
+            你目前使用的是最新版本（上次檢查時間：{' '}
+            <RelativeTime date={lastSuccessfulCheck} />）
           </p>
         )
 
@@ -181,13 +180,13 @@ export class About extends React.Component<IAboutProps> {
 
         return (
           <UpdateInfo
-            message={`You have the latest version (last checked ${absoluteDate})`}
+            message={`你目前使用的是最新版本（上次檢查時間：${absoluteDate}）`}
             richMessage={richMessage}
           />
         )
       case UpdateStatus.UpdateReady:
         return (
-          <UpdateInfo message="An update has been downloaded and is ready to be installed." />
+          <UpdateInfo message="更新已下載完成，可以安裝。" />
         )
       case UpdateStatus.UpdateNotChecked:
         return null
@@ -208,10 +207,9 @@ export class About extends React.Component<IAboutProps> {
     if (isOSNoLongerSupportedByElectron()) {
       return (
         <DialogError>
-          This operating system is no longer supported. Software updates have
-          been disabled.{' '}
+          此作業系統已不再受到支援，軟體更新功能已停用。{' '}
           <LinkButton uri="https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/overview/supported-operating-systems">
-            Supported operating systems
+            支援的作業系統
           </LinkButton>
         </DialogError>
       )
@@ -220,9 +218,7 @@ export class About extends React.Component<IAboutProps> {
     if (!this.props.updateState.lastSuccessfulCheck) {
       return (
         <DialogError>
-          Couldn't determine the last time an update check was performed. You
-          may be running an old version. Please try manually checking for
-          updates and contact GitHub Support if the problem persists
+          無法確認上次檢查更新的時間。你可能正在使用舊版本，請手動檢查更新；如果問題持續發生，請聯絡 GitHub 支援。
         </DialogError>
       )
     }
@@ -237,11 +233,11 @@ export class About extends React.Component<IAboutProps> {
 
     return (
       <div>
-        <p className="no-padding">Looking for the latest features?</p>
+        <p className="no-padding">想體驗最新功能嗎？</p>
         <p className="no-padding">
-          Check out the{' '}
+          歡迎試用{' '}
           <LinkButton uri="https://desktop.github.com/beta">
-            Beta Channel
+            Beta 測試版本
           </LinkButton>
         </p>
       </div>
@@ -252,10 +248,10 @@ export class About extends React.Component<IAboutProps> {
     const name = this.props.applicationName
     const version = this.props.applicationVersion
     const releaseNotesLink = (
-      <LinkButton uri={ReleaseNotesUri}>release notes</LinkButton>
+      <LinkButton uri={ReleaseNotesUri}>版本說明</LinkButton>
     )
 
-    const versionText = __DEV__ ? `Build ${version}` : `Version ${version}`
+    const versionText = __DEV__ ? `建置版本 ${version}` : `版本 ${version}`
     const titleId = 'Dialog_about'
 
     return (
@@ -275,7 +271,7 @@ export class About extends React.Component<IAboutProps> {
               height="64"
             />
           </Row>
-          <h1 id={titleId}>About {name}</h1>
+          <h1 id={titleId}>關於 {name}</h1>
           <p className="no-padding">
             <span className="selectable-text">
               {versionText} ({this.props.applicationArchitecture})
@@ -293,12 +289,12 @@ export class About extends React.Component<IAboutProps> {
             </p>
             <p className="no-padding terms-and-license">
               <LinkButton onClick={this.props.onShowAcknowledgements}>
-                License and Open Source Notices
+                授權條款與開放原始碼聲明
               </LinkButton>
             </p>
             <p className="terms-and-license">
               <LinkButton uri="https://gh.io/copilot-for-desktop-transparency">
-                Responsible use of Copilot in GitHub Desktop
+                GitHub Desktop 中負責任地使用 Copilot
               </LinkButton>
             </p>
           </div>
