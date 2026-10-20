@@ -183,7 +183,7 @@ export class BranchesContainer extends React.Component<
         <Button
           className="merge-button"
           onClick={this.onMergeClick}
-          tooltip={`Choose a branch to merge into ${currentBranch.name}`}
+          tooltip={`選擇分支合併到 ${currentBranch.name}`}
         >
           <Octicon className="icon" symbol={octicons.gitMerge} />
           Choose a branch to merge into <strong>{currentBranch.name}</strong>
@@ -215,7 +215,7 @@ export class BranchesContainer extends React.Component<
       >
         <span id="branches-tab">Branches</span>
         <span id="pull-requests-tab" className="pull-request-tab">
-          {__DARWIN__ ? 'Pull Requests' : 'Pull requests'}
+          {__DARWIN__ ? 'Pull Request' : 'Pull Request'}
           {this.renderOpenPullRequestsBubble()}
         </span>
       </TabBar>
@@ -314,7 +314,7 @@ export class BranchesContainer extends React.Component<
       return null
     }
 
-    const label = __DARWIN__ ? 'New Branch' : 'New branch'
+    const label = __DARWIN__ ? '新增分支' : '新增分支'
 
     return (
       /**
@@ -360,7 +360,7 @@ export class BranchesContainer extends React.Component<
     // Thus, it doesn't have to be an actual branch name.
     dragAndDropManager.emitEnterDropTarget({
       type: DropTargetType.Branch,
-      branchName: 'a new branch',
+      branchName: '新分支',
     })
   }
 

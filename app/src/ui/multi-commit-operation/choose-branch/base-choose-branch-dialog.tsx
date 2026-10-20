@@ -265,7 +265,7 @@ export class ChooseBranchDialog extends React.Component<
             options={getMergeOptions()}
             disabled={!canStartOperation}
             ariaDescribedBy="merge-status-preview"
-            dropdownAriaLabel="Merge options"
+            dropdownAriaLabel="合併選項"
             tooltip={submitButtonTooltip}
             onCheckedOptionChange={this.onOperationChange}
           />

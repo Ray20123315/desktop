@@ -64,7 +64,7 @@ export class OpenPullRequestDialogHeader extends React.Component<IOpenPullReques
   }
 
   public render() {
-    const title = __DARWIN__ ? 'Open a Pull Request' : 'Open a pull request'
+    const title = __DARWIN__ ? '開啟Pull Request' : '開啟Pull Request'
     const {
       baseBranch,
       currentBranch,
@@ -98,8 +98,8 @@ export class OpenPullRequestDialogHeader extends React.Component<IOpenPullReques
             onChange={onBranchChange}
             noBranchesMessage={
               <>
-                <p>Sorry, I can't find that remote branch.</p>
-                <p>You can only open pull requests against remote branches.</p>
+                <p>很抱歉，找不到此遠端分支。</p>
+                <p>您只能對遠端分支發起Pull Request。</p>
               </>
             }
           />{' '}

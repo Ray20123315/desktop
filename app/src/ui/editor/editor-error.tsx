@@ -62,8 +62,8 @@ export class EditorError extends React.Component<IEditorErrorProps, {}> {
       return (
         <DialogFooter>
           <OkCancelButtonGroup
-            okButtonText="Close"
-            cancelButtonText={__DARWIN__ ? 'Open Preferences' : 'Open options'}
+            okButtonText="關閉"
+            cancelButtonText={__DARWIN__ ? '開啟設定' : '開啟設定'}
             onCancelButtonClick={this.onShowPreferencesDialog}
           />
         </DialogFooter>
@@ -72,8 +72,8 @@ export class EditorError extends React.Component<IEditorErrorProps, {}> {
       return (
         <DialogFooter>
           <OkCancelButtonGroup
-            okButtonText="Close"
-            cancelButtonText={`Download ${suggestedExternalEditor.name}`}
+            okButtonText="關閉"
+            cancelButtonText={`下載 ${suggestedExternalEditor.name}`}
             onCancelButtonClick={this.onExternalLink}
           />
         </DialogFooter>

@@ -42,16 +42,16 @@ export const generateRepositoryListContextMenu = (
     ...buildAliasMenuItems(config),
     ...buildWorktreeMenuItems(config),
     {
-      label: __DARWIN__ ? 'Copy Repo Name' : 'Copy repo name',
+      label: __DARWIN__ ? '複製名稱' : '複製名稱',
       action: () => writeClipboardText(repository.name),
     },
     {
-      label: __DARWIN__ ? 'Copy Repo Path' : 'Copy repo path',
+      label: __DARWIN__ ? '複製路徑' : '複製路徑',
       action: () => writeClipboardText(repository.path),
     },
     { type: 'separator' },
     {
-      label: 'View on GitHub',
+      label: '開啟 GitHub',
       action: () => config.onViewOnGitHub(repository),
       enabled: github,
     },
@@ -72,7 +72,7 @@ export const generateRepositoryListContextMenu = (
     },
     { type: 'separator' },
     {
-      label: config.askForConfirmationOnRemoveRepository ? 'Remove…' : 'Remove',
+      label: config.askForConfirmationOnRemoveRepository ? '刪除…' : '刪除',
       action: () => config.onRemoveRepository(repository),
     },
   ]
@@ -89,17 +89,17 @@ const buildAliasMenuItems = (
     return []
   }
 
-  const verb = repository.alias == null ? 'Create' : 'Change'
+  const verb = repository.alias == null ? '設定' : '更改'
   const items: Array<IMenuItem> = [
     {
-      label: __DARWIN__ ? `${verb} Alias` : `${verb} alias`,
+      label: __DARWIN__ ? `${verb}別名` : `${verb}別名`,
       action: () => config.onChangeRepositoryAlias(repository),
     },
   ]
 
   if (repository.alias !== null) {
     items.push({
-      label: __DARWIN__ ? 'Remove Alias' : 'Remove alias',
+      label: __DARWIN__ ? '刪除別名' : '刪除別名',
       action: () => config.onRemoveRepositoryAlias(repository),
     })
   }

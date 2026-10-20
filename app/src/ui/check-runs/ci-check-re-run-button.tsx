@@ -28,11 +28,11 @@ export class CICheckReRunButton extends React.PureComponent<ICICheckReRunButtonP
 
     const items: IMenuItem[] = [
       {
-        label: __DARWIN__ ? 'Re-run Failed Checks' : 'Re-run failed checks',
+        label: __DARWIN__ ? '重新執行未透過的檢查' : '重新執行未透過的檢查',
         action: () => this.props.onRerunChecks(true),
       },
       {
-        label: __DARWIN__ ? 'Re-run All Checks' : 'Re-run all checks',
+        label: __DARWIN__ ? '重新執行所有檢查' : '重新執行所有檢查',
         action: () => this.props.onRerunChecks(false),
       },
     ]
@@ -57,7 +57,7 @@ export class CICheckReRunButton extends React.PureComponent<ICICheckReRunButtonP
           Re-run <Octicon symbol={octicons.triangleDown} />
         </>
       ) : (
-        'Re-run Checks'
+        '重新執行檢查'
       )
     return (
       <Button

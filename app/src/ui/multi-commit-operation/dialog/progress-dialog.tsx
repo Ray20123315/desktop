@@ -32,7 +32,7 @@ export class ProgressDialog extends React.Component<IProgressDialogProps> {
       <Dialog
         dismissDisabled={true}
         id="multi-commit-progress"
-        title={`${operation} in progress`}
+        title={`正在${operation}`}
       >
         <DialogContent>
           <div>

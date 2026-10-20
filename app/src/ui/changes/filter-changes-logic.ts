@@ -88,23 +88,23 @@ export function getNoResultsMessage(
   }
 
   if (filters.isIncludedInCommit) {
-    activeFilters.push('Included in commit')
+    activeFilters.push('將要提交')
   }
 
   if (filters.isExcludedFromCommit) {
-    activeFilters.push('Excluded from commit')
+    activeFilters.push('不要提交')
   }
 
   if (filters.isNewFile) {
-    activeFilters.push('New files')
+    activeFilters.push('屬於新增')
   }
 
   if (filters.isModifiedFile) {
-    activeFilters.push('Modified files')
+    activeFilters.push('屬於修改')
   }
 
   if (filters.isDeletedFile) {
-    activeFilters.push('Deleted files')
+    activeFilters.push('屬於刪除')
   }
 
   if (activeFilters.length === 0) {
@@ -122,7 +122,7 @@ export function getNoResultsMessage(
     const otherFilters = activeFilters.slice(0, -1)
     filterList = `${otherFilters.join(', ')}, and ${lastFilter}`
   }
-  return `Sorry, I can't find any changed files matching the following filters: ${filterList}`
+  return `需要同時符合以下條件：${filterList}`
 }
 
 /**

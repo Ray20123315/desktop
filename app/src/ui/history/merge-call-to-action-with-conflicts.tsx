@@ -191,7 +191,7 @@ export class MergeCallToActionWithConflicts extends React.Component<
         <DropdownSelectButton
           checkedOption={this.state.selectedOperation}
           options={getMergeOptions()}
-          dropdownAriaLabel="Merge options"
+          dropdownAriaLabel="合併選項"
           disabled={disabled}
           onCheckedOptionChange={this.onOperationChange}
           onSubmit={this.onOperationInvoked}
@@ -260,7 +260,7 @@ export class MergeCallToActionWithConflicts extends React.Component<
       return null
     }
 
-    const pluralized = this.commitCount === 1 ? 'commit' : 'commits'
+    const pluralized = this.commitCount === 1 ? '提交' : '提交'
 
     if (this.state.selectedOperation === MultiCommitOperationKind.Rebase) {
       return (
@@ -307,7 +307,7 @@ export class MergeCallToActionWithConflicts extends React.Component<
     branch: Branch,
     count: number
   ) {
-    const pluralized = count === 1 ? 'file' : 'files'
+    const pluralized = count === 1 ? '檔案' : '檔案'
     return (
       <div className="merge-message">
         There will be

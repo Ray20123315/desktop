@@ -7,8 +7,8 @@ export function renderUnmergedFilesSummary(conflictedFilesCount: number) {
   // localization, it burns :vampire:
   const message =
     conflictedFilesCount === 1
-      ? `1 conflicted file`
-      : `${conflictedFilesCount} conflicted files`
+      ? `1個檔案有衝突`
+      : `${conflictedFilesCount}個檔案有衝突`
   return <h2 className="summary">{message}</h2>
 }
 

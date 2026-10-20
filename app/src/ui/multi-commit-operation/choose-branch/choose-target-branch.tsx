@@ -155,8 +155,8 @@ export class ChooseTargetBranchDialog extends React.Component<
         : 'Cherry-pick to new branch'
     }
 
-    const pluralize = this.props.commitCount > 1 ? 'commits' : 'commit'
-    const okButtonText = `Cherry-pick ${this.props.commitCount} ${pluralize}`
+    const pluralize = this.props.commitCount > 1 ? '個提交' : '個提交'
+    const okButtonText = `摘取${this.props.commitCount}${pluralize}`
 
     if (selectedBranch !== null) {
       return (
@@ -180,10 +180,10 @@ export class ChooseTargetBranchDialog extends React.Component<
 
   public render() {
     const tooltip = this.selectedBranchIsCurrentBranch()
-      ? 'You are not able to cherry-pick from and to the same branch'
+      ? '無法摘取到同一個分支'
       : undefined
 
-    const pluralize = this.props.commitCount > 1 ? 'commits' : 'commit'
+    const pluralize = this.props.commitCount > 1 ? '個提交' : '個提交'
     return (
       <Dialog
         id="cherry-pick"

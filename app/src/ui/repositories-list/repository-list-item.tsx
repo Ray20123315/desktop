@@ -136,10 +136,10 @@ const renderAheadBehindIndicator = (aheadBehind: IAheadBehind) => {
   }
 
   const aheadBehindTooltip =
-    'The currently checked out branch is' +
-    (behind ? ` ${commitGrammar(behind)} behind ` : '') +
+    '當前檢出的分支比它的跟蹤分支' +
+    (behind ? `落後${commitGrammar(behind)}` : '') +
     (behind && ahead ? 'and' : '') +
-    (ahead ? ` ${commitGrammar(ahead)} ahead of ` : '') +
+    (ahead ? `領先${commitGrammar(ahead)}` : '') +
     'its tracked branch.'
 
   return (
@@ -159,7 +159,7 @@ const renderChangesIndicator = () => {
   return (
     <TooltippedContent
       className="change-indicator-wrapper"
-      tooltip="There are uncommitted changes in this repository"
+      tooltip="該儲存庫中有未提交的變更"
       disabled={enableAccessibleListToolTips()}
     >
       <Octicon symbol={octicons.dotFill} />

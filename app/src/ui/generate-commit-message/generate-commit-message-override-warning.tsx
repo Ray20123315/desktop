@@ -47,7 +47,7 @@ export class GenerateCommitMessageOverrideWarning extends React.Component<
 
     return (
       <Dialog
-        title="Commit message override"
+        title="覆蓋提交訊息"
         id="generate-commit-message-override-warning"
         type="warning"
         onDismissed={this.props.onDismissed}
@@ -73,7 +73,7 @@ export class GenerateCommitMessageOverrideWarning extends React.Component<
           ) : null}
           <Row>
             <Checkbox
-              label="Do not show this message again"
+              label="不再顯示"
               value={
                 this.state.confirmCommitMessageOverride
                   ? CheckboxValue.Off
@@ -84,7 +84,7 @@ export class GenerateCommitMessageOverrideWarning extends React.Component<
           </Row>
         </DialogContent>
         <DialogFooter>
-          <OkCancelButtonGroup destructive={true} okButtonText="Override" />
+          <OkCancelButtonGroup destructive={true} okButtonText="確認覆蓋" />
         </DialogFooter>
       </Dialog>
     )

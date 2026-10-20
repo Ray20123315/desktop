@@ -154,15 +154,15 @@ export class CommitMessageAvatar extends React.Component<
     let ariaLabel = ''
     switch (warningType) {
       case 'none':
-        ariaLabel = 'View commit author information'
+        ariaLabel = '檢視提交作者資訊'
         break
 
       case 'misattribution':
-        ariaLabel = 'Commit may be misattributed. View warning.'
+        ariaLabel = '該提交可能歸屬錯誤，點選檢視警告。'
         break
 
       case 'disallowedEmail':
-        ariaLabel = 'Email address is disallowed. View warning.'
+        ariaLabel = '郵箱地址不被允許，點選檢視警告。'
         break
     }
 
@@ -237,17 +237,17 @@ export class CommitMessageAvatar extends React.Component<
     const { user } = this.props
     const { isGitConfigLocal } = this.state
 
-    const location = isGitConfigLocal ? 'local' : 'global'
-    const locationDesc = isGitConfigLocal ? 'for your repository' : ''
-    const settingsName = __DARWIN__ ? 'settings' : 'options'
+    const location = isGitConfigLocal ? '本地' : '全域性'
+    const locationDesc = isGitConfigLocal ? '為您的儲存庫' : ''
+    const settingsName = __DARWIN__ ? '設定' : '設定'
     const settings = isGitConfigLocal
       ? 'repository settings'
       : `git ${settingsName}`
-    const buttonText = __DARWIN__ ? 'Open Git Settings' : 'Open git settings'
+    const buttonText = __DARWIN__ ? '開啟 Git 設定' : '開啟 Git 設定'
 
     return (
       <>
-        <p>{user && user.name && `Email: ${user.email}`}</p>
+        <p>{user && user.name && `郵箱：${user.email}`}</p>
 
         <p>
           You can update your {location} git configuration {locationDesc} in
@@ -277,7 +277,7 @@ export class CommitMessageAvatar extends React.Component<
   private renderWarningPopover() {
     const { warningType, emailRuleFailures } = this.props
 
-    const updateEmailTitle = __DARWIN__ ? 'Update Email' : 'Update email'
+    const updateEmailTitle = __DARWIN__ ? '更新全域性郵箱' : '更新全域性郵箱'
 
     const sharedHeader = (
       <>
@@ -293,7 +293,7 @@ export class CommitMessageAvatar extends React.Component<
         {hasEmails && (
           <Row>
             <Select
-              label="Your Account Emails"
+              label="選擇賬號郵箱"
               value={this.state.accountEmail}
               onChange={this.onSelectedGitHubEmailChange}
             >
@@ -345,7 +345,7 @@ export class CommitMessageAvatar extends React.Component<
               {sharedHeader} doesn't match your GitHub{accountTypeSuffix}{' '}
               account{userName}.{' '}
               <LinkButton
-                ariaLabel="Learn more about commit attribution"
+                ariaLabel="瞭解關於提交歸屬的詳細資訊"
                 uri="https://docs.github.com/en/github/committing-changes-to-your-project/why-are-my-commits-linked-to-the-wrong-user"
               >
                 Learn more
@@ -381,7 +381,7 @@ export class CommitMessageAvatar extends React.Component<
     const { user } = this.props
 
     if (user === undefined) {
-      return 'Unknown user'
+      return '未知使用者'
     }
 
     const { name, email } = user
@@ -394,7 +394,7 @@ export class CommitMessageAvatar extends React.Component<
       )
     }
 
-    return <>Committing with {email}</>
+    return <>以 {email} 的身份提交</>
   }
 
   private renderPopover() {
@@ -403,11 +403,11 @@ export class CommitMessageAvatar extends React.Component<
     let header: string | JSX.Element | undefined = ''
     switch (this.props.warningType) {
       case 'misattribution':
-        header = 'This commit will be misattributed'
+        header = '歸屬錯誤'
         break
 
       case 'disallowedEmail':
-        header = 'This email address is disallowed'
+        header = '郵箱不被允許'
         break
 
       default:

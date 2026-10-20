@@ -45,17 +45,17 @@ export class DiscardChangesRetryDialog extends React.Component<
         type="error"
       >
         <DialogContent>
-          <p>Failed to discard changes to {TrashNameLabel}.</p>
+          <p>無法放棄變更，檔案放不進{TrashNameLabel}。</p>
           <div>
             Common reasons are:
             <ul>
               <li>
                 The {TrashNameLabel} is configured to delete items immediately.
               </li>
-              <li>Restricted access to move the file(s).</li>
+              <li>沒有檔案移動許可權。</li>
             </ul>
           </div>
-          <p>These changes will be unrecoverable from the {TrashNameLabel}.</p>
+          <p>這些變更將會無法從{TrashNameLabel}恢復。</p>
           {this.renderConfirmDiscardChanges()}
         </DialogContent>
         {this.renderFooter()}
@@ -66,7 +66,7 @@ export class DiscardChangesRetryDialog extends React.Component<
   private renderConfirmDiscardChanges() {
     return (
       <Checkbox
-        label="Do not show this message again"
+        label="不再顯示"
         value={
           this.state.confirmDiscardChanges
             ? CheckboxValue.Off
@@ -86,8 +86,8 @@ export class DiscardChangesRetryDialog extends React.Component<
               ? 'Permanently Discard Changes'
               : 'Permanently discard changes'
           }
-          okButtonTitle={`This will discard changes and they will be unrecoverable.`}
-          cancelButtonText="Cancel"
+          okButtonTitle={`檔案會被永久刪除，這些變更將無法恢復`}
+          cancelButtonText="取消"
           destructive={true}
         />
       </DialogFooter>

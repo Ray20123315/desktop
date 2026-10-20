@@ -165,7 +165,7 @@ function renderLastFetched(lastFetched: Date | null): JSX.Element | string {
       </span>
     )
   } else {
-    return 'Never fetched'
+    return '從未擷取更新'
   }
 }
 
@@ -215,7 +215,7 @@ export class PushPullButton extends React.Component<
     if (progressComplete) {
       this.setState({
         screenReaderStateMessage: `${
-          this.state.actionInProgress ?? 'Pull, push, or fetch'
+          this.state.actionInProgress ?? '提取，推送，或擷取更新'
         } complete`,
         actionInProgress: null,
       })
@@ -260,7 +260,7 @@ export class PushPullButton extends React.Component<
       buttonClassName: 'push-pull-button',
       style: ToolbarButtonStyle.Subtitle,
       dropdownStyle: ToolbarDropdownStyle.MultiOption,
-      ariaLabel: 'Push, pull, fetch options',
+      ariaLabel: '推送，提取，擷取更新選項',
       dropdownState: this.props.isDropdownOpen ? 'open' : 'closed',
       enableFocusTrap: this.props.enableFocusTrap,
       onDropdownStateChanged: this.props.onDropdownStateChanged,
@@ -514,7 +514,7 @@ export class PushPullButton extends React.Component<
       <ToolbarButton
         {...this.defaultButtonProps()}
         title={progress.title}
-        description={progress.description || 'Hang on…'}
+        description={progress.description || '請稍候…'}
         progressValue={progress.value}
         icon={syncClockwise}
         iconClassName={networkActionInProgress ? 'spin' : ''}
@@ -528,8 +528,8 @@ export class PushPullButton extends React.Component<
     return (
       <ToolbarButton
         {...this.defaultButtonProps()}
-        title="Publish repository"
-        description="Publish this repository to GitHub"
+        title="釋出儲存庫"
+        description="將儲存庫釋出到 GitHub"
         className="push-pull-button"
         icon={octicons.upload}
         style={ToolbarButtonStyle.Subtitle}
@@ -540,13 +540,13 @@ export class PushPullButton extends React.Component<
 
   private detachedHeadButton(rebaseInProgress: boolean) {
     const description = rebaseInProgress
-      ? 'Rebase in progress'
-      : 'Cannot publish detached HEAD'
+      ? '正在變基'
+      : '無法釋出分離的 HEAD 指標'
 
     return (
       <ToolbarButton
         {...this.defaultButtonProps()}
-        title="Publish branch"
+        title="釋出分支"
         description={description}
         icon={octicons.upload}
         disabled={true}
@@ -574,7 +574,7 @@ export class PushPullButton extends React.Component<
     return (
       <ToolbarDropdown
         {...this.defaultDropdownProps()}
-        title="Publish branch"
+        title="釋出分支"
         description={description}
         icon={octicons.upload}
         onClick={onClick}
@@ -591,7 +591,7 @@ export class PushPullButton extends React.Component<
     lastFetched: Date | null,
     onClick: () => void
   ) {
-    const title = `Fetch ${remoteName}`
+    const title = `取得 ${remoteName}`
     return (
       <ToolbarButton
         {...this.defaultButtonProps()}
@@ -613,8 +613,8 @@ export class PushPullButton extends React.Component<
     onClick: () => void
   ) {
     const title = pullWithRebase
-      ? `Pull ${remoteName} with rebase`
-      : `Pull ${remoteName}`
+      ? `提取 ${remoteName} 並變基`
+      : `提取 ${remoteName}`
 
     const dropdownItemTypes = [DropdownItemType.Fetch]
 
@@ -650,7 +650,7 @@ export class PushPullButton extends React.Component<
     return (
       <ToolbarDropdown
         {...this.defaultDropdownProps()}
-        title={`Push ${remoteName}`}
+        title={`推送 ${remoteName}`}
         description={renderLastFetched(lastFetched)}
         icon={octicons.arrowUp}
         onClick={onClick}
@@ -673,7 +673,7 @@ export class PushPullButton extends React.Component<
     return (
       <ToolbarDropdown
         {...this.defaultDropdownProps()}
-        title={`Force push ${remoteName}`}
+        title={`強制推送 ${remoteName}`}
         description={renderLastFetched(lastFetched)}
         icon={forcePushIcon}
         onClick={onClick}

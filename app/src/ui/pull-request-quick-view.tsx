@@ -187,7 +187,7 @@ export class PullRequestQuickView extends React.Component<
             isDraft ? octicons.gitPullRequestDraft : octicons.gitPullRequest
           }
         />
-        <span className="state">{isDraft ? 'Draft' : 'Open'}</span>
+        <span className="state">{isDraft ? '草稿' : '開啟'}</span>
       </div>
     )
   }
@@ -198,7 +198,7 @@ export class PullRequestQuickView extends React.Component<
     const displayBody =
       body !== undefined && body !== null && body.trim() !== ''
         ? body
-        : '_No description provided._'
+        : '_沒有描述。_'
 
     return (
       <div className="pull-request">

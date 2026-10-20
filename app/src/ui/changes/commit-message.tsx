@@ -853,11 +853,11 @@ export class CommitMessage extends React.Component<
   private get toggleCoAuthorsText(): string {
     return this.props.showCoAuthoredBy
       ? __DARWIN__
-        ? 'Remove Co-Authors'
-        : 'Remove co-authors'
+        ? '不新增協作者'
+        : '不新增協作者'
       : __DARWIN__
-      ? 'Add Co-Authors'
-      : 'Add co-authors'
+      ? '新增協作者'
+      : '新增協作者'
   }
 
   private getAddRemoveCoAuthorsMenuItem(): IMenuItem {
@@ -1055,7 +1055,7 @@ export class CommitMessage extends React.Component<
   }
 
   private renderCommitOptionsButton() {
-    const ariaLabel = 'Configure commit options'
+    const ariaLabel = '提交設定'
 
     return (
       <>
@@ -1090,7 +1090,7 @@ export class CommitMessage extends React.Component<
       items.push({
         type: 'checkbox',
         checked: this.props.skipCommitHooks,
-        label: __DARWIN__ ? 'Bypass Commit Hooks' : 'Bypass Commit hooks',
+        label: __DARWIN__ ? '跳過提交掛鉤' : '跳過提交掛鉤',
         action: () => {
           this.props.onUpdateCommitOptions(this.props.repository, {
             skipCommitHooks: !this.props.skipCommitHooks,
@@ -1103,8 +1103,8 @@ export class CommitMessage extends React.Component<
       type: 'checkbox',
       checked: this.props.signOffCommits,
       label: __DARWIN__
-        ? 'Add Signed-off-by Trailer'
-        : 'Add Signed-off-by trailer',
+        ? '新增 Signed-off-by 署名尾註'
+        : '新增 Signed-off-by 署名尾註',
       action: () => {
         this.props.onUpdateCommitOptions(this.props.repository, {
           signOffCommits: !this.props.signOffCommits,
@@ -1116,7 +1116,7 @@ export class CommitMessage extends React.Component<
       items.push({
         type: 'checkbox',
         checked: this.props.allowEmptyCommit,
-        label: __DARWIN__ ? 'Allow Empty Commit' : 'Allow empty commit',
+        label: __DARWIN__ ? '允許空白提交' : '允許空白提交',
         action: () => {
           this.props.onUpdateCommitOptions(this.props.repository, {
             allowEmptyCommit: !this.props.allowEmptyCommit,
@@ -1373,7 +1373,7 @@ export class CommitMessage extends React.Component<
             one or more rules
           </RepoRulesetsForBranchLink>{' '}
           that {canBypass ? 'would' : 'will'} prevent it from being published
-          {canBypass && ', but you can bypass them. Proceed with caution!'}
+          {canBypass && '，但是規則允許繞過，請謹慎操作！'}
           {!canBypass && (
             <>
               . Want to{' '}
@@ -1400,7 +1400,7 @@ export class CommitMessage extends React.Component<
           </RepoRulesetsForBranchLink>{' '}
           apply to the branch <strong>{branch}</strong> that require signed
           commits
-          {canBypass && ', but you can bypass them. Proceed with caution!'}
+          {canBypass && '，但是規則允許繞過，請謹慎操作！'}
           {!canBypass && '.'}{' '}
           <LinkButton uri="https://docs.github.com/authentication/managing-commit-signature-verification/signing-commits">
             Learn more about commit signing.
@@ -1422,7 +1422,7 @@ export class CommitMessage extends React.Component<
           </RepoRulesetsForBranchLink>{' '}
           apply to the branch <strong>{branch}</strong> that{' '}
           {canBypass ? 'would' : 'will'} prevent pushing
-          {canBypass && ', but you can bypass them. Proceed with caution!'}
+          {canBypass && '，但是規則允許繞過，請謹慎操作！'}
           {!canBypass && (
             <>
               . Want to{' '}
@@ -1473,7 +1473,7 @@ export class CommitMessage extends React.Component<
           repository={repository.gitHubRepository}
           branch={branch}
           failures={this.state.repoRuleCommitMessageFailures}
-          leadingText="This commit message"
+          leadingText="該提交資訊"
         />
       </Popover>
     )
@@ -1496,8 +1496,8 @@ export class CommitMessage extends React.Component<
   private getButtonVerb() {
     const { isCommitting, commitToAmend } = this.props
 
-    const amendVerb = isCommitting ? 'Amending' : 'Amend'
-    const commitVerb = isCommitting ? 'Committing' : 'Commit'
+    const amendVerb = isCommitting ? '正在修訂' : '修訂'
+    const commitVerb = isCommitting ? '正在提交' : '提交'
     const isAmending = commitToAmend !== null
 
     return isAmending ? amendVerb : commitVerb
@@ -1516,7 +1516,7 @@ export class CommitMessage extends React.Component<
      * as three separate strings "Verb" and "Count" and "to" and even tho
      * visually it was correctly adding spacings, for screen reader users it was
      * not and putting them all to together as one word. */
-    const action = `${verb} ${this.getFilesToBeCommittedButtonText()}to `
+    const action = `${verb}${this.getFilesToBeCommittedButtonText()}到 `
 
     return (
       <>
@@ -1536,9 +1536,9 @@ export class CommitMessage extends React.Component<
       return ''
     }
 
-    const pluralizedFile = filesToBeCommittedCount > 1 ? 'files' : 'file'
+    const pluralizedFile = filesToBeCommittedCount > 1 ? '檔案' : '檔案'
 
-    return `${filesToBeCommittedCount} ${pluralizedFile} `
+    return `${filesToBeCommittedCount}個${pluralizedFile}`
   }
 
   private getCommittingButtonTitle() {
@@ -1549,7 +1549,7 @@ export class CommitMessage extends React.Component<
       return verb
     }
 
-    return `${verb} to ${branch}`
+    return `${verb}到 ${branch}`
   }
 
   private getButtonText() {
@@ -1572,7 +1572,7 @@ export class CommitMessage extends React.Component<
 
     const isAmending = commitToAmend !== null
     return isAmending
-      ? `${this.getButtonVerb()} last commit`
+      ? `${this.getButtonVerb()}最新提交`
       : this.getCommittingButtonTitle()
   }
 
@@ -1583,15 +1583,15 @@ export class CommitMessage extends React.Component<
 
     const isSummaryBlank = isEmptyOrWhitespace(this.summaryOrPlaceholder)
     if (isSummaryBlank) {
-      return `A commit summary is required to commit`
+      return `請填寫摘要`
     } else if (
       !this.props.anyFilesSelected &&
       this.props.anyFilesAvailable &&
       !this.props.allowEmptyCommit
     ) {
-      return `Select one or more files to commit`
+      return `請選擇要提交的檔案`
     } else if (this.props.isCommitting) {
-      return `Committing changes…`
+      return `正在提交變更…`
     }
 
     return undefined
@@ -1608,7 +1608,7 @@ export class CommitMessage extends React.Component<
     const loading =
       isCommitting || isGeneratingCommitMessage ? <Loading /> : undefined
     const generatingCommitDetailsMessage = isGeneratingCommitMessage
-      ? 'Generating commit details…'
+      ? '正在生成提交訊息…'
       : null
     const tooltip =
       generatingCommitDetailsMessage ?? this.getButtonTooltip(buttonEnabled)
@@ -1653,7 +1653,7 @@ export class CommitMessage extends React.Component<
         direction={TooltipDirection.NORTH}
         className="length-hint"
         tooltipClassName="length-hint-tooltip"
-        ariaLabel="Open Summary Length Info"
+        ariaLabel="顯示摘要長度提示"
       >
         <Octicon symbol={octicons.lightBulb} />
       </ToggledtippedContent>
@@ -1673,17 +1673,17 @@ export class CommitMessage extends React.Component<
     let ariaLabelPrefix: string
     let bypassMessage = ''
     if (canBypass) {
-      ariaLabelPrefix = 'Warning'
-      bypassMessage = ', but you can bypass them'
+      ariaLabelPrefix = '警告'
+      bypassMessage = '，但是規則允許繞過'
     } else {
-      ariaLabelPrefix = 'Error'
+      ariaLabelPrefix = '錯誤'
     }
 
     return (
       <button
         id="commit-message-failure-hint"
         className="commit-message-failure-hint button-component"
-        aria-label={`${ariaLabelPrefix}: Commit message fails repository rules${bypassMessage}. View details.`}
+        aria-label={`${ariaLabelPrefix}：提交資訊違反儲存庫規則${bypassMessage}。點選閱讀詳情。`}
         aria-haspopup="dialog"
         aria-expanded={this.state.isRuleFailurePopoverOpen}
         onClick={this.toggleRuleFailurePopover}
@@ -1706,13 +1706,13 @@ export class CommitMessage extends React.Component<
 
     const text =
       hookName === 'pre-auto-gc' && status === 'finished'
-        ? 'Optimizing repository…'
+        ? '正在最佳化儲存庫…'
         : status === 'started'
-        ? `${hookName} hook running…`
+        ? `正在執行掛鉤 ${hookName}…`
         : status === 'finished'
-        ? `${hookName} hook finished`
+        ? `掛鉤 ${hookName} 結束`
         : status === 'failed'
-        ? `${hookName} hook failed`
+        ? `掛鉤 ${hookName} 執行失敗`
         : assertNever(status, `Unknown hook status: ${status}`)
 
     const cn = classNames('commit-progress', {
@@ -1722,7 +1722,7 @@ export class CommitMessage extends React.Component<
       <div className={cn}>
         <div className="description">{text}</div>
         {onShowCommitProgress && (
-          <Button tooltip="Show commit progress" onClick={onShowCommitProgress}>
+          <Button tooltip="顯示提交進度" onClick={onShowCommitProgress}>
             <Octicon symbol={octicons.terminal} />
           </Button>
         )}
@@ -1771,7 +1771,7 @@ export class CommitMessage extends React.Component<
     return (
       <div
         role="group"
-        aria-label="Create commit"
+        aria-label="建立提交"
         className={className}
         onContextMenu={this.onContextMenu}
         ref={this.wrapperRef}
@@ -1781,8 +1781,8 @@ export class CommitMessage extends React.Component<
 
           <AutocompletingInput
             required={true}
-            label={this.props.showInputLabels === true ? 'Summary' : undefined}
-            screenReaderLabel="Commit summary"
+            label={this.props.showInputLabels === true ? '摘要' : undefined}
+            screenReaderLabel="提交摘要"
             className={summaryInputClassName}
             placeholder={placeholder}
             value={this.state.commitMessage.summary}
@@ -1820,7 +1820,7 @@ export class CommitMessage extends React.Component<
                 ? 'Commit description'
                 : undefined
             }
-            placeholder="Description"
+            placeholder="描述"
             value={this.state.commitMessage.description || ''}
             onValueChanged={this.onDescriptionChanged}
             autocompletionProviders={

@@ -56,7 +56,7 @@ export class LocalChangesOverwrittenDialog extends React.Component<
 
     return (
       <Dialog
-        title="Error"
+        title="錯誤"
         id="local-changes-overwritten"
         loading={this.state.stashing}
         disabled={this.state.stashing}
@@ -113,7 +113,7 @@ export class LocalChangesOverwrittenDialog extends React.Component<
       return null
     }
 
-    return <p>You can stash your changes now and recover them afterwards.</p>
+    return <p>您可以先把變更暫存，之後再恢復。</p>
   }
 
   private renderFooter() {
@@ -129,8 +129,8 @@ export class LocalChangesOverwrittenDialog extends React.Component<
               ? 'Stash Changes and Continue'
               : 'Stash changes and continue'
           }
-          okButtonTitle="This will create a stash with your current changes. You can recover them by restoring the stash afterwards."
-          cancelButtonText="Close"
+          okButtonTitle="把當前未提交的變更儲存到一個暫存區，您可稍後恢復這些變更"
+          cancelButtonText="關閉"
         />
       </DialogFooter>
     )
@@ -184,28 +184,28 @@ export class LocalChangesOverwrittenDialog extends React.Component<
   private getRetryActionName() {
     switch (this.props.retryAction.type) {
       case RetryActionType.Checkout:
-        return 'checkout'
+        return '檢出'
       case RetryActionType.Pull:
-        return 'pull'
+        return '提取'
       case RetryActionType.Merge:
-        return 'merge'
+        return '合併'
       case RetryActionType.Rebase:
-        return 'rebase'
+        return '變基'
       case RetryActionType.Clone:
-        return 'clone'
+        return '複製'
       case RetryActionType.Fetch:
-        return 'fetch'
+        return '擷取更新'
       case RetryActionType.Push:
-        return 'push'
+        return '推送'
       case RetryActionType.CherryPick:
       case RetryActionType.CreateBranchForCherryPick:
-        return 'cherry-pick'
+        return '摘取'
       case RetryActionType.Squash:
-        return 'squash'
+        return '壓縮'
       case RetryActionType.Reorder:
-        return 'reorder'
+        return '重排'
       case RetryActionType.DiscardChanges:
-        return 'discard changes'
+        return '放棄變更'
       case RetryActionType.PopStash:
         return 'restore stashed changes'
       default:

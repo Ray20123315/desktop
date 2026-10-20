@@ -46,7 +46,7 @@ export class GenericGitAuthentication extends React.Component<
     return (
       <Dialog
         id="generic-git-auth"
-        title={__DARWIN__ ? `Authentication Failed` : `Authentication failed`}
+        title={__DARWIN__ ? `驗證失敗` : `驗證失敗`}
         onDismissed={this.props.onDismiss}
         onSubmit={this.save}
         role="alertdialog"
@@ -61,7 +61,7 @@ export class GenericGitAuthentication extends React.Component<
                 the password for the user <Ref>{this.props.username}</Ref>
               </>
             ) : (
-              'your username and password'
+              '您的使用者名稱與密碼'
             )}{' '}
             to try again.
           </p>
@@ -69,7 +69,7 @@ export class GenericGitAuthentication extends React.Component<
           {this.props.username === undefined && (
             <Row>
               <TextBox
-                label="Username"
+                label="使用者名稱"
                 autoFocus={true}
                 value={this.state.username}
                 onValueChanged={this.onUsernameChange}
@@ -79,7 +79,7 @@ export class GenericGitAuthentication extends React.Component<
 
           <Row>
             <PasswordTextBox
-              label="Password"
+              label="密碼"
               value={this.state.password}
               onValueChanged={this.onPasswordChange}
               ariaDescribedBy="generic-git-auth-password-description"

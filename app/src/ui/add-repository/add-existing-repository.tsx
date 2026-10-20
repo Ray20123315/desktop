@@ -126,7 +126,7 @@ export class AddExistingRepository extends React.Component<
     }
 
     const msg =
-      'This directory appears to be a bare repository. Bare repositories are not currently supported.'
+      '該資料夾是一個裸儲存庫，也就是隻有版本控制記錄，而沒有具體的檔案。目前不支援裸儲存庫。'
 
     return { screenReaderMessage: msg, displayedMessage: msg }
   }
@@ -185,7 +185,7 @@ export class AddExistingRepository extends React.Component<
 
     const displayedMessage = (
       <>
-        <p>This directory does not appear to be a Git repository.</p>
+        <p>該資料夾不是 Git 儲存庫。</p>
         <p>
           Would you like to{' '}
           <LinkButton onClick={this.onCreateRepositoryClicked}>
@@ -197,7 +197,7 @@ export class AddExistingRepository extends React.Component<
     )
 
     const screenReaderMessage =
-      'This directory does not appear to be a Git repository. Would you like to create a repository here instead?'
+      '該資料夾不是 Git 儲存庫。是否需要在這裡建立儲存庫？'
 
     return { screenReaderMessage, displayedMessage }
   }
@@ -228,7 +228,7 @@ export class AddExistingRepository extends React.Component<
     return (
       <Dialog
         id="add-existing-repository"
-        title={__DARWIN__ ? 'Add Local Repository' : 'Add local repository'}
+        title={__DARWIN__ ? '新增本地儲存庫' : '新增本地儲存庫'}
         onSubmit={this.addRepository}
         onDismissed={this.props.onDismissed}
         loading={this.state.isTrustingRepository}
@@ -238,12 +238,12 @@ export class AddExistingRepository extends React.Component<
             <TextBox
               ref={this.pathTextBoxRef}
               value={this.state.path}
-              label={__DARWIN__ ? 'Local Path' : 'Local path'}
-              placeholder="repository path"
+              label={__DARWIN__ ? '資料夾路徑' : '資料夾路徑'}
+              placeholder="儲存庫的位置"
               onValueChanged={this.onPathChanged}
               ariaDescribedBy="add-existing-repository-path-error"
             />
-            <Button onClick={this.showFilePicker}>Choose…</Button>
+            <Button onClick={this.showFilePicker}>選擇…</Button>
           </Row>
           {this.renderErrors()}
         </DialogContent>

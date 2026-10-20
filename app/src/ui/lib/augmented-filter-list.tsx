@@ -338,7 +338,7 @@ export class AugmentedSectionFilterList<
         displayClearButton={true}
         prefixedIcon={octicons.search}
         autoFocus={true}
-        placeholder={this.props.placeholderText || 'Filter'}
+        placeholder={this.props.placeholderText || '搜尋'}
         className="filter-list-filter-field"
         onValueChanged={this.onFilterValueChanged}
         onEnterPressed={this.onEnterPressed}
@@ -355,7 +355,7 @@ export class AugmentedSectionFilterList<
     }
 
     const itemRows = this.state.rows.flat().filter(row => row.kind === 'item')
-    const resultsPluralized = itemRows.length === 1 ? 'result' : 'results'
+    const resultsPluralized = itemRows.length === 1 ? '個結果' : '個結果'
     const postNoResultsMessage =
       itemRows.length === 0 ? this.props.postNoResultsMessage : ''
     const screenReaderMessage = `${itemRows.length} ${resultsPluralized} ${postNoResultsMessage}`

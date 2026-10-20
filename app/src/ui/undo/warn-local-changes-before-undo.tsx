@@ -38,7 +38,7 @@ export class WarnLocalChangesBeforeUndo extends React.Component<
   }
 
   public render() {
-    const title = __DARWIN__ ? 'Undo Commit' : 'Undo commit'
+    const title = __DARWIN__ ? '撤回提交' : '撤回提交'
 
     return (
       <Dialog
@@ -54,7 +54,7 @@ export class WarnLocalChangesBeforeUndo extends React.Component<
       >
         {this.getWarningDialog()}
         <DialogFooter>
-          <OkCancelButtonGroup destructive={true} okButtonText="Continue" />
+          <OkCancelButtonGroup destructive={true} okButtonText="繼續" />
         </DialogFooter>
       </Dialog>
     )
@@ -72,7 +72,7 @@ export class WarnLocalChangesBeforeUndo extends React.Component<
         </Row>
         <Row>
           <Checkbox
-            label="Do not show this message again"
+            label="不再顯示"
             value={
               this.state.confirmUndoCommit
                 ? CheckboxValue.Off
@@ -90,7 +90,7 @@ export class WarnLocalChangesBeforeUndo extends React.Component<
       return (
         <DialogContent>
           <p>{this.getMergeCommitUndoWarningText()}</p>
-          <p>Do you want to continue anyway?</p>
+          <p>確定要繼續嗎？</p>
         </DialogContent>
       )
     }
@@ -101,7 +101,7 @@ export class WarnLocalChangesBeforeUndo extends React.Component<
           some of these changes being lost.
         </p>
         <p>{this.getMergeCommitUndoWarningText()}</p>
-        <p>Do you want to continue anyway?</p>
+        <p>確定要繼續嗎？</p>
       </DialogContent>
     )
   }

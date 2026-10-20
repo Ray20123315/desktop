@@ -157,9 +157,9 @@ export class CICheckRunRerunDialog extends React.Component<
       this.props.checkRuns.length === 1 ? (
         <strong>{this.props.checkRuns[0].name}</strong>
       ) : (
-        'these workflows'
+        '這些工作流'
       )
-    const dependentAdj = this.props.checkRuns.length === 1 ? 'its' : 'their'
+    const dependentAdj = this.props.checkRuns.length === 1 ? '其' : '其'
 
     return (
       <div className="re-run-dependents-message">
@@ -182,7 +182,7 @@ export class CICheckRunRerunDialog extends React.Component<
     const warningPrefix =
       this.state.rerunnable.length === 0
         ? `There are no ${
-            this.props.failedOnly ? 'failed ' : ''
+            this.props.failedOnly ? '未透過的' : ''
           }checks that can be re-run`
         : `There ${verb} ${this.state.nonRerunnable.length} ${
             this.props.failedOnly ? 'failed ' : ''
@@ -205,14 +205,14 @@ export class CICheckRunRerunDialog extends React.Component<
 
     let descriptor = ''
     if (showDescriptor && checkRuns.length === 1) {
-      descriptor = __DARWIN__ ? 'Single ' : 'single '
+      descriptor = __DARWIN__ ? '單個' : '單個'
     }
 
     if (showDescriptor && failedOnly) {
-      descriptor = __DARWIN__ ? 'Failed ' : 'failed '
+      descriptor = __DARWIN__ ? '未透過的' : '未透過的'
     }
 
-    return `Re-run ${descriptor}${c}heck${s}`
+    return `重新執行${descriptor}${c}檢查${s}`
   }
 
   private renderDialogContent = () => {

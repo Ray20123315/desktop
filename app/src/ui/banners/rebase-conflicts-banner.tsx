@@ -44,7 +44,7 @@ export class RebaseConflictsBanner extends React.Component<
             Resolve conflicts to continue rebasing{' '}
             <strong>{this.props.targetBranch}</strong>.
           </span>
-          <LinkButton onClick={this.openDialog}>View conflicts</LinkButton>
+          <LinkButton onClick={this.openDialog}>檢視衝突</LinkButton>
         </div>
       </Banner>
     )

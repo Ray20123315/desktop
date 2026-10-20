@@ -811,7 +811,7 @@ export class Dispatcher {
 
     if (currentError) {
       fatalError(
-        `Unhandled error ${currentError}. This shouldn't happen! All errors should be handled, even if it's just by the default handler.`
+        `錯誤 ${currentError} 未處理。這不可能！所有錯誤應該都被處理了，即使是透過預設錯誤處理器。`
       )
     }
   }
@@ -3565,7 +3565,7 @@ export class Dispatcher {
       result,
       commitsToReorder.length,
       tip.branch.name,
-      `${MultiCommitOperationKind.Reorder.toLowerCase()} commit`
+      `${MultiCommitOperationKind.Reorder.toLowerCase()}提交`
     )
   }
 
@@ -3674,7 +3674,7 @@ export class Dispatcher {
       result,
       toSquash.length + 1,
       tip.branch.name,
-      `${MultiCommitOperationKind.Squash.toLowerCase()} commit`
+      `${MultiCommitOperationKind.Squash.toLowerCase()}提交`
     )
   }
 
@@ -3737,7 +3737,7 @@ export class Dispatcher {
         sendNonFatalException(
           'rebaseConflictsWithBranchAlreadyUpToDate',
           new Error(
-            `processMultiCommitOperationRebaseResult was invoked (which means Desktop went into a conflicts-found state) but the branch was already up-to-date, so there couldn't be any conflicts at all`
+            `processMultiCommitOperationRebaseResult 被觸發了（這意味著 Desktop 進入了發現衝突的狀態），但是分支已是最新，所以不可能有任何衝突`
           )
         )
         break
@@ -3903,7 +3903,7 @@ export class Dispatcher {
         }
         break
       case MultiCommitOperationKind.Merge:
-        throw new Error(`Unexpected multi commit operation kind ${kind}`)
+        throw new Error(`不應該出現的多提交操作型別 ${kind}`)
       default:
         assertNever(kind, `Unsupported multi operation kind ${kind}`)
     }

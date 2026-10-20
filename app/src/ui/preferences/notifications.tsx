@@ -51,9 +51,9 @@ export class Notifications extends React.Component<
     return (
       <DialogContent>
         <div className="advanced-section">
-          <h2>Notifications</h2>
+          <h2>通知</h2>
           <Checkbox
-            label="Enable notifications"
+            label="啟用系統通知"
             value={
               this.props.notificationsEnabled
                 ? CheckboxValue.On

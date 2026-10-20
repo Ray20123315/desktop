@@ -46,7 +46,7 @@ export class ConflictsFoundBanner extends React.Component<
           <span>
             Resolve conflicts to continue {this.props.operationDescription}.
           </span>
-          <LinkButton onClick={this.openDialog}>View conflicts</LinkButton>
+          <LinkButton onClick={this.openDialog}>檢視衝突</LinkButton>
         </div>
       </Banner>
     )

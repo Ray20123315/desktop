@@ -39,7 +39,7 @@ export class InvalidatedToken extends React.Component<IInvalidatedTokenProps> {
           to sign in again?
         </DialogContent>
         <DialogFooter>
-          <OkCancelButtonGroup okButtonText="Yes" cancelButtonText="No" />
+          <OkCancelButtonGroup okButtonText="登入" cancelButtonText="取消" />
         </DialogFooter>
       </Dialog>
     )

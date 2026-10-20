@@ -30,7 +30,7 @@ export class GitEmailNotFoundWarning extends React.Component<IGitEmailNotFoundWa
 
     const learnMore = !isAttributableEmail ? (
       <LinkButton
-        ariaLabel="Learn more about commit attribution"
+        ariaLabel="瞭解關於提交歸屬的詳細資訊"
         uri="https://docs.github.com/en/github/committing-changes-to-your-project/why-are-my-commits-linked-to-the-wrong-user"
       >
         Learn more.
@@ -47,11 +47,11 @@ export class GitEmailNotFoundWarning extends React.Component<IGitEmailNotFoundWa
   }
 
   private buildScreenReaderMessage(isAttributableEmail: boolean) {
-    const verb = !isAttributableEmail ? 'does not match' : 'matches'
+    const verb = !isAttributableEmail ? '不符合' : '符合'
     const info = !isAttributableEmail
       ? 'Your commits will be wrongly attributed. '
       : ''
-    return `This email address ${verb} ${this.getAccountTypeDescription()}. ${info}`
+    return `該郵箱地址${verb}${this.getAccountTypeDescription()}。${info}`
   }
 
   public render() {
@@ -89,11 +89,11 @@ export class GitEmailNotFoundWarning extends React.Component<IGitEmailNotFoundWa
     if (this.props.accounts.length === 1) {
       const accountType = isDotComAccount(this.props.accounts[0])
         ? 'GitHub'
-        : 'GitHub Enterprise'
+        : 'GitHub 企業版'
 
-      return `your ${accountType} account`
+      return `您的 ${accountType}賬號`
     }
 
-    return 'either of your GitHub.com nor GitHub Enterprise accounts'
+    return '您的 GitHub.com 與 GitHub 企業版賬號'
   }
 }

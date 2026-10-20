@@ -40,11 +40,11 @@ import { pathExists } from '../../lib/path-exists'
 const submoduleDocsUrl = 'https://gh.io/git-submodules'
 
 /** The sentinel value used to indicate no gitignore should be used. */
-const NoGitIgnoreValue = 'None'
+const NoGitIgnoreValue = '無'
 
 /** The sentinel value used to indicate no license should be used. */
 const NoLicenseValue: ILicense = {
-  name: 'None',
+  name: '無',
   featured: false,
   body: '',
   hidden: false,
@@ -424,7 +424,7 @@ export class CreateRepository extends React.Component<
     return (
       <Row>
         <Select
-          label={__DARWIN__ ? 'Git Ignore' : 'Git ignore'}
+          label={__DARWIN__ ? 'Git 忽略規則' : 'Git 忽略規則'}
           value={this.state.gitIgnore}
           onChange={this.onGitIgnoreChange}
         >
@@ -449,7 +449,7 @@ export class CreateRepository extends React.Component<
     return (
       <Row>
         <Select
-          label="License"
+          label="許可證"
           value={this.state.license}
           onChange={this.onLicenseChange}
         >
@@ -497,7 +497,7 @@ export class CreateRepository extends React.Component<
         <InputError
           id="existing-repository-path-error"
           trackedUserInput={fullPath}
-          ariaLiveMessage={`The directory ${fullPath} appears to be a Git repository. Would you like to add this repository instead?`}
+          ariaLiveMessage={`資料夾 ${fullPath} 已經是一個 Git 儲存庫。是否需要直接新增這個儲存庫？`}
         >
           The directory <Ref>{fullPath}</Ref>appears to be a Git repository.
           Would you like to{' '}
@@ -522,7 +522,7 @@ export class CreateRepository extends React.Component<
         <InputWarning
           id="path-is-subfolder-of-repository"
           trackedUserInput={fullPath}
-          ariaLiveMessage={`The directory ${fullPath} appears to be a subfolder Git repository. Did you know about submodules?`}
+          ariaLiveMessage={`資料夾 ${fullPath} 是一個 Git 儲存庫的子目錄。有興趣瞭解一下子模組機制嗎？`}
         >
           The directory <Ref>{fullPath}</Ref>appears to be a subfolder of Git
           repository.
@@ -630,7 +630,7 @@ export class CreateRepository extends React.Component<
           <Row>
             <TextBox
               value={this.state.description}
-              label="Description"
+              label="介紹"
               onValueChanged={this.onDescriptionChanged}
             />
           </Row>
@@ -640,7 +640,7 @@ export class CreateRepository extends React.Component<
 
           <Row>
             <Checkbox
-              label="Initialize this repository with a README"
+              label="新增 README 自述檔案"
               value={
                 this.state.createWithReadme
                   ? CheckboxValue.On

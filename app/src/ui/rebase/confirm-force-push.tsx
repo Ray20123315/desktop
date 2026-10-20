@@ -36,7 +36,7 @@ export class ConfirmForcePush extends React.Component<
   public render() {
     return (
       <Dialog
-        title="Are you sure you want to force push?"
+        title="確定要強制推送？"
         dismissDisabled={this.state.isLoading}
         onDismissed={this.props.onDismissed}
         onSubmit={this.onForcePush}
@@ -51,7 +51,7 @@ export class ConfirmForcePush extends React.Component<
           </p>
           <div>
             <Checkbox
-              label="Do not show this message again"
+              label="不再顯示"
               value={
                 this.state.askForConfirmationOnForcePush
                   ? CheckboxValue.Off
@@ -62,7 +62,7 @@ export class ConfirmForcePush extends React.Component<
           </div>
         </DialogContent>
         <DialogFooter>
-          <OkCancelButtonGroup destructive={true} okButtonText="I'm sure" />
+          <OkCancelButtonGroup destructive={true} okButtonText="我，去意已決" />
         </DialogFooter>
       </Dialog>
     )

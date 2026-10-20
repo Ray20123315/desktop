@@ -76,7 +76,7 @@ export class PullRequestComment extends React.Component<
         pullRequest={pullRequest}
         emoji={emoji}
         eventDate={new Date(comment.created_at)}
-        eventVerb="commented on"
+        eventVerb="評論"
         eventIconSymbol={icon.symbol}
         eventIconClass={icon.className}
         externalURL={comment.html_url}
@@ -110,7 +110,7 @@ export class PullRequestComment extends React.Component<
     const okCancelButtonGroup = (
       <OkCancelButtonGroup
         onCancelButtonClick={this.props.onDismissed}
-        cancelButtonText="Dismiss"
+        cancelButtonText="已閱"
         // If there is nothing special about the OK button, just hide the cancel
         // button, since they will both just dismiss the dialog.
         cancelButtonVisible={okButtonTitle !== undefined}
@@ -120,7 +120,7 @@ export class PullRequestComment extends React.Component<
       />
     )
 
-    const openInBrowserText = __DARWIN__ ? 'Open in Browser' : 'Open in browser'
+    const openInBrowserText = __DARWIN__ ? '開啟瀏覽器' : '開啟瀏覽器'
 
     return (
       <Row>

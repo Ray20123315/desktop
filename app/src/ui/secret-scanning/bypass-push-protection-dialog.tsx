@@ -50,32 +50,32 @@ export class BypassPushProtectionDialog extends React.Component<
       {
         title: "It's used in tests",
         description:
-          'The secret poses no risk. If anyone finds it, they cannot do any damage or gain access to sensitive information.',
+          '此金鑰僅用於測試，沒有實際風險，公開它不會造成損害或暴露敏感資訊。',
         key: BypassReason.UsedInTests,
       },
       {
         title: "It's a false positive",
-        description: 'The detected string is not a secret',
+        description: '檢測到的字串並非金鑰。',
         key: BypassReason.FalsePositive,
       },
       {
         title: "I'll fix it later",
         description:
-          'The secret is real, I understand the risk, and I will need to revoke it. This will open a security alert and notify admins of this repository.',
+          '這確實是金鑰，我瞭解相關風險，並將稍後吊銷它。此選項會觸發安全警報並通知儲存庫管理員。',
         key: BypassReason.WillFixLater,
       },
     ]
 
     return (
       <Dialog
-        title={__DARWIN__ ? 'Bypass Push Detection' : 'Bypass push detection'}
+        title={__DARWIN__ ? '繞過推送檢測' : '繞過推送檢測'}
         onDismissed={this.props.onDismissed}
         onSubmit={this.bypassPushProtection}
         className="bypass-push-protection-dialog"
       >
         <DialogContent>
           <VerticalSegmentedControl
-            label={`Why are you bypassing this ${this.props.secret.description}?`}
+            label={`為何需要繞過此 ${this.props.secret.description} 檢測？`}
             items={items}
             selectedKey={this.state.reason}
             onSelectionChanged={this.onSelectionChanged}
@@ -83,7 +83,7 @@ export class BypassPushProtectionDialog extends React.Component<
         </DialogContent>
         <DialogFooter>
           <OkCancelButtonGroup
-            okButtonText="Allow me to expose this secret"
+            okButtonText="我確認推送此金鑰"
             destructive={true}
           />
         </DialogFooter>

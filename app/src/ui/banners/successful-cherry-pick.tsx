@@ -16,7 +16,7 @@ export class SuccessfulCherryPick extends React.Component<
     const { countCherryPicked, onDismissed, onUndo, targetBranchName } =
       this.props
 
-    const pluralized = countCherryPicked === 1 ? 'commit' : 'commits'
+    const pluralized = countCherryPicked === 1 ? '提交' : '提交'
 
     return (
       <SuccessBanner timeout={15000} onDismissed={onDismissed} onUndo={onUndo}>

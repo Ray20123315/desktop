@@ -5,7 +5,7 @@ import { OkCancelButtonGroup } from '../dialog/ok-cancel-button-group'
 import { RetryAction } from '../../models/retry-actions'
 import { SignInResult } from '../../lib/stores'
 
-const okButtonText = __DARWIN__ ? 'Continue in Browser' : 'Continue in browser'
+const okButtonText = __DARWIN__ ? '開啟瀏覽器' : '開啟瀏覽器'
 
 interface ISAMLReauthRequiredDialogProps {
   readonly dispatcher: Dispatcher

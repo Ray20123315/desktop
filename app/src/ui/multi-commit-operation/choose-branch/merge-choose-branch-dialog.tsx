@@ -172,7 +172,7 @@ export class MergeChooseBranchDialog extends React.Component<
   }
 
   private renderLoadingMergeMessage() {
-    return <>Checking for ability to merge automatically...</>
+    return <>正在檢查合併衝突...</>
   }
 
   private renderCleanMergeMessage(
@@ -190,7 +190,7 @@ export class MergeChooseBranchDialog extends React.Component<
       )
     }
 
-    const pluralized = commitCount === 1 ? 'commit' : 'commits'
+    const pluralized = commitCount === 1 ? '個提交' : '個提交'
     return (
       <React.Fragment>
         This will merge
@@ -216,7 +216,7 @@ export class MergeChooseBranchDialog extends React.Component<
     currentBranch: Branch,
     count: number
   ) {
-    const pluralized = count === 1 ? 'file' : 'files'
+    const pluralized = count === 1 ? '檔案' : '檔案'
     return (
       <React.Fragment>
         There will be

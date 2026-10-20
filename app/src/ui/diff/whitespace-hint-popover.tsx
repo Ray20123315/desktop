@@ -34,8 +34,8 @@ export class WhitespaceHintPopover extends React.Component<IWhitespaceHintPopove
         </p>
         <div className="popover-footer">
           <OkCancelButtonGroup
-            okButtonText="Yes"
-            cancelButtonText="No"
+            okButtonText="顯示"
+            cancelButtonText="取消"
             onCancelButtonClick={this.onDismissed}
             onOkButtonClick={this.onShowWhitespaceChanges}
           />

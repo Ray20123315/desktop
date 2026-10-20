@@ -54,8 +54,8 @@ export class ConfirmAbortDialog extends React.Component<
         id="abort-warning"
         title={
           __DARWIN__
-            ? `Confirm Abort ${operation}`
-            : `Confirm abort ${operation.toLowerCase()}`
+            ? `確定停止${operation}`
+            : `確定停止${operation.toLowerCase()}`
         }
         onDismissed={this.onCancel}
         onSubmit={this.onSubmit}

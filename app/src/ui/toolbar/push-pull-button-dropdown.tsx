@@ -71,8 +71,8 @@ export class PushPullButtonDropDown extends React.Component<IPushPullButtonDropD
     switch (type) {
       case DropdownItemType.Fetch:
         return {
-          title: `Fetch ${remoteName}`,
-          description: `Fetch the latest changes from ${remoteName}`,
+          title: `取得 ${remoteName}`,
+          description: `取得來自 ${remoteName} 的最新變更`,
           action: this.props.fetch,
           icon: syncClockwise,
         }
@@ -87,7 +87,7 @@ export class PushPullButtonDropDown extends React.Component<IPushPullButtonDropD
           </div>
         )
         return {
-          title: `Force push ${remoteName}`,
+          title: `強制推送 ${remoteName}`,
           description: (
             <>
               Overwrite any changes on {remoteName} with your local changes

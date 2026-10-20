@@ -226,8 +226,8 @@ export class CommitList extends React.Component<
 
         const insertionPoint =
           row < this.props.commitSHAs.length
-            ? `before commit ${row + 1}`
-            : `after commit ${row}`
+            ? `在提交${row + 1}前`
+            : `在提交${row}後`
 
         this.setState({
           reorderingMessage: `Press Enter to insert the selected commit${plural} ${insertionPoint} or Escape to cancel.`,
@@ -354,7 +354,7 @@ export class CommitList extends React.Component<
     numUnpushedTags: number
   ) {
     if (isLocalCommit) {
-      return 'This commit has not been pushed to the remote repository'
+      return '該提交尚未推送到遠端儲存庫'
     }
 
     if (numUnpushedTags > 0) {
@@ -470,7 +470,7 @@ export class CommitList extends React.Component<
 
   private renderExpandedAuthor(user: IAvatarUser): string | JSX.Element {
     if (!user) {
-      return 'Unknown user'
+      return '未知使用者'
     }
 
     if (user.name) {
@@ -567,7 +567,7 @@ export class CommitList extends React.Component<
     if (commitSHAs.length === 0) {
       return (
         <div className="panel blankslate">
-          {emptyListMessage ?? 'No commits to list'}
+          {emptyListMessage ?? '沒有任何提交'}
         </div>
       )
     }
@@ -585,7 +585,7 @@ export class CommitList extends React.Component<
       <div id="commit-list" className={classes} ref={this.containerRef}>
         {this.renderReorderCommitsHint()}
         <List
-          ariaLabel="Commits"
+          ariaLabel="提交列表"
           role={this.props.isInformationalView === true ? 'list' : 'listbox'}
           ref={this.listRef}
           rowCount={commitSHAs.length}
@@ -739,28 +739,28 @@ export class CommitList extends React.Component<
       this.props.canResetToCommits === true && isResettableCommit
     const canBeCheckedOut = row > 0 //Cannot checkout the current commit
 
-    let viewOnGitHubLabel = 'View on GitHub'
+    let viewOnGitHubLabel = '開啟 GitHub 檢視'
     const gitHubRepository = this.props.gitHubRepository
 
     if (
       gitHubRepository &&
       gitHubRepository.endpoint !== getDotComAPIEndpoint()
     ) {
-      viewOnGitHubLabel = 'View on GitHub Enterprise'
+      viewOnGitHubLabel = '開啟 GitHub 企業版檢視'
     }
 
     const items: IMenuItem[] = []
 
     if (canBeAmended) {
       items.push({
-        label: __DARWIN__ ? 'Amend Commit…' : 'Amend commit…',
+        label: __DARWIN__ ? '修訂提交…' : '修訂提交…',
         action: () => this.props.onAmendCommit?.(commit, isLocal),
       })
     }
 
     if (canBeUndone) {
       items.push({
-        label: __DARWIN__ ? 'Undo Commit…' : 'Undo commit…',
+        label: __DARWIN__ ? '撤回提交…' : '撤回提交…',
         action: () => {
           if (this.props.onUndoCommit) {
             this.props.onUndoCommit(commit)
@@ -771,7 +771,7 @@ export class CommitList extends React.Component<
     }
 
     items.push({
-      label: __DARWIN__ ? 'Reset to Commit…' : 'Reset to commit…',
+      label: __DARWIN__ ? '重置到提交…' : '重置到提交…',
       action: () => {
         if (this.props.onResetToCommit) {
           this.props.onResetToCommit(commit)
@@ -781,7 +781,7 @@ export class CommitList extends React.Component<
     })
 
     items.push({
-      label: __DARWIN__ ? 'Checkout Commit' : 'Checkout commit',
+      label: __DARWIN__ ? '檢出提交' : '檢出提交',
       action: () => {
         this.props.onCheckoutCommit?.(commit)
       },
@@ -789,7 +789,7 @@ export class CommitList extends React.Component<
     })
 
     items.push({
-      label: __DARWIN__ ? 'Reorder Commit' : 'Reorder commit',
+      label: __DARWIN__ ? '重排提交' : '重排提交',
       action: () => {
         this.props.onKeyboardReorder?.([commit])
       },
@@ -820,7 +820,7 @@ export class CommitList extends React.Component<
         },
       },
       {
-        label: 'Create Tag…',
+        label: '建立標籤…',
         action: () => this.props.onCreateTag?.(commit.sha),
         enabled: this.props.onCreateTag !== undefined,
       }
@@ -836,17 +836,17 @@ export class CommitList extends React.Component<
         deleteTagsMenuItem
       )
     }
-    const darwinTagsLabel = commit.tags.length > 1 ? 'Copy Tags' : 'Copy Tag'
-    const windowTagsLabel = commit.tags.length > 1 ? 'Copy tags' : 'Copy tag'
+    const darwinTagsLabel = commit.tags.length > 1 ? '複製標籤' : '複製標籤'
+    const windowTagsLabel = commit.tags.length > 1 ? '複製標籤' : '複製標籤'
     items.push(
       {
-        label: __DARWIN__ ? 'Cherry-pick Commit…' : 'Cherry-pick commit…',
+        label: __DARWIN__ ? '摘取提交…' : '摘取提交…',
         action: () => this.props.onCherryPick?.(this.selectedCommits),
         enabled: this.canCherryPick(),
       },
       { type: 'separator' },
       {
-        label: 'Copy SHA',
+        label: '複製 SHA',
         action: () => writeClipboardText(commit.sha),
       },
       {
@@ -902,7 +902,7 @@ export class CommitList extends React.Component<
       const tagName = commit.tags[0]
 
       return {
-        label: `Delete tag ${tagName}`,
+        label: `刪除標籤 ${tagName}`,
         action: () => onDeleteTag(tagName),
         enabled: unpushedTags.includes(tagName),
       }
@@ -912,7 +912,7 @@ export class CommitList extends React.Component<
     const unpushedTagsSet = new Set(unpushedTags)
 
     return {
-      label: 'Delete tag…',
+      label: '刪除標籤…',
       submenu: commit.tags.map(tagName => {
         return {
           label: tagName,

@@ -25,9 +25,9 @@ export class GitIgnore extends React.Component<IGitIgnoreProps, {}> {
         </p>
 
         <TextArea
-          ariaLabel="Ignored files"
+          ariaLabel="忽略的檔案"
           ariaDescribedBy="ignored-files-description"
-          placeholder="Ignored files"
+          placeholder="忽略的檔案"
           value={this.props.text || ''}
           onValueChanged={this.props.onIgnoreTextChanged}
           textareaClassName="gitignore"

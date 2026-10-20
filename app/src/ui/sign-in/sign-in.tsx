@@ -36,7 +36,7 @@ const SignInWithBrowserTitle = __DARWIN__
   ? 'Sign in Using Your Browser'
   : 'Sign in using your browser'
 
-const DefaultTitle = 'Sign in'
+const DefaultTitle = '登入'
 
 const browserSignInInfoContent = (
   <p>
@@ -131,7 +131,7 @@ export class SignIn extends React.Component<ISignInProps, ISignInState> {
     switch (state.kind) {
       case SignInStep.EndpointEntry:
         disableSubmit = this.state.endpoint.length === 0
-        primaryButtonText = 'Continue'
+        primaryButtonText = '繼續'
         break
       case SignInStep.ExistingAccountWarning:
         primaryButtonText = continueWithBrowserLabel
@@ -174,7 +174,7 @@ export class SignIn extends React.Component<ISignInProps, ISignInState> {
       <DialogContent>
         <Row>
           <TextBox
-            label="Enterprise address"
+            label="企業版網址"
             value={this.state.endpoint}
             onValueChanged={this.onEndpointChanged}
             placeholder="https://example.ghe.com"

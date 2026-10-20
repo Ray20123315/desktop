@@ -122,9 +122,9 @@ export function showTestUI(
       return dispatcher.postError(
         new ShellError(
           `Could not find executable for '${
-            __DARWIN__ ? 'Terminal' : 'Command Prompt'
+            __DARWIN__ ? '終端' : '終端'
           }' at path 'some/invalid/path'.  Please open ${
-            __DARWIN__ ? 'Settings' : 'Options'
+            __DARWIN__ ? '設定' : '設定'
           } and select an available shell.`
         )
       )
@@ -319,8 +319,8 @@ export function showTestUI(
       type: PopupType.OversizedFiles,
       oversizedFiles: ['test/app.tsx', 'test/popup.tsx'],
       context: {
-        summary: 'Test summary',
-        description: 'Test description',
+        summary: '測試摘要',
+        description: '測試描述',
       },
       repository,
     })
@@ -349,7 +349,7 @@ export function showTestUI(
   function showTestNoExternalEditor() {
     dispatcher.postError(
       new ExternalEditorError(
-        `No suitable editors installed for GitHub Desktop to launch. Install ${suggestedExternalEditor.name} for your platform and restart GitHub Desktop to try again.`,
+        `未找到合適的編輯器。在電腦上安裝 ${suggestedExternalEditor.name} 並重啟 GitHub Desktop 再試一次吧。`,
         { suggestDefaultEditor: true }
       )
     )
@@ -419,7 +419,7 @@ export function showTestUI(
     const userContributions: ReadonlyArray<ReleaseNote> = [
       {
         kind: 'fixed',
-        message: 'A totally awesome fix that fixes something - #123. Thanks!',
+        message: '一個特別棒的bug修復，修好了某個問題 - #123。謝謝！',
       },
       {
         kind: 'added',
@@ -436,7 +436,7 @@ export function showTestUI(
         dispatcher.showPopup({
           type: PopupType.ThankYou,
           userContributions,
-          friendlyName: 'Test User',
+          friendlyName: '測試使用者',
           latestVersion: getVersion(),
         }),
       onThrowCardAway: () => {
@@ -452,10 +452,10 @@ export function showTestUI(
       userContributions: [
         {
           kind: 'new',
-          message: '[New] Added fake thank you dialog',
+          message: '[新功能] 假的感謝小卡片',
         },
       ],
-      friendlyName: 'kind contributor',
+      friendlyName: '某位心善的開發者',
       latestVersion: '3.0.0',
     })
   }

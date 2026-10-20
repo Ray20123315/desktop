@@ -1380,7 +1380,7 @@ export class SideBySideDiff extends React.Component<
     this.expandHunk(diff.hunks[hunkIndex], kind)
 
     this.ariaLiveChangeSignal = !this.ariaLiveChangeSignal
-    this.setState({ ariaLiveMessage: 'Expanded' })
+    this.setState({ ariaLiveMessage: '已展開' })
   }
 
   private onClickHunk = (hunkStartLine: number, select: boolean) => {
@@ -1419,13 +1419,13 @@ export class SideBySideDiff extends React.Component<
 
     const items: IMenuItem[] = [
       {
-        label: 'Copy',
+        label: '複製',
         // When using role="copy", the enabled attribute is not taken into account.
         role: selectionLength > 0 ? 'copy' : undefined,
         enabled: selectionLength > 0,
       },
       {
-        label: __DARWIN__ ? 'Select All' : 'Select all',
+        label: __DARWIN__ ? '全選' : '全選',
         action: () => this.onSelectAll(),
       },
     ]
@@ -1480,7 +1480,7 @@ export class SideBySideDiff extends React.Component<
 
     return this.diffToRestore === null
       ? {
-          label: __DARWIN__ ? 'Expand Whole File' : 'Expand whole file',
+          label: __DARWIN__ ? '展開整個檔案' : '展開整個檔案',
           action: this.onExpandWholeFile,
           // If there is only one hunk that can't be expanded, disable this item
           enabled:
@@ -1514,7 +1514,7 @@ export class SideBySideDiff extends React.Component<
     this.ariaLiveChangeSignal = !this.ariaLiveChangeSignal
     this.setState({
       diff: updatedDiff,
-      ariaLiveMessage: 'Expanded',
+      ariaLiveMessage: '已展開',
     })
   }
 
@@ -1572,19 +1572,19 @@ export class SideBySideDiff extends React.Component<
     let type = ''
 
     if (rangeType === DiffRangeType.Additions) {
-      type = __DARWIN__ ? 'Added' : 'added'
+      type = __DARWIN__ ? '新增' : '新增'
     } else if (rangeType === DiffRangeType.Deletions) {
-      type = __DARWIN__ ? 'Removed' : 'removed'
+      type = __DARWIN__ ? '刪除' : '刪除'
     } else if (rangeType === DiffRangeType.Mixed) {
-      type = __DARWIN__ ? 'Modified' : 'modified'
+      type = __DARWIN__ ? '修改' : '修改'
     } else {
       assertNever(rangeType, `Invalid range type: ${rangeType}`)
     }
 
     const plural = numLines > 1 ? 's' : ''
     return __DARWIN__
-      ? `Discard ${type} Line${plural}${suffix}`
-      : `Discard ${type} line${plural}${suffix}`
+      ? `放棄${type}行${plural}${suffix}`
+      : `放棄${type}行${plural}${suffix}`
   }
 
   private onDiscardChanges(startLine: number, endLine: number = startLine) {
@@ -1631,7 +1631,7 @@ export class SideBySideDiff extends React.Component<
     const { searchResults } = this.state
 
     if (searchQuery?.trim() === '') {
-      this.resetSearch(true, 'No results')
+      this.resetSearch(true, '找不到')
     } else if (searchQuery === this.state.searchQuery && searchResults) {
       this.continueSearch(searchResults, direction)
     } else {
@@ -1648,7 +1648,7 @@ export class SideBySideDiff extends React.Component<
     )
 
     if (searchResults === undefined || searchResults.length === 0) {
-      this.resetSearch(true, `No results for "${searchQuery}"`)
+      this.resetSearch(true, `找不到 "${searchQuery}"`)
     } else {
       const ariaLiveMessage = `Result 1 of ${searchResults.length} for "${searchQuery}"`
 

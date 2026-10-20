@@ -188,7 +188,7 @@ export class CloneableRepositoryFilterList extends React.PureComponent<ICloneabl
         renderPostFilter={this.renderPostFilter}
         renderPreFilter={this.props.renderPreFilter}
         onItemClick={this.props.onItemClicked ? this.onItemClick : undefined}
-        placeholderText={'Filter your repositories'}
+        placeholderText={'搜尋您的儲存庫'}
         getGroupAriaLabel={this.getGroupAriaLabelGetter(groups)}
       />
     )
@@ -222,7 +222,7 @@ export class CloneableRepositoryFilterList extends React.PureComponent<ICloneabl
   }
 
   private getYourRepositoriesLabel = () => {
-    return __DARWIN__ ? 'Your Repositories' : 'Your repositories'
+    return __DARWIN__ ? '您的儲存庫' : '您的儲存庫'
   }
 
   private renderGroupHeader = (identifier: string) => {
@@ -258,7 +258,7 @@ export class CloneableRepositoryFilterList extends React.PureComponent<ICloneabl
   }
 
   private renderPostFilter = () => {
-    const tooltip = 'Refresh the list of repositories'
+    const tooltip = '重新整理儲存庫列表'
 
     return (
       <Button
@@ -280,7 +280,7 @@ export class CloneableRepositoryFilterList extends React.PureComponent<ICloneabl
 
     if (loading && (repositories === null || repositories.length === 0)) {
       return (
-        <div className="no-items loading">{`Loading repositories from ${account.friendlyEndpoint}…`}</div>
+        <div className="no-items loading">{`正在從 ${account.friendlyEndpoint} 載入儲存庫…`}</div>
       )
     }
 

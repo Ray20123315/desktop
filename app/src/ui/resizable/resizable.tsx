@@ -178,7 +178,7 @@ export class Resizable extends React.Component<
 
   private updateResizeMessage(direction: ResizeDirection) {
     const directionMessage =
-      direction === ResizeDirection.Increase ? 'increased' : 'decreased'
+      direction === ResizeDirection.Increase ? '變大' : '變小'
     this.setState({
       resizeMessage: `${
         this.props.description
@@ -208,7 +208,7 @@ export class Resizable extends React.Component<
           onMouseDown={this.handleDragStart}
           onDoubleClick={this.props.onReset}
           className="resize-handle"
-          aria-label="Resize handle"
+          aria-label="寬度拖動柄"
         />
         <AriaLiveContainer
           message={this.state.resizeMessage}

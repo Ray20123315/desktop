@@ -37,7 +37,7 @@ export class UntrustedCertificate extends React.Component<
 
     return (
       <Dialog
-        title={__DARWIN__ ? 'Untrusted Server' : 'Untrusted server'}
+        title={__DARWIN__ ? '伺服器不可信' : '伺服器不可信'}
         onDismissed={this.props.onDismissed}
         onSubmit={this.onContinue}
         type={__DARWIN__ ? 'warning' : 'error'}
@@ -50,9 +50,9 @@ export class UntrustedCertificate extends React.Component<
               This may indicate attackers are trying to steal your data.
             </strong>
           </p>
-          <p>In some cases, this may be expected. For example:</p>
+          <p>在某些特殊情況下，這個提示是正常的，比如：</p>
           <ul>
-            <li>If this is a GitHub Enterprise trial.</li>
+            <li>這是 GitHub 企業版試用版。</li>
             <li>
               If your GitHub Enterprise instance is run on an unusual top-level
               domain.
@@ -66,7 +66,7 @@ export class UntrustedCertificate extends React.Component<
         <DialogFooter>
           <OkCancelButtonGroup
             destructive={true}
-            okButtonText={__DARWIN__ ? 'View Certificate' : 'Add certificate'}
+            okButtonText={__DARWIN__ ? '檢視證書' : '新增證書'}
           />
         </DialogFooter>
       </Dialog>

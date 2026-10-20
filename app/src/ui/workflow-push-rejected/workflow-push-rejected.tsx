@@ -6,7 +6,7 @@ import { RepositoryWithGitHubRepository } from '../../models/repository'
 import { OkCancelButtonGroup } from '../dialog/ok-cancel-button-group'
 import { SignInResult } from '../../lib/stores'
 
-const okButtonText = __DARWIN__ ? 'Continue in Browser' : 'Continue in browser'
+const okButtonText = __DARWIN__ ? '開啟瀏覽器' : '開啟瀏覽器'
 
 interface IWorkflowPushRejectedDialogProps {
   readonly rejectedPath: string
@@ -34,7 +34,7 @@ export class WorkflowPushRejectedDialog extends React.Component<
     return (
       <Dialog
         id="workflow-push-rejected"
-        title={__DARWIN__ ? 'Push Rejected' : 'Push rejected'}
+        title={__DARWIN__ ? '推送被拒絕' : '推送被拒絕'}
         loading={this.state.loading}
         onDismissed={this.props.onDismissed}
         onSubmit={this.onSignIn}

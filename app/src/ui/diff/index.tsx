@@ -180,14 +180,14 @@ export class Diff extends React.Component<IDiffProps, IDiffState> {
       <div className="panel empty large-diff">
         <img src={NoDiffImage} className="blankslate-image" alt="" />
         <div className="description">
-          <p>The diff is too large to be displayed by default.</p>
+          <p>檔案差異大小超過預設限制。</p>
           <p>
             You can try to show it anyway, but performance may be negatively
             impacted.
           </p>
         </div>
         <Button onClick={this.showLargeDiff}>
-          {__DARWIN__ ? 'Show Diff' : 'Show diff'}
+          {__DARWIN__ ? '顯示差異' : '顯示差異'}
         </Button>
       </div>
     )
@@ -197,7 +197,7 @@ export class Diff extends React.Component<IDiffProps, IDiffState> {
     return (
       <div className="panel empty large-diff">
         <img src={NoDiffImage} alt="" />
-        <p>The diff is too large to be displayed.</p>
+        <p>檔案差異大小過大，無法渲染。</p>
       </div>
     )
   }

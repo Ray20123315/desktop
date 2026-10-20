@@ -87,9 +87,9 @@ export class Advanced extends React.Component<
     return (
       <DialogContent>
         <div className="advanced-section">
-          <h2>Background updates</h2>
+          <h2>後臺更新</h2>
           <Checkbox
-            label="Show status icons in the repository list"
+            label="在儲存庫列表中顯示狀態圖示"
             value={
               this.props.repositoryIndicatorsEnabled
                 ? CheckboxValue.On
@@ -112,7 +112,7 @@ export class Advanced extends React.Component<
           </div>
         </div>
         <div className="advanced-section">
-          <h2>Usage</h2>
+          <h2>使用情況</h2>
           <Checkbox
             label={this.reportDesktopUsageLabel()}
             value={
@@ -123,11 +123,11 @@ export class Advanced extends React.Component<
             onChange={this.onReportingOptOutChanged}
           />
         </div>
-        <h2>Network and credentials</h2>
+        <h2>網路與認證</h2>
         {this.renderSSHSettings()}
         <div className="advanced-section">
           <Checkbox
-            label={'Use Git Credential Manager'}
+            label={'使用 Git 憑據管理器'}
             value={
               this.state.useExternalCredentialHelper
                 ? CheckboxValue.On
@@ -162,7 +162,7 @@ export class Advanced extends React.Component<
     return (
       <div className="advanced-section">
         <Checkbox
-          label="Use system OpenSSH (recommended)"
+          label="使用系統環境的 OpenSSH（推薦）"
           value={
             this.props.useWindowsOpenSSH ? CheckboxValue.On : CheckboxValue.Off
           }

@@ -34,7 +34,7 @@ export class CloneGenericRepository extends React.Component<
       <DialogContent className="clone-generic-repository-content">
         <Row>
           <TextBox
-            placeholder="URL or username/repository"
+            placeholder="網址 或 使用者名稱/儲存庫名"
             value={this.props.url}
             onValueChanged={this.onUrlChanged}
             autoFocus={true}
@@ -52,11 +52,11 @@ export class CloneGenericRepository extends React.Component<
         <Row>
           <TextBox
             value={this.props.path}
-            label={__DARWIN__ ? 'Local Path' : 'Local path'}
-            placeholder="repository path"
+            label={__DARWIN__ ? '本地儲存資料夾' : '本地儲存資料夾'}
+            placeholder="儲存庫儲存的位置"
             onValueChanged={this.props.onPathChanged}
           />
-          <Button onClick={this.props.onChooseDirectory}>Choose…</Button>
+          <Button onClick={this.props.onChooseDirectory}>選擇…</Button>
         </Row>
       </DialogContent>
     )

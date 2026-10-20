@@ -59,7 +59,7 @@ export class DiscardSelection extends React.Component<
   }
 
   private getOkButtonLabel() {
-    return __DARWIN__ ? 'Discard Changes' : 'Discard changes'
+    return __DARWIN__ ? '放棄變更' : '放棄變更'
   }
 
   public render() {
@@ -79,7 +79,7 @@ export class DiscardSelection extends React.Component<
         type="warning"
       >
         <DialogContent>
-          <p>Are you sure you want to discard the selected changes to:</p>
+          <p>您確定要放棄對以下檔案的變更嗎：</p>
 
           <ul>
             <li>
@@ -88,7 +88,7 @@ export class DiscardSelection extends React.Component<
           </ul>
 
           <Checkbox
-            label="Do not show this message again"
+            label="不再顯示"
             value={
               this.state.confirmDiscardSelection
                 ? CheckboxValue.Off

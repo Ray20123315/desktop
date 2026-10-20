@@ -40,8 +40,8 @@ export class PasswordTextBox extends React.Component<
       <div className="password-text-box">
         <TextBox {...props} ref={this.textBoxRef} />
         <Button
-          ariaLabel="Toggle password visibility"
-          tooltip="Toggle password visibility"
+          ariaLabel="切換密碼可見性"
+          tooltip="切換密碼可見性"
           onClick={this.onTogglePasswordVisibility}
           ariaPressed={this.state.showPassword}
         >

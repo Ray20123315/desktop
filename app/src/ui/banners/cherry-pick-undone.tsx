@@ -13,7 +13,7 @@ export class CherryPickUndone extends React.Component<
 > {
   public render() {
     const { countCherryPicked, targetBranchName, onDismissed } = this.props
-    const pluralized = countCherryPicked === 1 ? 'commit' : 'commits'
+    const pluralized = countCherryPicked === 1 ? '提交' : '提交'
     return (
       <SuccessBanner timeout={5000} onDismissed={onDismissed}>
         Cherry-pick undone. Successfully removed the {countCherryPicked}

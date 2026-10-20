@@ -52,7 +52,7 @@ export class CopyButton extends React.Component<
     const { ariaLabel } = this.props
     const { showCopied } = this.state
 
-    const copiedMessage = 'Copied!'
+    const copiedMessage = '已複製！'
     const ariaMessage = showCopied ? copiedMessage : ''
     return (
       <Button

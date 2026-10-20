@@ -28,7 +28,7 @@ export class ChangeRepositoryAlias extends React.Component<
 
   public render() {
     const repository = this.props.repository
-    const verb = repository.alias === null ? 'Create' : 'Change'
+    const verb = repository.alias === null ? '設定' : '更改'
 
     return (
       <Dialog
@@ -46,7 +46,7 @@ export class ChangeRepositoryAlias extends React.Component<
           </p>
           <p>
             <TextBox
-              ariaLabel="Alias"
+              ariaLabel="別名"
               value={this.state.newAlias}
               onValueChanged={this.onNameChanged}
             />
@@ -60,7 +60,7 @@ export class ChangeRepositoryAlias extends React.Component<
 
         <DialogFooter>
           <OkCancelButtonGroup
-            okButtonText={__DARWIN__ ? `${verb} Alias` : `${verb} alias`}
+            okButtonText={__DARWIN__ ? `${verb}別名` : `${verb}別名`}
             okButtonDisabled={this.state.newAlias.length === 0}
           />
         </DialogFooter>

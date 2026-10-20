@@ -28,11 +28,11 @@ export class UpstreamAlreadyExists extends React.Component<IUpstreamAlreadyExist
   public render() {
     const name = this.props.repository.name
     const gitHubRepository = forceUnwrap(
-      'A repository must have a GitHub repository to add an upstream remote',
+      '儲存庫需要存在於 GitHub 上，才能新增上游遠端',
       this.props.repository.gitHubRepository
     )
     const parent = forceUnwrap(
-      'A repository must have a parent repository to add an upstream remote',
+      '儲存庫需要有一個復刻來源儲存庫，才能新增上游遠端',
       gitHubRepository.parent
     )
     const parentName = parent.fullName
@@ -61,13 +61,13 @@ export class UpstreamAlreadyExists extends React.Component<IUpstreamAlreadyExist
               Expected: <Ref>{replacementURL}</Ref>
             </li>
           </ul>
-          <p>Would you like to update the remote to use the expected URL?</p>
+          <p>您想把本儲存庫的上游地址更新為復刻來源儲存庫嗎？</p>
         </DialogContent>
         <DialogFooter>
           <OkCancelButtonGroup
             destructive={true}
-            okButtonText="Update"
-            cancelButtonText="Ignore"
+            okButtonText="更新上游地址"
+            cancelButtonText="忽略"
             onCancelButtonClick={this.onIgnore}
           />
         </DialogFooter>

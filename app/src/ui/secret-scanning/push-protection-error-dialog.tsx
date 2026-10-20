@@ -99,9 +99,9 @@ export class PushProtectionErrorDialog extends React.Component<
             </p>
             Exposing this secret can allow someone to:
             <ul>
-              <li>Verify the identity of the secret(s)</li>
-              <li>Know which resources the secret(s) can access</li>
-              <li>Act on behalf of the secret's owner</li>
+              <li>獲知金鑰的類別</li>
+              <li>獲知金鑰可以訪問的資源</li>
+              <li>代替金鑰所有者執行操作</li>
               <li>
                 Push the secret(s) to this repository without being blocked
               </li>
@@ -141,7 +141,7 @@ export class PushProtectionErrorDialog extends React.Component<
     if (secret.requiresApproval) {
       return (
         <LinkButton
-          ariaLabel={`Bypass ${secret.description}`}
+          ariaLabel={`繞過 ${secret.description}`}
           uri={secret.bypassURL}
           onClick={this.props.onDelegatedBypassLinkClick}
         >
@@ -161,7 +161,7 @@ export class PushProtectionErrorDialog extends React.Component<
 
     return (
       <LinkButton
-        ariaLabel={`Bypass ${secret.description}`}
+        ariaLabel={`繞過 ${secret.description}`}
         onClick={this.bypassSecret(secret)}
       >
         Bypass
@@ -180,7 +180,7 @@ export class PushProtectionErrorDialog extends React.Component<
       </li>
     ))
     return (
-      <ul aria-label="Secrets" className="secret-list">
+      <ul aria-label="金鑰列表" className="secret-list">
         {listItems}
       </ul>
     )

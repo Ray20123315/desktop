@@ -60,7 +60,7 @@ export class TutorialDone extends React.Component<ITutorialDoneProps, {}> {
         <div className="content">
           <div className="header">
             <div className="text">
-              <h1 ref={this.header}>You're done!</h1>
+              <h1 ref={this.header}>完成啦！</h1>
               <p>
                 You’ve learned the basics on how to use GitHub Desktop. Here are
                 some suggestions for what to do next.
@@ -74,16 +74,16 @@ export class TutorialDone extends React.Component<ITutorialDoneProps, {}> {
           </div>
           <SuggestedActionGroup>
             <SuggestedAction
-              title="Explore projects on GitHub"
-              description="Contribute to a project that interests you"
-              buttonText={__DARWIN__ ? 'Open in Browser' : 'Open in browser'}
+              title="探索 GitHub 上的專案"
+              description="為你感興趣的專案做出貢獻吧"
+              buttonText={__DARWIN__ ? '開啟瀏覽器' : '開啟瀏覽器'}
               onClick={this.openDotcomExplore}
               type="normal"
               image={TelescopeOcticon}
             />
             <SuggestedAction
-              title="Create a new repository"
-              description="Get started on a brand new project"
+              title="建立新的儲存庫"
+              description="開啟一個全新的專案"
               buttonText={
                 __DARWIN__ ? 'Create Repository' : 'Create repository'
               }
@@ -92,9 +92,9 @@ export class TutorialDone extends React.Component<ITutorialDoneProps, {}> {
               image={PlusOcticon}
             />
             <SuggestedAction
-              title="Add a local repository"
-              description="Work on an existing project in GitHub Desktop"
-              buttonText={__DARWIN__ ? 'Add Repository' : 'Add repository'}
+              title="新增本地儲存庫"
+              description="在 GitHub Desktop 上繼續現有的工作"
+              buttonText={__DARWIN__ ? '新增儲存庫' : '新增儲存庫'}
               onClick={this.onAddExistingRepository}
               type="normal"
               image={FileDirectoryOcticon}

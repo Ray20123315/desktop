@@ -31,7 +31,7 @@ export class RepoRulesMetadataFailureList extends React.Component<IRepoRulesMeta
     let endText: string
     if (failures.status === 'bypass') {
       endText = `, but you can bypass ${
-        totalFails === 1 ? 'it' : 'them'
+        totalFails === 1 ? '一條' : '一些'
       }. Proceed with caution!`
     } else {
       endText = '.'
@@ -46,8 +46,8 @@ export class RepoRulesMetadataFailureList extends React.Component<IRepoRulesMeta
             View all rulesets for this branch.
           </RepoRulesetsForBranchLink>
         </p>
-        {this.renderRuleFailureList(failures.failed, 'Failed')}
-        {this.renderRuleFailureList(failures.bypassed, 'Bypassed')}
+        {this.renderRuleFailureList(failures.failed, '違反')}
+        {this.renderRuleFailureList(failures.bypassed, '繞過')}
       </div>
     )
   }
@@ -59,7 +59,7 @@ export class RepoRulesMetadataFailureList extends React.Component<IRepoRulesMeta
     if (failures.length === 0) {
       return null
     }
-    const rulesText = __DARWIN__ ? 'Rules' : 'rules'
+    const rulesText = __DARWIN__ ? '規則' : '規則'
     const labelId = `repo-rule-list-label-${label.toLowerCase()}`
     return (
       <div className="repo-rule-list">

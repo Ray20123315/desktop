@@ -146,7 +146,7 @@ export class SelectedCommits extends React.Component<
     if (file == null) {
       // don't show both 'empty' messages
       const message =
-        this.props.changesetData.files.length === 0 ? '' : 'No file selected'
+        this.props.changesetData.files.length === 0 ? '' : '未選擇檔案'
 
       return (
         <div className="panel blankslate" id="diff">
@@ -276,7 +276,7 @@ export class SelectedCommits extends React.Component<
 
   private renderFileHeader() {
     const fileCount = this.props.changesetData.files.length
-    const filesPlural = fileCount === 1 ? 'file' : 'files'
+    const filesPlural = fileCount === 1 ? '檔案' : '檔案'
     return (
       <div className="file-list-header">
         {fileCount} changed {filesPlural}
@@ -318,7 +318,7 @@ export class SelectedCommits extends React.Component<
             maximumWidth={commitSummaryWidth.max}
             onResize={this.onCommitSummaryResize}
             onReset={this.onCommitSummaryReset}
-            description="Selected commit file list"
+            description="所選提交檔案列表"
           >
             {this.renderFileList()}
           </Resizable>
@@ -351,15 +351,15 @@ export class SelectedCommits extends React.Component<
             <p>
               Unable to display diff when multiple non-consecutive selected.
             </p>
-            <div>You can:</div>
+            <div>您可以：</div>
             <ul>
               <li>
                 Select a single commit or a range of consecutive commits to view
                 a diff.
               </li>
-              <li>Drag the commits to the branch menu to cherry-pick them.</li>
-              <li>Drag the commits to squash or reorder them.</li>
-              <li>Right click on multiple commits to see options.</li>
+              <li>把提交拖到分支列表中來進行摘取。</li>
+              <li>拖動提交來進行壓縮和排序。</li>
+              <li>右鍵檢視更多操作。</li>
             </ul>
           </div>
         </div>
@@ -430,14 +430,14 @@ export class SelectedCommits extends React.Component<
       { type: 'separator' },
     ]
 
-    let viewOnGitHubLabel = 'View on GitHub'
+    let viewOnGitHubLabel = '開啟 GitHub 檢視'
     const gitHubRepository = repository.gitHubRepository
 
     if (
       gitHubRepository &&
       gitHubRepository.endpoint !== getDotComAPIEndpoint()
     ) {
-      viewOnGitHubLabel = 'View on GitHub Enterprise'
+      viewOnGitHubLabel = '開啟 GitHub 企業版檢視'
     }
 
     items.push({

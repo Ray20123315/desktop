@@ -4,32 +4,32 @@ export const CopyFilePathLabel = __DARWIN__
   : 'Copy file path'
 
 export const CopyRelativeFilePathLabel = __DARWIN__
-  ? 'Copy Relative File Path'
-  : 'Copy relative file path'
+  ? '複製相對檔案路徑'
+  : '複製相對檔案路徑'
 
-export const CopySelectedPathsLabel = __DARWIN__ ? 'Copy Paths' : 'Copy paths'
+export const CopySelectedPathsLabel = __DARWIN__ ? '複製路徑' : '複製路徑'
 
 export const CopySelectedRelativePathsLabel = __DARWIN__
-  ? 'Copy Relative Paths'
-  : 'Copy relative paths'
+  ? '複製相對路徑'
+  : '複製相對路徑'
 
 export const DefaultEditorLabel = __DARWIN__
-  ? 'Open in External Editor'
-  : 'Open in external editor'
+  ? '開啟預設編輯器'
+  : '開啟預設編輯器'
 
-export const DefaultShellLabel = __DARWIN__ ? 'Open in Shell' : 'Open in shell'
+export const DefaultShellLabel = __DARWIN__ ? '開啟終端' : '開啟終端'
 
 export const RevealInFileManagerLabel = __DARWIN__
-  ? 'Reveal in Finder'
+  ? '開啟檔案位置'
   : __WIN32__
-  ? 'Show in Explorer'
-  : 'Show in your File Manager'
+  ? '開啟檔案位置'
+  : '開啟檔案位置'
 
-export const TrashNameLabel = __WIN32__ ? 'Recycle Bin' : 'Trash'
+export const TrashNameLabel = __WIN32__ ? '回收站' : '廢紙簍'
 
 export const OpenWithDefaultProgramLabel = __DARWIN__
-  ? 'Open with Default Program'
-  : 'Open with default program'
+  ? '開啟預設處理軟體'
+  : '開啟預設處理軟體'
 
 export function isSafeFileExtension(extension: string): boolean {
   if (__WIN32__) {

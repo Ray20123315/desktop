@@ -84,9 +84,9 @@ export class Acknowledgements extends React.Component<
       if (license.sourceText) {
         licenseText = license.sourceText
       } else if (license.license) {
-        licenseText = `License: ${license.license}`
+        licenseText = `許可證：${license.license}`
       } else {
-        licenseText = 'Unknown license'
+        licenseText = '未知許可證'
       }
 
       const nameHeader = <h2 key={`${key}-header`}>{nameElement}</h2>
@@ -115,7 +115,7 @@ export class Acknowledgements extends React.Component<
     return (
       <Dialog
         id="acknowledgements"
-        title="License and Open Source Notices"
+        title="許可證與開源宣告"
         onSubmit={this.props.onDismissed}
         onDismissed={this.props.onDismissed}
       >
@@ -129,7 +129,7 @@ export class Acknowledgements extends React.Component<
 
           {desktopLicense}
 
-          <p>GitHub Desktop also distributes these libraries:</p>
+          <p>GitHub Desktop 也包含以下庫：</p>
 
           {licenses ? this.renderLicenses(licenses) : <Loading />}
         </DialogContent>

@@ -87,7 +87,7 @@ export class UpdateAvailable extends React.Component<IUpdateAvailableProps> {
     if (this.props.isUpdateShowcaseVisible) {
       const version =
         this.props.newReleases !== null
-          ? ` with GitHub Desktop ${this.props.newReleases[0].latestVersion}`
+          ? `在 GitHub Desktop ${this.props.newReleases[0].latestVersion} 中，`
           : ''
 
       return (
@@ -118,7 +118,7 @@ export class UpdateAvailable extends React.Component<IUpdateAvailableProps> {
               important updates
             </LinkButton>
           ) : (
-            'important updates'
+            '重要的問題'
           )}
           . Please{' '}
           <LinkButton onClick={this.updateNow}>

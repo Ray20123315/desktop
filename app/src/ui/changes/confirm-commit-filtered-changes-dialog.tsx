@@ -52,7 +52,7 @@ export class ConfirmCommitFilteredChanges extends React.Component<
           </p>
           <Row>
             <Checkbox
-              label="Do not show this message again"
+              label="不再顯示"
               value={
                 this.state.askForConfirmationOnCommitFilteredChanges
                   ? CheckboxValue.Off
@@ -65,8 +65,8 @@ export class ConfirmCommitFilteredChanges extends React.Component<
         <DialogFooter>
           <OkCancelButtonGroup
             destructive={true}
-            okButtonText={__DARWIN__ ? 'Commit Anyway' : 'Commit anyway'}
-            cancelButtonText={'Cancel'}
+            okButtonText={__DARWIN__ ? '仍要提交' : '仍要提交'}
+            cancelButtonText={'取消'}
             onCancelButtonClick={this.props.onDismissed}
           />
         </DialogFooter>

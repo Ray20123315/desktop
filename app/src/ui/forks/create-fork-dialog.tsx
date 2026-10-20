@@ -77,7 +77,7 @@ export class CreateForkDialog extends React.Component<
   public render() {
     return (
       <Dialog
-        title="Do you want to fork this repository?"
+        title="是否復刻該儲存庫？"
         onDismissed={this.props.onDismissed}
         onSubmit={this.state.error ? undefined : this.onSubmit}
         dismissDisabled={this.state.loading}
@@ -112,16 +112,16 @@ function renderCreateForkDialogContent(
     <>
       <DialogContent>
         <p>
-          {`It looks like you don’t have write access to `}
+          {`您無權寫入 `}
           <strong>{repository.gitHubRepository.fullName}</strong>
-          {`. If you should, please check with a repository administrator.`}
+          {` 儲存庫。如果您本應有權寫入，請諮詢儲存庫管理員。`}
         </p>
         <p>
-          {` Do you want to create a fork of this repository at `}
+          {`您希望在 `}
           <strong>
             {`${account.login}/${repository.gitHubRepository.name}`}
           </strong>
-          {` to continue?`}
+          {` 建立一個復刻儲存庫來繼續操作嗎？`}
         </p>
       </DialogContent>
       <DialogFooter>
@@ -147,7 +147,7 @@ function renderCreateForkDialogError(
   const suggestion =
     repository.gitHubRepository.htmlURL !== null ? (
       <>
-        {`You can try `}
+        {`請嘗試 `}
         <LinkButton uri={repository.gitHubRepository.htmlURL}>
           creating the fork manually on GitHub
         </LinkButton>
@@ -158,15 +158,15 @@ function renderCreateForkDialogError(
     <>
       <DialogContent>
         <div>
-          {`Creating your fork `}
+          {`復刻儲存庫 `}
           <strong>
             {`${account.login}/${repository.gitHubRepository.name}`}
           </strong>
-          {` failed. `}
+          {` 建立失敗。`}
           {suggestion}
         </div>
         <details>
-          <summary>Error details</summary>
+          <summary>錯誤詳情</summary>
           <pre className="error">{error.message}</pre>
         </details>
       </DialogContent>

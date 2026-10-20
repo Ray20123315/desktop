@@ -41,8 +41,8 @@ export class WarnForcePushDialog extends React.Component<
     const { operation, onDismissed } = this.props
 
     const title = __DARWIN__
-      ? `${operation} Will Require Force Push`
-      : `${operation} will require force push`
+      ? `${operation}需要強制推送`
+      : `${operation}需要強制推送`
 
     return (
       <Dialog
@@ -66,7 +66,7 @@ export class WarnForcePushDialog extends React.Component<
           </p>
           <div>
             <Checkbox
-              label="Do not show this message again"
+              label="不再顯示"
               value={
                 this.state.askForConfirmationOnForcePush
                   ? CheckboxValue.Off

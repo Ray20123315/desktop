@@ -454,9 +454,9 @@ export class FilterChangesList extends React.Component<
       isCommitting || rebaseConflictState !== null || isUncommittableSubmodule
 
     const checkboxTooltip = isUncommittableSubmodule
-      ? 'This submodule change cannot be added to a commit in this repository because it contains changes that have not been committed.'
+      ? '子模組內的變更需要先在子模組內提交，才能一起提交到儲存庫。子模組內的變更尚未提交。'
       : isPartiallyCommittableSubmodule
-      ? 'Only changes that have been committed within the submodule will be added to this repository. You need to commit any other modified or untracked changes in the submodule before including them in this repository.'
+      ? '子模組內的變更需要先在子模組內提交，才能一起提交到儲存庫。子模組內還有一些變更尚未提交。'
       : undefined
 
     return (
@@ -523,11 +523,11 @@ export class FilterChangesList extends React.Component<
     const label =
       files.length === 1
         ? __DARWIN__
-          ? `Discard Changes`
-          : `Discard changes`
+          ? `放棄變更`
+          : `放棄變更`
         : __DARWIN__
-        ? `Discard ${files.length} Selected Changes`
-        : `Discard ${files.length} selected changes`
+        ? `放棄${files.length}個變更`
+        : `放棄${files.length}個變更`
 
     return this.props.askForConfirmationOnDiscardChanges ? `${label}…` : label
   }
@@ -550,12 +550,12 @@ export class FilterChangesList extends React.Component<
       ? 'Stash All Changes'
       : 'Stash all changes'
     const confirmStashAllChangesLabel = __DARWIN__
-      ? 'Stash All Changes…'
-      : 'Stash all changes…'
+      ? '暫存所有變更…'
+      : '暫存所有變更…'
 
     const items: IMenuItem[] = [
       {
-        label: __DARWIN__ ? 'Discard All Changes…' : 'Discard all changes…',
+        label: __DARWIN__ ? '放棄所有變更…' : '放棄所有變更…',
         action: this.onDiscardAllChanges,
         enabled: hasLocalChanges,
       },
@@ -700,7 +700,7 @@ export class FilterChangesList extends React.Component<
       items.push({
         label: __DARWIN__
           ? 'Ignore File (Add to .gitignore)'
-          : 'Ignore file (add to .gitignore)',
+          : '忽略該檔案（.gitignore）',
         action: () => this.props.onIgnoreFile(path),
         enabled,
       })
@@ -721,8 +721,8 @@ export class FilterChangesList extends React.Component<
 
         items.push({
           label: __DARWIN__
-            ? 'Ignore Folder (Add to .gitignore)'
-            : 'Ignore folder (add to .gitignore)',
+            ? '忽略資料夾（.gitignore）'
+            : '忽略資料夾（.gitignore）',
           submenu,
           enabled,
         })
@@ -730,8 +730,8 @@ export class FilterChangesList extends React.Component<
     } else if (paths.length > 1) {
       items.push({
         label: __DARWIN__
-          ? `Ignore ${paths.length} Selected Files (Add to .gitignore)`
-          : `Ignore ${paths.length} selected files (add to .gitignore)`,
+          ? `忽略${paths.length}個檔案（.gitignore）`
+          : `忽略${paths.length}個檔案（.gitignore）`,
         action: () => {
           // Filter out any .gitignores that happens to be selected, ignoring
           // those doesn't make sense.
@@ -751,7 +751,7 @@ export class FilterChangesList extends React.Component<
         items.push({
           label: __DARWIN__
             ? `Ignore All ${extension} Files (Add to .gitignore)`
-            : `Ignore all ${extension} files (add to .gitignore)`,
+            : `忽略所有${extension}檔案（.gitignore）`,
           action: () => this.props.onIgnorePattern(`*${extension}`),
         })
       })
@@ -861,7 +861,7 @@ export class FilterChangesList extends React.Component<
     prepopulateCommitSummary: boolean
   ) {
     if (!prepopulateCommitSummary) {
-      return 'Summary (required)'
+      return '摘要（必填）'
     }
 
     const firstFile = files[0]
@@ -1303,7 +1303,7 @@ export class FilterChangesList extends React.Component<
         <TextBox
           ref={this.onTextBoxRef}
           displayClearButton={true}
-          placeholder={'Filter'}
+          placeholder={'篩選'}
           className="filter-list-filter-field"
           onValueChanged={this.onFilterTextChanged}
           onKeyDown={this.onFilterKeyDown}
@@ -1412,7 +1412,7 @@ export class FilterChangesList extends React.Component<
       <div className="hidden-changes-warning" id="hidden-changes-warning">
         <Octicon symbol={octicons.alert} />
         <span className="sr-only">Warning:</span>
-        <span>Hidden changes will be committed. </span>
+        <span>一些要提交的檔案變更被隱藏了。</span>
         <LinkButton onClick={this.showFilesToBeCommitted}>
           Adjust the filters to see all {formatNumber(filesSelected.length)}{' '}
           changes

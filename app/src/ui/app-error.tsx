@@ -110,7 +110,7 @@ export class AppError extends React.Component<IAppErrorProps, IAppErrorState> {
           <p>{error.message}</p>
           {files.length > 0 && (
             <>
-              <p>Files that exceed the limit</p>
+              <p>以下檔案超過大小限制</p>
               <ul>
                 {files.map(file => (
                   <li key={file}>{file}</li>
@@ -164,27 +164,27 @@ export class AppError extends React.Component<IAppErrorProps, IAppErrorState> {
 
     switch (getDugiteError(error)) {
       case DugiteError.PushWithFileSizeExceedingLimit:
-        return 'File size limit exceeded'
+        return '檔案過大'
     }
 
     switch (getRetryActionType(error)) {
       case RetryActionType.Clone:
-        return 'Clone failed'
+        return '複製失敗'
       case RetryActionType.Push:
-        return 'Failed to push'
+        return '推送失敗'
     }
 
     if (isErrorWithMetaData(error)) {
       const { gitContext } = error.metadata
       switch (gitContext?.kind) {
         case 'create-repository':
-          return `Failed creating repository`
+          return `儲存庫建立失敗`
         case 'commit':
-          return `Commit failed`
+          return `提交失敗`
       }
     }
 
-    return 'Error'
+    return '錯誤'
   }
 
   private renderContentAfterErrorMessage(error: Error) {
@@ -260,7 +260,7 @@ export class AppError extends React.Component<IAppErrorProps, IAppErrorState> {
     return (
       <DialogFooter>
         <OkCancelButtonGroup
-          okButtonText={__DARWIN__ ? 'Retry Clone' : 'Retry clone'}
+          okButtonText={__DARWIN__ ? '重試' : '重試'}
           onOkButtonClick={this.onRetryAction}
           onCancelButtonClick={this.onCloseButtonClick}
         />
@@ -272,9 +272,9 @@ export class AppError extends React.Component<IAppErrorProps, IAppErrorState> {
     return (
       <DialogFooter>
         <OkCancelButtonGroup
-          okButtonText="Close"
+          okButtonText="關閉"
           onOkButtonClick={this.onCloseButtonClick}
-          cancelButtonText={__DARWIN__ ? 'Open Preferences' : 'Open options'}
+          cancelButtonText={__DARWIN__ ? '開啟設定' : '開啟設定'}
           onCancelButtonClick={this.showPreferencesDialog}
         />
       </DialogFooter>

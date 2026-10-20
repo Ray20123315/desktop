@@ -11,7 +11,7 @@ import { GitEmailNotFoundWarning } from './git-email-not-found-warning'
 import { getStealthEmailForAccount } from '../../lib/email'
 import memoizeOne from 'memoize-one'
 
-const OtherEmailSelectValue = 'Other'
+const OtherEmailSelectValue = '其他'
 
 interface IGitConfigUserFormProps {
   readonly name: string
@@ -146,7 +146,7 @@ export class GitConfigUserForm extends React.Component<
       <div>
         <Row>
           <TextBox
-            label="Name"
+            label="名稱"
             value={this.props.name}
             disabled={this.props.disabled}
             onValueChanged={this.props.onNameChanged}
@@ -176,12 +176,12 @@ export class GitConfigUserForm extends React.Component<
       this.props.accounts.some(isEnterpriseAccount)
 
     const accountSuffix = (account: Account) =>
-      isDotComAccount(account) ? '(GitHub.com)' : '(GitHub Enterprise)'
+      isDotComAccount(account) ? '(GitHub.com)' : '(GitHub 企業版)'
 
     return (
       <Row>
         <Select
-          label="Email"
+          label="郵箱"
           value={
             this.state.emailIsOther ? OtherEmailSelectValue : this.props.email
           }
@@ -209,9 +209,9 @@ export class GitConfigUserForm extends React.Component<
     // Only show the "Email" label above the textbox when the textbox is
     // presented independently, without the email dropdown, not when presented
     // as a consequence of the option "Other" selected in the dropdown.
-    const label = this.state.emailIsOther ? undefined : 'Email'
+    const label = this.state.emailIsOther ? undefined : '郵箱'
     // If there is not a label, provide a screen reader announcement.
-    const ariaLabel = label ? undefined : 'Email'
+    const ariaLabel = label ? undefined : '郵箱'
 
     return (
       <Row>

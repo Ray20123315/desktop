@@ -19,9 +19,9 @@ export class ForkSettings extends React.Component<IForkSettingsProps, {}> {
   private renderForkOptionsLabel = (key: ForkContributionTarget) => {
     switch (key) {
       case ForkContributionTarget.Parent:
-        return 'To contribute to the parent repository'
+        return '貢獻給原專案'
       case ForkContributionTarget.Self:
-        return 'For my own purposes'
+        return '我自己用'
       default:
         return assertNever(key, `Unknown fork contribution target: ${key}`)
     }

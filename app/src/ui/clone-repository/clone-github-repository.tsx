@@ -120,11 +120,11 @@ export class CloneGithubRepository extends React.PureComponent<ICloneGithubRepos
         <Row className="local-path-field">
           <TextBox
             value={this.props.path}
-            label={__DARWIN__ ? 'Local Path' : 'Local path'}
-            placeholder="repository path"
+            label={__DARWIN__ ? '本地儲存資料夾' : '本地儲存資料夾'}
+            placeholder="儲存庫儲存的位置"
             onValueChanged={this.props.onPathChanged}
           />
-          <Button onClick={this.props.onChooseDirectory}>Choose…</Button>
+          <Button onClick={this.props.onChooseDirectory}>選擇…</Button>
         </Row>
       </DialogContent>
     )

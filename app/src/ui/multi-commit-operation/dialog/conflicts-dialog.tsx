@@ -242,7 +242,7 @@ export class ConflictsDialog extends React.Component<
     }
 
     if (countResolved === 0) {
-      return <DialogSuccess>All resolutions have been undone.</DialogSuccess>
+      return <DialogSuccess>所有衝突都已恢復原狀。</DialogSuccess>
     }
 
     if (conflictedFilesCount === 0) {
@@ -251,7 +251,7 @@ export class ConflictsDialog extends React.Component<
       )
     }
 
-    const conflictPluralized = countResolved === 1 ? 'file has' : 'files have'
+    const conflictPluralized = countResolved === 1 ? '檔案' : '檔案'
     return (
       <DialogSuccess>
         {countResolved} conflicted {conflictPluralized} been resolved.

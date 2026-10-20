@@ -336,7 +336,7 @@ export class TextBox extends React.Component<ITextBoxProps, ITextBoxState> {
           this.state.value !== '' && (
             <button
               className="clear-button"
-              aria-label="Clear"
+              aria-label="清空"
               onClick={this.clearSearchText}
             >
               <Octicon symbol={octicons.x} />

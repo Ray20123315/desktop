@@ -39,7 +39,7 @@ export class Accounts extends React.Component<IAccountsProps, {}> {
           ? this.renderAccount(dotComAccount, SignInType.DotCom)
           : this.renderSignIn(SignInType.DotCom)}
 
-        <h2>GitHub Enterprise</h2>
+        <h2>GitHub 企業版</h2>
         {this.renderMultipleEnterpriseAccounts()}
       </DialogContent>
     )
@@ -100,7 +100,7 @@ export class Accounts extends React.Component<IAccountsProps, {}> {
           </div>
         </div>
         <Button onClick={this.logout(account)} className={className}>
-          {__DARWIN__ ? 'Sign Out' : 'Sign out'}
+          {__DARWIN__ ? '退出登入' : '退出登入'}
         </Button>
       </Row>
     )
@@ -115,7 +115,7 @@ export class Accounts extends React.Component<IAccountsProps, {}> {
   }
 
   private renderSignIn(type: SignInType) {
-    const signInTitle = __DARWIN__ ? 'Sign Into' : 'Sign into'
+    const signInTitle = __DARWIN__ ? '登入' : '登入'
     switch (type) {
       case SignInType.DotCom: {
         return (
@@ -135,7 +135,7 @@ export class Accounts extends React.Component<IAccountsProps, {}> {
       case SignInType.Enterprise:
         return (
           <CallToAction
-            actionTitle={signInTitle + ' GitHub Enterprise'}
+            actionTitle={signInTitle + ' GitHub 企業版'}
             onAction={this.onEnterpriseSignIn}
           >
             <div>

@@ -15,7 +15,7 @@ export class NoRemote extends React.Component<INoRemoteProps, {}> {
   public render() {
     return (
       <DialogContent>
-        <CallToAction actionTitle="Publish" onAction={this.props.onPublish}>
+        <CallToAction actionTitle="釋出" onAction={this.props.onPublish}>
           <div className="no-remote-publish-message">
             Publish your repository to GitHub. Need help?{' '}
             <LinkButton uri={HelpURL}>

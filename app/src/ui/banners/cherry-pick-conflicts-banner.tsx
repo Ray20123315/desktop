@@ -41,7 +41,7 @@ export class CherryPickConflictsBanner extends React.Component<
             Resolve conflicts to continue cherry-picking onto{' '}
             <strong>{this.props.targetBranchName}</strong>.
           </span>
-          <LinkButton onClick={this.openDialog}>View conflicts</LinkButton>
+          <LinkButton onClick={this.openDialog}>檢視衝突</LinkButton>
         </div>
       </Banner>
     )

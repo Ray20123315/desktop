@@ -68,10 +68,10 @@ export class ChangedFile extends React.Component<IChangedFileProps, {}> {
 
     const includedText =
       this.props.include === true
-        ? 'included'
+        ? '將會提交'
         : this.props.include === undefined
-        ? 'partially included'
-        : 'not included'
+        ? '將會部分提交'
+        : '不會提交'
 
     const pathScreenReaderMessage = `${path} ${mapStatus(
       status

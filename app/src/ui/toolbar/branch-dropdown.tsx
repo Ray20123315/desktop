@@ -140,7 +140,7 @@ export class BranchDropdown extends React.Component<IBranchDropdownProps> {
     let icon: OcticonSymbol = octicons.gitBranch
     let iconClassName: string | undefined = undefined
     let title: string
-    let description = __DARWIN__ ? 'Current Branch' : 'Current branch'
+    let description = __DARWIN__ ? '當前分支' : '當前分支'
     let canOpen = true
     let disabled = false
     let tooltip: string
@@ -154,15 +154,15 @@ export class BranchDropdown extends React.Component<IBranchDropdownProps> {
       return null
     } else if (tip.kind === TipState.Unborn) {
       title = tip.ref
-      tooltip = `Current branch is ${tip.ref}`
+      tooltip = `當前分支為 ${tip.ref}`
       canOpen = branchesState.allBranches.some(
         b => !b.isDesktopForkRemoteBranch
       )
     } else if (tip.kind === TipState.Detached) {
-      title = `On ${tip.currentSha.substring(0, 7)}`
-      tooltip = 'Currently on a detached HEAD'
+      title = `位於 ${tip.currentSha.substring(0, 7)}`
+      tooltip = '當前 HEAD 指標未指向任何分支'
       icon = octicons.gitCommit
-      description = 'Detached HEAD'
+      description = 'HEAD 指標分離'
     } else if (tip.kind === TipState.Valid) {
       title = tooltip = tip.branch.name
     } else {
@@ -180,18 +180,18 @@ export class BranchDropdown extends React.Component<IBranchDropdownProps> {
         description = `${description} (${friendlyProgress}%)`
       }
 
-      tooltip = `Checking out ${checkoutProgress.target}`
+      tooltip = `正在檢出 ${checkoutProgress.target}`
       progressValue = checkoutProgress.value
       icon = syncClockwise
       iconClassName = 'spin'
       canOpen = false
     } else if (conflictState !== null && isRebaseConflictState(conflictState)) {
       title = conflictState.targetBranch
-      description = 'Rebasing branch'
+      description = '正在變基分支'
       icon = octicons.gitBranch
       canOpen = false
       disabled = true
-      tooltip = `Rebasing ${conflictState.targetBranch}`
+      tooltip = `正在變基 ${conflictState.targetBranch}`
     }
 
     const isOpen = this.props.isOpen
@@ -247,7 +247,7 @@ export class BranchDropdown extends React.Component<IBranchDropdownProps> {
           onResize={this.onResize}
           maximumWidth={this.props.branchDropdownWidth.max}
           minimumWidth={this.props.branchDropdownWidth.min}
-          description="Current branch dropdown button"
+          description="當前分支下拉按鈕"
         >
           <ToolbarDropdown
             className="branch-button"

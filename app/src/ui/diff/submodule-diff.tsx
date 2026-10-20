@@ -54,7 +54,7 @@ export class SubmoduleDiff extends React.Component<ISubmoduleDiffProps> {
         <div className="content">
           <div className="interstitial-header">
             <div className="text">
-              <h1>Submodule changes</h1>
+              <h1>子模組變更</h1>
             </div>
           </div>
           {this.renderSubmoduleInfo()}
@@ -135,14 +135,14 @@ export class SubmoduleDiff extends React.Component<ISubmoduleDiffProps> {
     return null
   }
 
-  private renderCommitSHA(sha: string, which?: 'previous' | 'new') {
+  private renderCommitSHA(sha: string, which?: '舊' | '新') {
     const whichInfix = which === undefined ? '' : ` ${which}`
 
     return (
       <>
         <Ref>{shortenSHA(sha)}</Ref>
         <CopyButton
-          ariaLabel={`Copy the full${whichInfix} SHA`}
+          ariaLabel={`複製完整的${whichInfix} SHA`}
           copyContent={sha}
         />
       </>
@@ -158,10 +158,10 @@ export class SubmoduleDiff extends React.Component<ISubmoduleDiffProps> {
 
     const changes =
       diff.status.untrackedChanges && diff.status.modifiedChanges
-        ? 'modified and untracked'
+        ? '變更和未跟蹤的變化'
         : diff.status.untrackedChanges
-        ? 'untracked'
-        : 'modified'
+        ? '未跟蹤的變化'
+        : '變更'
 
     return this.renderSubmoduleDiffItem(
       { octicon: octicons.fileDiff, className: 'untracked-icon' },
@@ -196,9 +196,9 @@ export class SubmoduleDiff extends React.Component<ISubmoduleDiffProps> {
     return (
       <span>
         <SuggestedAction
-          title="Open this submodule on GitHub Desktop"
-          description="You can open this submodule on GitHub Desktop as a normal repository to manage and commit any changes in it."
-          buttonText={__DARWIN__ ? 'Open Repository' : 'Open repository'}
+          title="在 Github Desktop 中開啟子儲存庫"
+          description="您可以直接開啟子模組的儲存庫，像往常一樣進行修改和提交。"
+          buttonText={__DARWIN__ ? '開啟子儲存庫' : '開啟子儲存庫'}
           type="primary"
           onClick={this.onOpenSubmoduleClick}
         />

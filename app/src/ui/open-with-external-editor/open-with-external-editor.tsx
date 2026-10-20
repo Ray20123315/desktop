@@ -105,7 +105,7 @@ export class OpenWithExternalEditor extends React.Component<
 
     return (
       <Select
-        label="Select an editor"
+        label="選擇編輯器"
         value={
           this.state.useCustomEditor
             ? CustomIntegrationValue
@@ -148,7 +148,7 @@ export class OpenWithExternalEditor extends React.Component<
   }
 
   public render() {
-    const title = __DARWIN__ ? 'Open With…' : 'Open with…'
+    const title = __DARWIN__ ? '選擇編輯器開啟儲存庫…' : '選擇編輯器開啟儲存庫…'
     const disabled =
       (!this.state.useCustomEditor && this.state.selectedEditor === null) ||
       (this.state.useCustomEditor && !this.state.customEditor.path)
@@ -166,7 +166,7 @@ export class OpenWithExternalEditor extends React.Component<
         </DialogContent>
         <DialogFooter>
           <OkCancelButtonGroup
-            okButtonText="Open"
+            okButtonText="開啟"
             okButtonDisabled={disabled}
             onCancelButtonClick={this.props.onDismissed}
           />

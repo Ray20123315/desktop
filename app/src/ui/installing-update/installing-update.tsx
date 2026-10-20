@@ -65,7 +65,7 @@ export class InstallingUpdate extends React.Component<IInstallingUpdateProps> {
     return (
       <Dialog
         id="installing-update"
-        title={__DARWIN__ ? 'Installing Update…' : 'Installing update…'}
+        title={__DARWIN__ ? '正在安裝更新…' : '正在安裝更新…'}
         loading={true}
         onSubmit={this.props.onDismissed}
         backdropDismissable={false}
@@ -80,7 +80,7 @@ export class InstallingUpdate extends React.Component<IInstallingUpdateProps> {
         </DialogContent>
         <DialogFooter>
           <OkCancelButtonGroup
-            okButtonText={__DARWIN__ ? 'Quit Anyway' : 'Quit anyway'}
+            okButtonText={__DARWIN__ ? '就要退出' : '就要退出'}
             onOkButtonClick={this.onQuitAnywayButtonClicked}
             onCancelButtonClick={this.props.onDismissed}
             destructive={true}

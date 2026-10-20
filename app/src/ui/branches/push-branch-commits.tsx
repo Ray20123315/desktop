@@ -43,8 +43,8 @@ interface IPushBranchCommitsState {
  */
 function pluralize(numberOfCommits: number, unit: string) {
   return numberOfCommits === 1
-    ? `${numberOfCommits} ${unit}`
-    : `${numberOfCommits} ${unit}s`
+    ? `${numberOfCommits}個${unit}`
+    : `${numberOfCommits}個${unit}`
 }
 
 /**
@@ -111,7 +111,7 @@ export class PushBranchCommits extends React.Component<
       )
     }
 
-    const localCommits = pluralize(this.props.unPushedCommits, 'local commit')
+    const localCommits = pluralize(this.props.unPushedCommits, '本地提交')
 
     return (
       <DialogContent>
@@ -128,24 +128,24 @@ export class PushBranchCommits extends React.Component<
 
   private renderDialogTitle() {
     if (renderPublishView(this.props.unPushedCommits)) {
-      return __DARWIN__ ? 'Publish Branch?' : 'Publish branch?'
+      return __DARWIN__ ? '釋出分支？' : '釋出分支？'
     }
 
-    return __DARWIN__ ? `Push Local Changes?` : `Push local changes?`
+    return __DARWIN__ ? `推送本地變更？` : `推送本地變更？`
   }
 
   private renderButtonGroup() {
     if (renderPublishView(this.props.unPushedCommits)) {
       return (
         <OkCancelButtonGroup
-          okButtonText={__DARWIN__ ? 'Publish Branch' : 'Publish branch'}
+          okButtonText={__DARWIN__ ? '釋出分支' : '釋出分支'}
         />
       )
     }
 
     return (
       <OkCancelButtonGroup
-        okButtonText={__DARWIN__ ? 'Push Commits' : 'Push commits'}
+        okButtonText={__DARWIN__ ? '推送提交' : '推送提交'}
         cancelButtonText={
           __DARWIN__ ? 'Create Without Pushing' : 'Create without pushing'
         }

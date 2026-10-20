@@ -62,7 +62,7 @@ export abstract class CherryPick extends BaseMultiCommitOperation {
   }
 
   protected onConflictsDialogDismissed = () => {
-    this.onInvokeConflictsDialogDismissed('cherry-picking onto')
+    this.onInvokeConflictsDialogDismissed('摘取到')
   }
 
   protected renderChooseBranch = (): JSX.Element | null => {

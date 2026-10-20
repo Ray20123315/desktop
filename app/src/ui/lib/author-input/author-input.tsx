@@ -185,7 +185,7 @@ export class AuthorInput extends React.Component<
         {this.renderAuthors()}
         <AutocompletingInput<UserHit>
           elementId="author-input"
-          placeholder="@username"
+          placeholder="@使用者名稱"
           alwaysAutocomplete={true}
           autocompletionProviders={[this.props.autoCompleteProvider]}
           autocompleteItemFilter={this.getAutocompleteItemFilter(

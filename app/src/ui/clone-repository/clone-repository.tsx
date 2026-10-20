@@ -265,7 +265,7 @@ export class CloneRepository extends React.Component<
     return (
       <Dialog
         className="clone-repository"
-        title={__DARWIN__ ? 'Clone a Repository' : 'Clone a repository'}
+        title={__DARWIN__ ? '複製線上儲存庫' : '複製線上儲存庫'}
         onSubmit={this.clone}
         onDismissed={this.props.onDismissed}
         loading={this.state.loading}
@@ -326,7 +326,7 @@ export class CloneRepository extends React.Component<
 
     return (
       <DialogFooter>
-        <OkCancelButtonGroup okButtonText="Clone" okButtonDisabled={disabled} />
+        <OkCancelButtonGroup okButtonText="複製" okButtonDisabled={disabled} />
       </DialogFooter>
     )
   }
@@ -517,7 +517,7 @@ export class CloneRepository extends React.Component<
   }
 
   private renderSignIn(tab: CloneRepositoryTab) {
-    const signInTitle = __DARWIN__ ? 'Sign In' : 'Sign in'
+    const signInTitle = __DARWIN__ ? '登入' : '登入'
     switch (tab) {
       case CloneRepositoryTab.DotCom:
         return (
@@ -629,8 +629,8 @@ export class CloneRepository extends React.Component<
     const tabState = this.getSelectedTabState()
 
     const path = await showSaveDialog({
-      buttonLabel: 'Select',
-      nameFieldLabel: 'Clone As:',
+      buttonLabel: '選擇',
+      nameFieldLabel: '複製到:',
       showsTagField: false,
       defaultPath: tabState.path ?? '',
       properties: ['createDirectory'],
@@ -774,7 +774,7 @@ export class CloneRepository extends React.Component<
     const { path } = this.getSelectedTabState()
 
     if (path == null) {
-      const error = new Error(`Directory could not be created at this path.`)
+      const error = new Error(`無法在該路徑建立資料夾。`)
       this.setState({ loading: false })
       this.setSelectedTabState({ error })
       return
@@ -790,7 +790,7 @@ export class CloneRepository extends React.Component<
     const cloneInfo = await this.resolveCloneInfo()
     if (!cloneInfo) {
       const error = new Error(
-        `We couldn't find that repository. Check that you are logged in, the network is accessible, and the URL or repository alias are spelled correctly.`
+        `找不到該儲存庫。請檢查您是否已登入、網路是否暢通、網址有沒有輸錯。`
       )
       this.setState({ loading: false })
       this.setSelectedTabState({ error })

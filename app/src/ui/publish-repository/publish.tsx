@@ -143,7 +143,7 @@ export class Publish extends React.Component<IPublishProps, IPublishState> {
     return (
       <Dialog
         id="publish-repository"
-        title={__DARWIN__ ? 'Publish Repository' : 'Publish repository'}
+        title={__DARWIN__ ? '釋出儲存庫' : '釋出儲存庫'}
         onDismissed={this.props.onDismissed}
         onSubmit={this.publishRepository}
         disabled={this.state.publishing}
@@ -271,7 +271,7 @@ export class Publish extends React.Component<IPublishProps, IPublishState> {
   }
 
   private renderSignInTab(tab: PublishTab) {
-    const signInTitle = __DARWIN__ ? 'Sign In' : 'Sign in'
+    const signInTitle = __DARWIN__ ? '登入' : '登入'
     switch (tab) {
       case PublishTab.DotCom:
         return (
@@ -336,7 +336,7 @@ export class Publish extends React.Component<IPublishProps, IPublishState> {
     const tab = this.state.currentTab
     const account = this.getAccountForTab(tab)
     if (!account) {
-      fatalError(`Tried to publish with no user. That seems impossible!`)
+      fatalError(`在沒登入的情況下發布儲存庫，簡直不可置信！`)
     }
 
     const settings = currentTabState.settings

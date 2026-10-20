@@ -29,7 +29,7 @@ export class OversizedFiles extends React.Component<IOversizedFilesProps> {
     return (
       <Dialog
         id="oversized-files"
-        title={__DARWIN__ ? 'Files Too Large' : 'Files too large'}
+        title={__DARWIN__ ? '檔案過大' : '檔案過大'}
         onSubmit={this.onSubmit}
         onDismissed={this.props.onDismissed}
         type="warning"
@@ -53,7 +53,7 @@ export class OversizedFiles extends React.Component<IOversizedFilesProps> {
         <DialogFooter>
           <OkCancelButtonGroup
             destructive={true}
-            okButtonText={__DARWIN__ ? 'Commit Anyway' : 'Commit anyway'}
+            okButtonText={__DARWIN__ ? '仍要提交' : '仍要提交'}
           />
         </DialogFooter>
       </Dialog>

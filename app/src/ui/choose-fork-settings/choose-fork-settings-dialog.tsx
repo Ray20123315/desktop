@@ -48,7 +48,7 @@ export class ChooseForkSettings extends React.Component<
   public render() {
     const items = [
       {
-        title: 'To contribute to the parent project',
+        title: '貢獻給原專案',
         description: (
           <>
             We will help you contribute to the{' '}
@@ -61,7 +61,7 @@ export class ChooseForkSettings extends React.Component<
         key: ForkContributionTarget.Parent,
       },
       {
-        title: 'For my own purposes',
+        title: '我自己用',
         description: (
           <>
             We will help you contribute to the{' '}
@@ -76,14 +76,14 @@ export class ChooseForkSettings extends React.Component<
     return (
       <Dialog
         id="fork-settings"
-        title="How are you planning to use this fork?"
+        title="您計劃如何使用該復刻？"
         onSubmit={this.onSubmit}
         onDismissed={this.props.onDismissed}
       >
         <DialogContent>
           <Row>
             <VerticalSegmentedControl
-              label="This repository is a fork. How do you plan to use it?"
+              label="這是一個復刻儲存庫，您計劃如何使用它？"
               items={items}
               selectedKey={this.state.forkContributionTarget}
               onSelectionChanged={this.onSelectionChanged}
@@ -98,7 +98,7 @@ export class ChooseForkSettings extends React.Component<
         </DialogContent>
 
         <DialogFooter>
-          <OkCancelButtonGroup okButtonText="Continue" />
+          <OkCancelButtonGroup okButtonText="繼續" />
         </DialogFooter>
       </Dialog>
     )

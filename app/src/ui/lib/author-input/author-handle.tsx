@@ -66,8 +66,8 @@ export class AuthorHandle extends React.Component<IAuthorHandleProps> {
     }
 
     const isError = author.state === 'error'
-    const stateAriaLabel = isError ? 'user not found' : 'searching'
-    return `${author.username}, ${stateAriaLabel}, press backspace or delete to remove`
+    const stateAriaLabel = isError ? '未找到該使用者' : '正在查詢該使用者'
+    return `${author.username}，${stateAriaLabel}, 按退格鍵或刪除鍵來刪除`
   }
 
   private getClassName() {
@@ -88,8 +88,8 @@ export class AuthorHandle extends React.Component<IAuthorHandleProps> {
     }
 
     return author.state === 'error'
-      ? `Could not find user with username ${author.username}`
-      : `Searching for @${author.username}`
+      ? `找不到名為 ${author.username} 的使用者`
+      : `正在查詢 @${author.username}`
   }
 
   private getTabIndex() {

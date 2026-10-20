@@ -45,7 +45,7 @@ export class InstallGit extends React.Component<IInstallGitProps, {}> {
       <Dialog
         id="install-git"
         type="warning"
-        title={__DARWIN__ ? 'Unable to Locate Git' : 'Unable to locate Git'}
+        title={__DARWIN__ ? '找不到 Git' : '找不到 Git'}
         onSubmit={this.onSubmit}
         onDismissed={this.props.onDismissed}
       >
@@ -62,8 +62,8 @@ export class InstallGit extends React.Component<IInstallGitProps, {}> {
         </DialogContent>
         <DialogFooter>
           <OkCancelButtonGroup
-            okButtonText={__DARWIN__ ? 'Open Without Git' : 'Open without Git'}
-            cancelButtonText="Install Git"
+            okButtonText={__DARWIN__ ? '跳過' : '跳過'}
+            cancelButtonText="前往安裝 Git"
             onCancelButtonClick={this.onExternalLink}
           />
         </DialogFooter>

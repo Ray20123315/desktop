@@ -28,18 +28,18 @@ const avatarTokenCache = new ExpiringOperationCache<
   ({ endpoint }) => endpoint,
   async ({ endpoint, accounts }) => {
     if (!isGHE(endpoint)) {
-      throw new Error('Avatar tokens are only available for ghe.com')
+      throw new Error('頭像令牌僅適用於 ghe.com')
     }
 
     const account = accounts.find(a => a.endpoint === endpoint)
     if (!account) {
-      throw new Error('No account found for endpoint')
+      throw new Error('接入點沒有該使用者')
     }
 
     const api = new API(endpoint, account.token)
     const token = await api.getAvatarToken()
 
-    return forceUnwrap('Avatar token missing', token)
+    return forceUnwrap('頭像令牌缺失', token)
   },
   () => offsetFrom(0, 50, 'minutes')
 )
@@ -63,26 +63,26 @@ const botAvatarCache = new ExpiringOperationCache<
   async ({ user, accounts }) => {
     const { endpoint } = user
     if (user.avatarURL !== undefined || endpoint === null) {
-      throw new Error('Avatar URL already resolved or endpoint is missing')
+      throw new Error('頭像網址已解析或接入點缺失')
     }
 
     const account = accounts.find(a => a.endpoint === user.endpoint)
 
     if (!account) {
-      throw new Error('No account found for endpoint')
+      throw new Error('接入點沒有該使用者')
     }
 
     const login = getBotLogin(user)
 
     if (!login) {
-      throw new Error('Email does not appear to be a bot email')
+      throw new Error('郵箱不是機器人郵箱')
     }
 
     const api = new API(endpoint, account.token)
     const apiUser = await api.fetchUser(login)
 
     if (!apiUser?.avatar_url) {
-      throw new Error('No avatar url returned from API')
+      throw new Error('API 未返回頭像地址')
     }
 
     return { ...user, avatarURL: apiUser.avatar_url }
@@ -352,7 +352,7 @@ export class Avatar extends React.Component<IAvatarProps, IAvatarState> {
       )
     }
 
-    return user?.email ?? 'Unknown user'
+    return user?.email ?? '未知使用者'
   }
 
   private onImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {

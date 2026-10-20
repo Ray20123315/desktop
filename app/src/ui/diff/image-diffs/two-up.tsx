@@ -74,7 +74,7 @@ export class TwoUp extends React.Component<ITwoUpProps, {}> {
           >
             {diffBytes !== 0
               ? `${diffBytesSign}${formatBytes(diffBytes, 2)} (${diffPercent})`
-              : 'No size difference'}
+              : '大小相同'}
           </span>
         </div>
       </div>

@@ -50,7 +50,7 @@ export class PushNeedsPullWarning extends React.Component<
         </DialogContent>
         <DialogFooter>
           <OkCancelButtonGroup
-            okButtonText="Fetch"
+            okButtonText="擷取更新"
             okButtonDisabled={this.state.isLoading}
           />
         </DialogFooter>

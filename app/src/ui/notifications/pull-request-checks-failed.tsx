@@ -97,7 +97,7 @@ export class PullRequestChecksFailed extends React.Component<
     const loadingChecksInfo = this.loadingChecksInfo
 
     const failedChecks = this.state.checks.filter(isFailure)
-    const pluralChecks = failedChecks.length > 1 ? 'checks' : 'check'
+    const pluralChecks = failedChecks.length > 1 ? '個檢查' : '個檢查'
 
     const header = (
       <div className="ci-check-run-dialog-header">
@@ -140,7 +140,7 @@ export class PullRequestChecksFailed extends React.Component<
             {this.renderSummary()}
             <OkCancelButtonGroup
               onCancelButtonClick={this.props.onDismissed}
-              cancelButtonText="Dismiss"
+              cancelButtonText="已閱"
               okButtonText={okButtonTitle}
               okButtonDisabled={this.state.switchingToPullRequest}
               onOkButtonClick={this.onSubmit}

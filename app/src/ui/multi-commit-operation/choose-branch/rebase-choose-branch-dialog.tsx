@@ -95,9 +95,9 @@ export class RebaseChooseBranchDialog extends React.Component<
         : false
 
     return selectedBranchIsCurrentBranch
-      ? 'You are not able to rebase this branch onto itself.'
+      ? '無法將該分支變基在自己身上。'
       : !currentBranchIsBehindSelectedBranch
-      ? 'The current branch is already up to date with the selected branch.'
+      ? '當前分支已與所選分支同步。'
       : undefined
   }
 
@@ -148,11 +148,11 @@ export class RebaseChooseBranchDialog extends React.Component<
   }
 
   private renderLoadingRebaseMessage() {
-    return <>Checking for ability to rebase automatically…</>
+    return <>正在檢查變基衝突…</>
   }
 
   private renderInvalidRebaseMessage() {
-    return <>Unable to start rebase. Check you have chosen a valid branch.</>
+    return <>無法啟動變基，請檢查選擇的分支是否有效。</>
   }
 
   private renderCleanRebaseMessage(
@@ -163,7 +163,7 @@ export class RebaseChooseBranchDialog extends React.Component<
   ) {
     // The current branch is behind the base branch
     if (commitsBehindCount > 0 && commitsAheadCount <= 0) {
-      const pluralized = commitsBehindCount === 1 ? 'commit' : 'commits'
+      const pluralized = commitsBehindCount === 1 ? '個提交' : '個提交'
       return (
         <>
           This will fast-forward <strong>{currentBranch.name}</strong> by
@@ -176,7 +176,7 @@ export class RebaseChooseBranchDialog extends React.Component<
 
     // The current branch is behind and ahead of the base branch
     if (commitsBehindCount > 0 && commitsAheadCount > 0) {
-      const pluralized = commitsAheadCount === 1 ? 'commit' : 'commits'
+      const pluralized = commitsAheadCount === 1 ? '個提交' : '個提交'
       return (
         <>
           This will update <strong>{currentBranch.name}</strong>

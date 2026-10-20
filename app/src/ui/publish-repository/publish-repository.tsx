@@ -136,7 +136,7 @@ export class PublishRepository extends React.Component<
 
     return (
       <Select
-        label="Organization"
+        label="組織"
         value={selectedIndex.toString()}
         onChange={this.onOrgChange}
       >
@@ -161,7 +161,7 @@ export class PublishRepository extends React.Component<
 
         <Row>
           <TextBox
-            label="Name"
+            label="名稱"
             value={this.name}
             onValueChanged={this.onNameChange}
           />
@@ -171,7 +171,7 @@ export class PublishRepository extends React.Component<
 
         <Row>
           <TextBox
-            label="Description"
+            label="描述"
             value={this.props.settings.description}
             onValueChanged={this.onDescriptionChange}
           />

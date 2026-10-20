@@ -34,7 +34,7 @@ export class InitializeLFS extends React.Component<IInitializeLFSProps, {}> {
     return (
       <Dialog
         id="initialize-lfs"
-        title="Initialize Git LFS"
+        title="初始化 Git LFS"
         backdropDismissable={false}
         onSubmit={this.onInitialize}
         onDismissed={this.props.onDismissed}
@@ -43,8 +43,8 @@ export class InitializeLFS extends React.Component<IInitializeLFSProps, {}> {
 
         <DialogFooter>
           <OkCancelButtonGroup
-            okButtonText="Initialize Git LFS"
-            cancelButtonText={__DARWIN__ ? 'Not Now' : 'Not now'}
+            okButtonText="執行初始化"
+            cancelButtonText={__DARWIN__ ? '忽略' : '忽略'}
             onCancelButtonClick={this.props.onDismissed}
           />
         </DialogFooter>
@@ -71,7 +71,7 @@ export class InitializeLFS extends React.Component<IInitializeLFSProps, {}> {
       const pluralizedRepositories = plural
         ? 'The repositories use'
         : 'This repository uses'
-      const pluralizedUse = plural ? 'them' : 'it'
+      const pluralizedUse = plural ? '這些儲存庫' : '它'
       return (
         <div>
           <p>

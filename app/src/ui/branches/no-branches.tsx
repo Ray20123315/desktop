@@ -35,7 +35,7 @@ export class NoBranches extends React.Component<INoBranchesProps> {
             onClick={this.props.onCreateNewBranch}
             type="submit"
           >
-            {__DARWIN__ ? 'Create New Branch' : 'Create new branch'}
+            {__DARWIN__ ? '新增分支' : '新增分支'}
           </Button>
 
           <div className="protip">

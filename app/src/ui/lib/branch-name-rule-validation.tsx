@@ -106,7 +106,7 @@ export async function checkBranchNameRules(
 
   return {
     error: new Error(
-      `Branch name '${branchName}' is restricted by repo rules, but you can bypass them. Proceed with caution!`
+      `分支名稱 '${branchName}' 違反儲存庫規則，但是規則允許繞過，請謹慎操作！`
     ),
     isWarning: true,
   }

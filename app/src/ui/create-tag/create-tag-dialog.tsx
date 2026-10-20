@@ -56,7 +56,7 @@ export class CreateTag extends React.Component<
     return (
       <Dialog
         id="create-tag"
-        title={__DARWIN__ ? 'Create a Tag' : 'Create a tag'}
+        title={__DARWIN__ ? '建立標籤' : '建立標籤'}
         onSubmit={this.createTag}
         onDismissed={this.props.onDismissed}
         loading={this.state.isCreatingTag}
@@ -66,7 +66,7 @@ export class CreateTag extends React.Component<
 
         <DialogContent>
           <RefNameTextBox
-            label="Name"
+            label="名稱"
             initialValue={this.props.initialName}
             onValueChange={this.updateTagName}
           />
@@ -76,7 +76,7 @@ export class CreateTag extends React.Component<
 
         <DialogFooter>
           <OkCancelButtonGroup
-            okButtonText={__DARWIN__ ? 'Create Tag' : 'Create tag'}
+            okButtonText={__DARWIN__ ? '建立' : '建立'}
             okButtonDisabled={disabled}
           />
         </DialogFooter>
@@ -96,14 +96,14 @@ export class CreateTag extends React.Component<
       return null
     }
 
-    const title = __DARWIN__ ? 'Previous Tags' : 'Previous tags'
+    const title = __DARWIN__ ? '相關標籤' : '相關標籤'
     const lastThreeTags = previousTags.slice(-3)
 
     return (
       <>
         <p>{title}</p>
         {lastThreeTags.length === 0 ? (
-          <p>{`No matches found for '${tagName}'`}</p>
+          <p>{`未找到與 '${tagName}' 相關的標籤`}</p>
         ) : (
           lastThreeTags.map((item: string, index: number) => (
             <Ref key={index}>{item}</Ref>

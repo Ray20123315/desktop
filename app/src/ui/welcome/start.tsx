@@ -28,7 +28,7 @@ export class Start extends React.Component<IStartProps, {}> {
     return (
       <section
         id="start"
-        aria-label="Welcome to GitHub Desktop"
+        aria-label="歡迎使用 GitHub Desktop"
         aria-describedby="start-description"
       >
         <div className="start-content">
@@ -61,7 +61,7 @@ export class Start extends React.Component<IStartProps, {}> {
               <Octicon symbol={octicons.linkExternal} />
             </Button>
             {this.props.loadingBrowserAuth ? (
-              <Button onClick={this.cancelBrowserAuth}>Cancel</Button>
+              <Button onClick={this.cancelBrowserAuth}>取消</Button>
             ) : (
               <Button onClick={this.signInToEnterprise}>
                 Sign in to GitHub Enterprise

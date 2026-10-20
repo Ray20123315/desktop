@@ -279,7 +279,7 @@ export class CICheckRunPopover extends React.PureComponent<
   ): JSX.Element {
     switch (true) {
       case loading:
-        return <>Checks Summary</>
+        return <>檢查情況</>
       case somePendingNoFailures:
         return (
           <span className="pending">Some checks haven't completed yet</span>
@@ -287,7 +287,7 @@ export class CICheckRunPopover extends React.PureComponent<
       case allFailure:
         return <span className="failure">All checks have failed</span>
       case allSuccess:
-        return <>All checks have passed</>
+        return <>所有檢查都已透過</>
     }
 
     return <span className="failure">Some checks were not successful</span>

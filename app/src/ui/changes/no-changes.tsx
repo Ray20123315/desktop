@@ -210,11 +210,11 @@ export class NoChanges extends React.Component<
 
   private getPlatformFileManagerName() {
     if (__DARWIN__) {
-      return 'Finder'
+      return '訪達'
     } else if (__WIN32__) {
-      return 'Explorer'
+      return '檔案總管'
     }
-    return 'your File Manager'
+    return '檔案總管'
   }
 
   private renderDiscoverabilityElements(menuItem: IMenuItemInfo) {
@@ -268,7 +268,7 @@ export class NoChanges extends React.Component<
 
     return this.renderMenuBackedAction(
       'open-working-directory',
-      `View the files of your repository in ${fileManager}`,
+      `在${fileManager}中檢視儲存庫檔案`,
       undefined,
       this.onShowInFileManagerClicked
     )
@@ -286,7 +286,7 @@ export class NoChanges extends React.Component<
 
     return this.renderMenuBackedAction(
       'view-repository-on-github',
-      `Open the repository page on GitHub in your browser`,
+      `在瀏覽器中開啟儲存庫的 GitHub 主頁`,
       undefined,
       this.onViewOnGitHubClicked
     )
@@ -322,13 +322,13 @@ export class NoChanges extends React.Component<
       return null
     }
 
-    const title = `Open the repository in your external editor`
+    const title = `在程式碼編輯器中開啟儲存庫`
 
     const description = (
       <>
         Select your editor in{' '}
         <LinkButton onClick={this.openIntegrationPreferences}>
-          {__DARWIN__ ? 'Settings' : 'Options'}
+          {__DARWIN__ ? '設定' : '設定'}
         </LinkButton>
       </>
     )
@@ -435,11 +435,11 @@ export class NoChanges extends React.Component<
     return (
       <MenuBackedSuggestedAction
         key="view-stash-action"
-        title="View your stashed changes"
+        title="變更已暫存"
         menuItemId={itemId}
         description={description}
         discoverabilityContent={discoverabilityContent}
-        buttonText="View stash"
+        buttonText="檢視暫存區"
         type="primary"
         disabled={menuItem !== null && !menuItem.enabled}
         onClick={this.onViewStashClicked}
@@ -473,10 +473,10 @@ export class NoChanges extends React.Component<
     return (
       <MenuBackedSuggestedAction
         key="publish-repository-action"
-        title="Publish your repository to GitHub"
-        description="This repository is currently only available on your local machine. By publishing it on GitHub you can share it, and collaborate with others."
+        title="將儲存庫釋出到 GitHub"
+        description="該儲存庫當前儲存在電腦上由您獨享。如果釋出到 GitHub 上，您就可以分享您的程式碼，與他人合作開發。"
         discoverabilityContent={discoverabilityContent}
-        buttonText="Publish repository"
+        buttonText="釋出儲存庫"
         menuItemId={itemId}
         type="primary"
         disabled={!menuItem.enabled}
@@ -522,11 +522,11 @@ export class NoChanges extends React.Component<
     return (
       <MenuBackedSuggestedAction
         key="publish-branch-action"
-        title="Publish your branch"
+        title="釋出您的分支"
         menuItemId={itemId}
         description={description}
         discoverabilityContent={discoverabilityContent}
-        buttonText="Publish branch"
+        buttonText="釋出分支"
         type="primary"
         disabled={!menuItem.enabled}
         onClick={this.onPublishBranchClicked}
@@ -573,7 +573,7 @@ export class NoChanges extends React.Component<
       aheadBehind.behind === 1 ? 'commit' : 'commits'
     } from the ${remote.name} remote`
 
-    const buttonText = `Pull ${remote.name}`
+    const buttonText = `提取 ${remote.name}`
 
     return (
       <MenuBackedSuggestedAction
@@ -609,20 +609,20 @@ export class NoChanges extends React.Component<
     const itemsToPushDescriptions = []
 
     if (aheadBehind.ahead > 0) {
-      itemsToPushTypes.push('commits')
+      itemsToPushTypes.push('提交')
       itemsToPushDescriptions.push(
         aheadBehind.ahead === 1
-          ? '1 local commit'
-          : `${formatNumber(aheadBehind.ahead)} local commits`
+          ? '1個本地提交'
+          : `${formatNumber(aheadBehind.ahead)}個本地提交`
       )
     }
 
     if (tagsToPush !== null && tagsToPush.length > 0) {
-      itemsToPushTypes.push('tags')
+      itemsToPushTypes.push('標籤')
       itemsToPushDescriptions.push(
         tagsToPush.length === 1
-          ? '1 tag'
-          : `${formatNumber(tagsToPush.length)} tags`
+          ? '1個標籤'
+          : `${formatNumber(tagsToPush.length)}個標籤`
       )
     }
 
@@ -641,7 +641,7 @@ export class NoChanges extends React.Component<
       remote.name
     } remote`
 
-    const buttonText = `Push ${remote.name}`
+    const buttonText = `推送 ${remote.name}`
 
     return (
       <MenuBackedSuggestedAction
@@ -678,8 +678,8 @@ export class NoChanges extends React.Component<
       </>
     )
 
-    const title = `Create a Pull Request from your current branch`
-    const buttonText = `Create Pull Request`
+    const title = `從當前分支建立Pull Request`
+    const buttonText = `建立Pull Request`
 
     const previewPullMenuItem = this.getMenuItemInfo('preview-pull-request')
 
@@ -701,8 +701,8 @@ export class NoChanges extends React.Component<
     }
 
     const previewPullRequestAction: IDropdownSuggestedActionOption = {
-      title: `Preview the Pull Request from your current branch`,
-      label: 'Preview Pull Request',
+      title: `預覽當前分支的Pull Request`,
+      label: '預覽Pull Request',
       description: (
         <>
           The current branch (<Ref>{tip.branch.name}</Ref>) is already published
@@ -769,7 +769,7 @@ export class NoChanges extends React.Component<
         <div className="content">
           <div className="interstitial-header">
             <div className="text">
-              <h1>No local changes</h1>
+              <h1>無本地變更</h1>
               <p>
                 There are no uncommitted changes in this repository. Here are
                 some friendly suggestions for what to do next.

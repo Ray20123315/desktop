@@ -41,13 +41,13 @@ export class StashDiffHeader extends React.Component<
 
     return (
       <div className="header">
-        <h3>Stashed changes</h3>
+        <h3>暫存的變更</h3>
         <div className="row">
           <OkCancelButtonGroup
-            okButtonText="Restore"
+            okButtonText="恢復"
             okButtonDisabled={isRestoring || isDiscarding}
             onOkButtonClick={this.onRestoreClick}
-            cancelButtonText="Discard"
+            cancelButtonText="放棄"
             cancelButtonDisabled={isRestoring || isDiscarding}
             onCancelButtonClick={this.onDiscardClick}
             okButtonAriaDescribedBy="restore-description"

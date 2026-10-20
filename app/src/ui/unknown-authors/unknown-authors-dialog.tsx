@@ -26,7 +26,7 @@ export class UnknownAuthors extends React.Component<IUnknownAuthorsProps> {
     return (
       <Dialog
         id="unknown-authors"
-        title={__DARWIN__ ? 'Unknown Co-Authors' : 'Unknown co-authors'}
+        title={__DARWIN__ ? '未知協作者' : '未知協作者'}
         onDismissed={this.props.onDismissed}
         onSubmit={this.commit}
         type="warning"
@@ -36,7 +36,7 @@ export class UnknownAuthors extends React.Component<IUnknownAuthorsProps> {
         <DialogFooter>
           <OkCancelButtonGroup
             destructive={true}
-            okButtonText={__DARWIN__ ? 'Commit Anyway' : 'Commit anyway'}
+            okButtonText={__DARWIN__ ? '仍要提交' : '仍要提交'}
           />
         </DialogFooter>
       </Dialog>

@@ -63,7 +63,7 @@ export class CommitConflictsWarning extends React.Component<
         id="commit-conflict-markers-warning"
         onDismissed={this.onCancel}
         onSubmit={this.onSubmit}
-        title={'Confirm committing conflicted files'}
+        title={'確定提交衝突檔案'}
         type={'warning'}
       >
         <DialogContent>
@@ -72,7 +72,7 @@ export class CommitConflictsWarning extends React.Component<
             conflicted files into your repository:
           </p>
           {this.renderFiles(this.props.files)}
-          <p>Are you sure you want to commit these conflicted files?</p>
+          <p>確定要提交這些有衝突的檔案嗎？</p>
         </DialogContent>
         <DialogFooter>
           <OkCancelButtonGroup

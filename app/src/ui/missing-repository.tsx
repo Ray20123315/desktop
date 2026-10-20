@@ -100,7 +100,7 @@ export class MissingRepository extends React.Component<
           disabled={this.state.isTrustingPath}
         >
           {this.state.isTrustingPath && <Loading />}
-          {__DARWIN__ ? 'Trust Repository' : 'Trust repository'}
+          {__DARWIN__ ? '信任該儲存庫' : '信任該儲存庫'}
         </Button>
       )
     }

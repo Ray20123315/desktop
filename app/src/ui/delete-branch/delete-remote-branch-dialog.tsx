@@ -33,7 +33,7 @@ export class DeleteRemoteBranch extends React.Component<
     return (
       <Dialog
         id="delete-branch"
-        title={__DARWIN__ ? 'Delete Remote Branch' : 'Delete remote branch'}
+        title={__DARWIN__ ? '刪除遠端分支' : '刪除遠端分支'}
         type="warning"
         onSubmit={this.deleteBranch}
         onDismissed={this.props.onDismissed}
@@ -47,7 +47,7 @@ export class DeleteRemoteBranch extends React.Component<
             <p>
               Delete remote branch <Ref>{this.props.branch.name}</Ref>?
             </p>
-            <p>This action cannot be undone.</p>
+            <p>該操作不可逆。</p>
 
             <p>
               This branch does not exist locally. Deleting it may impact others
@@ -56,7 +56,7 @@ export class DeleteRemoteBranch extends React.Component<
           </div>
         </DialogContent>
         <DialogFooter>
-          <OkCancelButtonGroup destructive={true} okButtonText="Delete" />
+          <OkCancelButtonGroup destructive={true} okButtonText="刪除" />
         </DialogFooter>
       </Dialog>
     )

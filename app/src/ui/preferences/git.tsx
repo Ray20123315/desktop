@@ -77,7 +77,7 @@ export class Git extends React.Component<IGitProps> {
     return (
       <>
         <Checkbox
-          label="Load Git hook environment variables from shell"
+          label="從 Shell 載入掛鉤環境變數"
           ariaDescribedBy="git-hooks-env-description"
           value={
             this.props.enableGitHookEnv ? CheckboxValue.On : CheckboxValue.Off
@@ -96,7 +96,7 @@ export class Git extends React.Component<IGitProps> {
           <>
             <Select
               className="git-hook-shell-select"
-              label={'Shell to use when loading environment'}
+              label={'載入環境變數用的 Shell'}
               value={this.props.selectedShell}
               onChange={this.onSelectedShellChanged}
             >
@@ -114,7 +114,7 @@ export class Git extends React.Component<IGitProps> {
         {this.props.enableGitHookEnv && (
           <>
             <Checkbox
-              label="Cache Git hook environment variables"
+              label="快取環境變數"
               ariaDescribedBy="git-hooks-cache-description"
               onChange={this.onCacheGitHookEnvChanged}
               value={
@@ -144,9 +144,9 @@ export class Git extends React.Component<IGitProps> {
           selectedIndex={this.selectedTabIndex}
           onTabClicked={this.onTabClicked}
         >
-          <span>Author</span>
-          <span>Default branch</span>
-          <span>Hooks</span>
+          <span>作者</span>
+          <span>預設分支</span>
+          <span>掛鉤</span>
         </TabBar>
         <div className="git-preferences-content">{this.renderCurrentTab()}</div>
       </DialogContent>
@@ -193,7 +193,7 @@ export class Git extends React.Component<IGitProps> {
           onValueChange={this.props.onDefaultBranchChanged}
           ariaLabelledBy={'default-branch-heading'}
           ariaDescribedBy="default-branch-description"
-          warningMessageVerb="saved"
+          warningMessageVerb="記錄"
         />
 
         <p id="default-branch-description" className="settings-description">

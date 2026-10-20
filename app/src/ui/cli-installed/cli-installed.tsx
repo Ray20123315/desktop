@@ -26,7 +26,7 @@ export class CLIInstalled extends React.Component<ICLIInstalledProps, {}> {
             <strong>{InstalledCLIPath}</strong>.
           </div>
         </DialogContent>
-        <DefaultDialogFooter buttonText="Ok" />
+        <DefaultDialogFooter buttonText="好的" />
       </Dialog>
     )
   }

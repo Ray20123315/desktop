@@ -136,11 +136,11 @@ export class DiffOptions extends React.Component<
   private renderShowSideBySide() {
     return (
       <fieldset role="radiogroup">
-        <legend>Diff display</legend>
+        <legend>顯示方式</legend>
         <RadioButton
           value="Unified"
           checked={!this.props.showSideBySideDiff}
-          label="Unified"
+          label="同屏"
           onSelected={this.onUnifiedSelected}
         />
         <RadioButton
@@ -148,7 +148,7 @@ export class DiffOptions extends React.Component<
           checked={this.props.showSideBySideDiff}
           label={
             <>
-              <div>Split</div>
+              <div>分屏</div>
             </>
           }
           onSelected={this.onSideBySideSelected}
@@ -160,7 +160,7 @@ export class DiffOptions extends React.Component<
   private renderHideWhitespaceChanges() {
     return (
       <fieldset>
-        <legend>Whitespace</legend>
+        <legend>空白字元</legend>
         <Checkbox
           value={
             this.props.hideWhitespaceChanges

@@ -13,7 +13,7 @@ export function generatePullRequestContextMenuItems(
 
   if (onViewPullRequestOnGitHub !== undefined) {
     items.push({
-      label: 'View Pull Request on GitHub',
+      label: '前往 GitHub 檢視Pull Request',
       action: () => onViewPullRequestOnGitHub(),
     })
   }

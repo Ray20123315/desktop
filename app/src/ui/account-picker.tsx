@@ -145,7 +145,7 @@ export class AccountPicker extends React.Component<
     return (
       <PopoverDropdown
         className="account-picker"
-        contentTitle="Choose an account"
+        contentTitle="選擇賬號"
         buttonContent={
           <div className="account">
             <span className="login">@{account.login}</span> -{' '}
@@ -154,7 +154,7 @@ export class AccountPicker extends React.Component<
             </span>
           </div>
         }
-        label="Account"
+        label="賬號"
         ref={this.popoverRef}
         openButtonClassName={this.props.openButtonClassName}
       >

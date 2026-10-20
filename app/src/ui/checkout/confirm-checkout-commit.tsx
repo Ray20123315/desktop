@@ -36,7 +36,7 @@ export class ConfirmCheckoutCommitDialog extends React.Component<
   }
 
   public render() {
-    const title = __DARWIN__ ? 'Checkout Commit?' : 'Checkout commit?'
+    const title = __DARWIN__ ? '檢出該提交？' : '檢出該提交？'
 
     return (
       <Dialog
@@ -58,7 +58,7 @@ export class ConfirmCheckoutCommitDialog extends React.Component<
           </Row>
           <Row>
             <Checkbox
-              label="Do not show this message again"
+              label="不再顯示"
               value={
                 this.state.confirmCheckoutCommit
                   ? CheckboxValue.Off
@@ -69,7 +69,7 @@ export class ConfirmCheckoutCommitDialog extends React.Component<
           </Row>
         </DialogContent>
         <DialogFooter>
-          <OkCancelButtonGroup destructive={true} okButtonText="Checkout" />
+          <OkCancelButtonGroup destructive={true} okButtonText="檢出" />
         </DialogFooter>
       </Dialog>
     )

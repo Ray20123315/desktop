@@ -121,7 +121,7 @@ export function renderBanner(
         />
       )
     case BannerType.SquashUndone: {
-      const pluralized = banner.commitsCount === 1 ? 'commit' : 'commits'
+      const pluralized = banner.commitsCount === 1 ? '提交' : '提交'
       return (
         <SuccessBanner
           key="squash-undone"
@@ -133,7 +133,7 @@ export function renderBanner(
       )
     }
     case BannerType.SuccessfulReorder: {
-      const pluralized = banner.count === 1 ? 'commit' : 'commits'
+      const pluralized = banner.count === 1 ? '提交' : '提交'
 
       return (
         <SuccessBanner
@@ -149,7 +149,7 @@ export function renderBanner(
       )
     }
     case BannerType.ReorderUndone: {
-      const pluralized = banner.commitsCount === 1 ? 'commit' : 'commits'
+      const pluralized = banner.commitsCount === 1 ? '提交' : '提交'
       return (
         <SuccessBanner
           key="reorder-undone"

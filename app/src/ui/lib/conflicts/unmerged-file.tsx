@@ -30,7 +30,7 @@ import {
 import { revealInFileManager } from '../../../lib/app-shell'
 import { DialogPreferredFocusClassName } from '../../dialog'
 
-const defaultConflictsResolvedMessage = 'No conflicts remaining'
+const defaultConflictsResolvedMessage = '所有衝突都已解決'
 
 /**
  * Renders an unmerged file status and associated buttons for the merge conflicts modal
@@ -205,7 +205,7 @@ const renderManualConflictedFile: React.FunctionComponent<{
   let conflictTypeString = manualConflictString
 
   if ([entry.us, entry.them].includes(GitStatusEntry.Deleted)) {
-    let targetBranch = 'target branch'
+    let targetBranch = '目標分支'
     if (entry.us === GitStatusEntry.Deleted && ourBranch !== undefined) {
       targetBranch = ourBranch
     }
@@ -321,7 +321,7 @@ const renderConflictedFileWithConflictMarkers: React.FunctionComponent<{
           onClick={onDropdownClick}
           onKeyDown={onDropdownKeyDown}
           className="small-button button-group-item arrow-menu"
-          ariaLabel="File resolution options"
+          ariaLabel="解決檔案衝突選項"
           ariaHaspopup="menu"
           ariaExpanded={props.isFileResolutionOptionsMenuOpen}
         >
@@ -520,7 +520,7 @@ function calculateConflicts(conflictMarkers: number) {
 }
 
 function editorButtonString(editorName: string | null): string {
-  const defaultEditorString = 'editor'
+  const defaultEditorString = '編輯器'
   return `Open in ${editorName || defaultEditorString}`
 }
 
@@ -531,10 +531,10 @@ function editorButtonTooltip(editorName: string | null): string | undefined {
   }
 
   if (__DARWIN__) {
-    return `No editor configured in Preferences > Advanced`
+    return `在設定 > 高階裡未選擇編輯器`
   } else {
-    return `No editor configured in Options > Advanced`
+    return `在設定 > 高階裡未選擇編輯器`
   }
 }
 
-const manualConflictString = 'Manual conflict'
+const manualConflictString = '手動衝突'

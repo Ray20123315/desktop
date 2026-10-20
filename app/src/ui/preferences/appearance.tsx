@@ -180,7 +180,7 @@ export class Appearance extends React.Component<
     const selectedTheme = this.state.selectedTheme
 
     if (selectedTheme == null) {
-      return <Row>Loading system theme</Row>
+      return <Row>正在載入系統主題</Row>
     }
 
     const themes = [
@@ -216,7 +216,7 @@ export class Appearance extends React.Component<
 
         <Row>
           <Select
-            label={__DARWIN__ ? 'Date Format' : 'Date format'}
+            label={__DARWIN__ ? '日期格式' : '日期格式'}
             value={this.props.selectedDateFormat}
             onChange={this.onDateFormatChanged}
           >
@@ -228,7 +228,7 @@ export class Appearance extends React.Component<
           </Select>
 
           <Select
-            label={__DARWIN__ ? 'Time Format' : 'Time format'}
+            label={__DARWIN__ ? '時間格式' : '時間格式'}
             value={this.props.selectedTimeFormat}
             onChange={this.onTimeFormatChanged}
           >
@@ -241,7 +241,7 @@ export class Appearance extends React.Component<
         </Row>
 
         <Select
-          label={__DARWIN__ ? 'Number Format' : 'Number format'}
+          label={__DARWIN__ ? '數字格式' : '數字格式'}
           value={numberFormatToKey(this.props.selectedNumberFormat)}
           onChange={this.onNumberFormatChanged}
         >
@@ -257,7 +257,7 @@ export class Appearance extends React.Component<
 
         <Checkbox
           className="prefer-absolute-dates"
-          label="Prefer absolute dates over relative"
+          label="優先顯示絕對日期"
           value={
             this.props.preferAbsoluteDates
               ? CheckboxValue.On
@@ -278,12 +278,12 @@ export class Appearance extends React.Component<
 
         <Select
           value={this.state.selectedTabSize.toString()}
-          label={__DARWIN__ ? 'Diff Tab Size' : 'Diff tab size'}
+          label={__DARWIN__ ? '製表符寬度' : '製表符寬度'}
           onChange={this.onSelectedTabSizeChanged}
         >
           {availableTabSizes.map(n => (
             <option key={n} value={n}>
-              {n === tabSizeDefault ? `${n} (default)` : n}
+              {n === tabSizeDefault ? `${n}（預設）` : n}
             </option>
           ))}
         </Select>

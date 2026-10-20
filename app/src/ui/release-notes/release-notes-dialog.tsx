@@ -60,9 +60,9 @@ export class ReleaseNotes extends React.Component<IReleaseNotesProps, {}> {
     return (
       <div className="container">
         <div className="column">
-          {this.renderList(release.bugfixes, 'Bugfixes')}
-          {this.renderList(release.enhancements, 'Enhancements')}
-          {this.renderList(release.other, 'Other')}
+          {this.renderList(release.bugfixes, '問題修復')}
+          {this.renderList(release.enhancements, '功能增強')}
+          {this.renderList(release.other, '其他')}
         </div>
       </div>
     )
@@ -72,11 +72,11 @@ export class ReleaseNotes extends React.Component<IReleaseNotesProps, {}> {
     return (
       <div className="container">
         <div className="column">
-          {this.renderList(release.enhancements, 'Enhancements')}
-          {this.renderList(release.other, 'Other')}
+          {this.renderList(release.enhancements, '功能增強')}
+          {this.renderList(release.other, '其他')}
         </div>
         <div className="column">
-          {this.renderList(release.bugfixes, 'Bugfixes')}
+          {this.renderList(release.bugfixes, '問題修復')}
         </div>
       </div>
     )
@@ -101,7 +101,7 @@ export class ReleaseNotes extends React.Component<IReleaseNotesProps, {}> {
 
     return {
       latestVersion: `${oldestRelease.latestVersion} - ${latestRelease.latestVersion}`,
-      datePublished: `${oldestRelease.datePublished} to ${latestRelease.datePublished}`,
+      datePublished: `${oldestRelease.datePublished} 至 ${latestRelease.datePublished}`,
       enhancements: newReleases.flatMap(r => r.enhancements),
       bugfixes: newReleases.flatMap(r => r.bugfixes),
       pretext: newReleases.flatMap(r => r.pretext),
@@ -147,7 +147,7 @@ export class ReleaseNotes extends React.Component<IReleaseNotesProps, {}> {
         okButtonText={
           __DARWIN__ ? 'Install and Restart' : 'Install and restart'
         }
-        cancelButtonText="Close"
+        cancelButtonText="關閉"
       />
     )
   }

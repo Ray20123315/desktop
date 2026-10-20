@@ -179,10 +179,10 @@ export class RepositoriesList extends React.Component<
     }
 
     return (
-      'The currently checked out branch is' +
-      (behind ? ` ${commitGrammar(behind)} behind ` : '') +
+      '它比跟蹤分支' +
+      (behind ? `落後${commitGrammar(behind)}` : '') +
       (behind && ahead ? 'and' : '') +
-      (ahead ? ` ${commitGrammar(ahead)} ahead of ` : '') +
+      (ahead ? `領先${commitGrammar(ahead)}` : '') +
       'its tracked branch.'
     )
   }
@@ -245,11 +245,11 @@ export class RepositoriesList extends React.Component<
     if (kind === 'enterprise') {
       return group.host
     } else if (kind === 'other') {
-      return 'Other'
+      return '其他來源'
     } else if (kind === 'dotcom') {
       return group.owner.login
     } else if (kind === 'recent') {
-      return 'Recent'
+      return '最近'
     } else {
       assertNever(kind, `Unknown repository group kind ${kind}`)
     }
@@ -417,11 +417,11 @@ export class RepositoriesList extends React.Component<
   private onNewRepositoryButtonClick = () => {
     const items: IMenuItem[] = [
       {
-        label: __DARWIN__ ? 'Clone Repository…' : 'Clone repository…',
+        label: __DARWIN__ ? '複製線上儲存庫…' : '複製線上儲存庫…',
         action: this.onCloneRepository,
       },
       {
-        label: __DARWIN__ ? 'Create New Repository…' : 'Create new repository…',
+        label: __DARWIN__ ? '新增儲存庫…' : '新增儲存庫…',
         action: this.onCreateNewRepository,
       },
       {

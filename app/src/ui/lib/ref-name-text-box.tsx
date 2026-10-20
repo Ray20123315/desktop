@@ -213,7 +213,7 @@ export class RefNameTextBox extends React.Component<
           id="branch-name-error"
           className="warning-helper-text"
           trackedUserInput={proposedValue}
-          ariaLiveMessage={`Error: ${proposedValue} is not a valid name.`}
+          ariaLiveMessage={`錯誤：名稱 ${proposedValue} 無效。`}
         >
           <Ref>{proposedValue}</Ref> is not a valid name.
         </InputError>
@@ -234,7 +234,7 @@ export class RefNameTextBox extends React.Component<
 
   private getWarningMessageAsString(sanitizedValue: string): string {
     return `Warning: Will be ${
-      this.props.warningMessageVerb ?? 'created '
+      this.props.warningMessageVerb ?? '命名'
     } as ${sanitizedValue}. Spaces and invalid characters have been replaced by hyphens.`
   }
 

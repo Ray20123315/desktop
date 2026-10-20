@@ -23,13 +23,13 @@ export class DeletePullRequest extends React.Component<IDeleteBranchProps, {}> {
     return (
       <Dialog
         id="delete-branch"
-        title={__DARWIN__ ? 'Delete Branch' : 'Delete branch'}
+        title={__DARWIN__ ? '刪除分支' : '刪除分支'}
         type="warning"
         onDismissed={this.props.onDismissed}
         onSubmit={this.deleteBranch}
       >
         <DialogContent>
-          <p>This branch may have an open pull request associated with it.</p>
+          <p>注意該分支所關聯的Pull Request尚未關閉。</p>
           <p>
             If{' '}
             <LinkButton onClick={this.openPullRequest}>
@@ -40,7 +40,7 @@ export class DeletePullRequest extends React.Component<IDeleteBranchProps, {}> {
           </p>
         </DialogContent>
         <DialogFooter>
-          <OkCancelButtonGroup destructive={true} okButtonText="Delete" />
+          <OkCancelButtonGroup destructive={true} okButtonText="刪除" />
         </DialogFooter>
       </Dialog>
     )

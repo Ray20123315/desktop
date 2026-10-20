@@ -99,7 +99,7 @@ export class CommitDragElement extends React.Component<
         const commitsBeingSquashedCount = this.props.selectedCommits.length + 1
         toolTipContents = (
           <>
-            <span>Squash {commitsBeingSquashedCount} commits</span>
+            <span>壓縮這{commitsBeingSquashedCount}個提交</span>
           </>
         )
         break
@@ -107,17 +107,17 @@ export class CommitDragElement extends React.Component<
         if (currentDropTarget.data.type !== DragType.Commit) {
           toolTipContents = (
             <>
-              <span>'Insert here'</span>
+              <span>'插入此處'</span>
             </>
           )
           break
         }
 
         const pluralized =
-          currentDropTarget.data.commits.length === 1 ? 'commit' : 'commits'
+          currentDropTarget.data.commits.length === 1 ? '這個提交' : '這些提交'
         toolTipContents = (
           <>
-            <span>{`Move ${pluralized} here`}</span>
+            <span>{`移動${pluralized}到此處`}</span>
           </>
         )
         break

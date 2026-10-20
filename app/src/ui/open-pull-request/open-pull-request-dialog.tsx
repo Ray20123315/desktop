@@ -220,7 +220,7 @@ export class OpenPullRequestDialog extends React.Component<IOpenPullRequestDialo
       <div className="open-pull-request-message">
         <div>
           <Octicon symbol={octicons.gitPullRequest} />
-          <h3>There are no changes.</h3>
+          <h3>沒有變更。</h3>
           {message}
         </div>
       </div>
@@ -238,7 +238,7 @@ export class OpenPullRequestDialog extends React.Component<IOpenPullRequestDialo
       <div className="open-pull-request-message">
         <div>
           <Octicon symbol={octicons.gitPullRequest} />
-          <h3>Could not find a default branch to compare against.</h3>
+          <h3>找不到預設分支來比較。</h3>
           Select a base branch above.
         </div>
       </div>
@@ -253,9 +253,9 @@ export class OpenPullRequestDialog extends React.Component<IOpenPullRequestDialo
     const isEnterprise =
       gitHubRepository && gitHubRepository.endpoint !== getDotComAPIEndpoint()
 
-    const viewCreate = currentBranchHasPullRequest ? 'View' : ' Create'
+    const viewCreate = currentBranchHasPullRequest ? '檢視' : ' 建立'
     const buttonTitle = `${viewCreate} pull request on GitHub${
-      isEnterprise ? ' Enterprise' : ''
+      isEnterprise ? ' 企業版' : ''
     }.`
 
     const okButton = (
@@ -276,7 +276,7 @@ export class OpenPullRequestDialog extends React.Component<IOpenPullRequestDialo
         <OkCancelButtonGroup
           okButtonText={okButton}
           okButtonTitle={buttonTitle}
-          cancelButtonText="Cancel"
+          cancelButtonText="取消"
           okButtonDisabled={commitSHAs === null || commitSHAs.length === 0}
         />
       </DialogFooter>

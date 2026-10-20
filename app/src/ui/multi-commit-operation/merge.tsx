@@ -91,7 +91,7 @@ export abstract class Merge extends BaseMultiCommitOperation {
         'anyConflictsLeftOnMergeConflictsDialogDismissalCount'
       )
     }
-    this.onInvokeConflictsDialogDismissed('merge into')
+    this.onInvokeConflictsDialogDismissed('合併到')
   }
 
   protected renderChooseBranch = (): JSX.Element | null => {
