@@ -95,7 +95,7 @@ export function getWindowsDeltaNugetPackagePath() {
 }
 
 export function getWindowsIdentifierName() {
-  return 'GitHubDesktop'
+  return 'GitHubDesktopTW'
 }
 
 export function getBundleSizes() {
