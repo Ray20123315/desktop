@@ -1,0 +1,53 @@
+name: Import reviewed Traditional Chinese UI strings
+
+on:
+  push:
+    branches:
+      - zh-tw-full-ui
+    paths:
+      - .github/workflows/import-community-zh-tw.yml
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout translation work branch
+        uses: actions/checkout@v4
+        with:
+          ref: zh-tw-full-ui
+          fetch-depth: 1
+
+      - name: Checkout pinned read-only community localization
+        uses: actions/checkout@v4
+        with:
+          repository: zetaloop/desktop
+          ref: d28f9aa61997d91f53fd85579b5e7bb18cdeffbe
+          path: localization-reference
+          persist-credentials: false
+
+      - name: Configure OpenCC for traditional Taiwan vocabulary
+        run: python3 -m pip install opencc-python-reimplemented
+
+      - name: Apply text-only translation matches
+        run: python3 script/localize-zh-tw-from-community.py app/src localization-reference/app/src
+
+      - name: Reject invalid whitespace or patch errors
+        run: git diff --check
+
+      - name: Commit translated UI source files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/src/ui
+          if git diff --cached --quiet; then
+            echo "No translation changes to commit"
+          else
+            git commit -m "Translate aligned GitHub Desktop UI text to Taiwan Traditional Chinese"
+            git push origin HEAD:zh-tw-full-ui
+          fi
