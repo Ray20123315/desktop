@@ -603,7 +603,10 @@ export function buildDefaultMenuTemplate({
     showLogsItem,
   ]
 
-  helpItems.push(...buildTestMenu())
+  // Keep developer-only crash/debug commands out of installable zh-TW builds.
+  if (process.env.GITHUB_DESKTOP_PREVIEW_FEATURES === '1') {
+    helpItems.push(...buildTestMenu())
+  }
 
   if (__DARWIN__) {
     template.push({
