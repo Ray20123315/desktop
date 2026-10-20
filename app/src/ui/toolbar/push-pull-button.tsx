@@ -161,7 +161,7 @@ function renderLastFetched(lastFetched: Date | null): JSX.Element | string {
   if (lastFetched) {
     return (
       <span>
-        Last fetched <RelativeTime date={lastFetched} />
+        上次擷取時間：<RelativeTime date={lastFetched} />
       </span>
     )
   } else {
