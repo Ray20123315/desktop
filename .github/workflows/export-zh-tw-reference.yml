@@ -1,0 +1,32 @@
+name: Export zh-TW localization reference
+on:
+  push:
+    branches:
+      - zh-tw
+    paths:
+      - .github/workflows/export-zh-tw-reference.yml
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout current Desktop fork
+        uses: actions/checkout@v4
+      - name: Checkout read-only community Chinese translation reference
+        uses: actions/checkout@v4
+        with:
+          repository: zetaloop/desktop
+          ref: d28f9aa61997d91f53fd85579b5e7bb18cdeffbe
+          path: reference-l10n
+          persist-credentials: false
+      - name: Package only source text for comparison
+        run: tar -czf translation-source.tar.gz app/src reference-l10n/app/src
+      - name: Upload source reference
+        uses: actions/upload-artifact@v4
+        with:
+          name: localization-source-reference
+          path: translation-source.tar.gz
+          retention-days: 1
+          if-no-files-found: error
