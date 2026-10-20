@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - zh-tw
+      - zh-tw-full-ui
   workflow_dispatch:
 
 permissions:
@@ -28,6 +29,11 @@ jobs:
 
       - name: Validate translation and menu behavior
         run: yarn test:unit app/test/unit/main-process/menu-localization-test.ts app/test/unit/main-process/menu-test.ts
+        env:
+          RELEASE_CHANNEL: development
+
+      - name: Run full unit test suite
+        run: yarn test:unit
         env:
           RELEASE_CHANNEL: development
 
