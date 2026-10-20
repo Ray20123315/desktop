@@ -1,5 +1,6 @@
 import { Menu, shell, app, BrowserWindow } from 'electron'
 import { ensureItemIds } from './ensure-item-ids'
+import { localizeMenuTemplate } from './localize-menu-zh-tw'
 import { MenuEvent } from './menu-event'
 import { truncateWithEllipsis } from '../../lib/truncate-with-ellipsis'
 import { getLogDirectoryPath } from '../../lib/logging/get-log-path'
@@ -625,6 +626,10 @@ export function buildDefaultMenuTemplate({
   }
 
   ensureItemIds(template)
+
+  if (__WIN32__) {
+    localizeMenuTemplate(template)
+  }
 
   return template
 }
