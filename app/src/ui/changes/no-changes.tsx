@@ -326,10 +326,11 @@ export class NoChanges extends React.Component<
 
     const description = (
       <>
-        Select your editor in{' '}
+        請在{' '}
         <LinkButton onClick={this.openIntegrationPreferences}>
           {__DARWIN__ ? '設定' : '設定'}
         </LinkButton>
+        {' '}中選擇程式碼編輯器。
       </>
     )
 
@@ -771,8 +772,7 @@ export class NoChanges extends React.Component<
             <div className="text">
               <h1>沒有本機變更</h1>
               <p>
-                There are no uncommitted changes in this repository. Here are
-                some friendly suggestions for what to do next.
+                這個儲存庫沒有尚未提交的變更。以下是你接下來可以進行的操作。
               </p>
             </div>
             <img src={PaperStackImage} className="blankslate-image" alt="" />

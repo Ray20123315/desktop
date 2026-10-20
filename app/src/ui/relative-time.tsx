@@ -72,7 +72,7 @@ export function getRelativeTimeInfoFromDate(
   } else if (duration < MINUTE) {
     return {
       absoluteText,
-      relativeText: '此刻',
+      relativeText: '剛剛',
       duration: MINUTE - duration,
     }
   } else if (duration < HOUR) {

@@ -892,8 +892,8 @@ export class CommitMessage extends React.Component<
 
     return {
       label: __DARWIN__
-        ? 'Generate Commit Message with Copilot'
-        : 'Generate commit message with Copilot',
+        ? '使用 Copilot 產生提交訊息'
+        : '使用 Copilot 產生提交訊息',
       action: () => {
         const { commitMessage } = this.state
         onGenerateCommitMessage(
@@ -1006,17 +1006,17 @@ export class CommitMessage extends React.Component<
     const noFilesSelected = filesSelected.length === 0
     const noChangesAvailable = !commitToAmend && noFilesSelected
 
-    let ariaLabel = 'Generate commit message with Copilot'
+    let ariaLabel = '使用 Copilot 產生提交訊息'
     const canCancelGenerateCommitMessage = this.canCancelGenerateCommitMessage
     const showCancelGenerateCommitMessage =
       isGeneratingCommitMessage === true && canCancelGenerateCommitMessage
 
     if (!isGeneratingCommitMessage && noChangesAvailable) {
-      ariaLabel += '. Files must be selected to generate a commit message.'
+      ariaLabel += '。請先選取檔案，才能產生提交訊息。'
     } else if (showCancelGenerateCommitMessage) {
-      ariaLabel = 'Cancel generating commit details'
+      ariaLabel = '取消產生提交訊息'
     } else if (isGeneratingCommitMessage) {
-      ariaLabel = 'Generating commit details…'
+      ariaLabel = '正在產生提交訊息…'
     }
 
     return (

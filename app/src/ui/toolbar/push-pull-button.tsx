@@ -161,7 +161,7 @@ function renderLastFetched(lastFetched: Date | null): JSX.Element | string {
   if (lastFetched) {
     return (
       <span>
-        上次擷取時間：<RelativeTime date={lastFetched} />
+        上次擷取：<RelativeTime date={lastFetched} />
       </span>
     )
   } else {
@@ -591,7 +591,7 @@ export class PushPullButton extends React.Component<
     lastFetched: Date | null,
     onClick: () => void
   ) {
-    const title = `取得 ${remoteName}`
+    const title = `擷取 ${remoteName}`
     return (
       <ToolbarButton
         {...this.defaultButtonProps()}

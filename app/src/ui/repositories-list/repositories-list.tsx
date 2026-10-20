@@ -376,7 +376,7 @@ export class RepositoriesList extends React.Component<
         ariaExpanded={this.state.newRepositoryMenuExpanded}
         onKeyDown={this.onNewRepositoryButtonKeyDown}
       >
-        Add
+        新增
         <Octicon symbol={octicons.triangleDown} />
       </Button>
     )
@@ -426,8 +426,8 @@ export class RepositoriesList extends React.Component<
       },
       {
         label: __DARWIN__
-          ? 'Add Existing Repository…'
-          : 'Add existing repository…',
+          ? '加入現有儲存庫…'
+          : '加入現有儲存庫…',
         action: this.onAddExistingRepository,
       },
     ]

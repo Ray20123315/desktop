@@ -213,9 +213,9 @@ export class BranchesContainer extends React.Component<
         selectedIndex={this.props.selectedTab}
         allowDragOverSwitching={true}
       >
-        <span id="branches-tab">Branches</span>
+        <span id="branches-tab">分支</span>
         <span id="pull-requests-tab" className="pull-request-tab">
-          {__DARWIN__ ? 'Pull Request' : 'Pull Request'}
+          {__DARWIN__ ? '提取要求' : '提取要求'}
           {this.renderOpenPullRequestsBubble()}
         </span>
       </TabBar>
