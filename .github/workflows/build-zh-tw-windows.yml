@@ -1,0 +1,72 @@
+name: Build GitHub Desktop zh-TW for Windows
+
+on:
+  push:
+    branches:
+      - zh-tw
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows-x64:
+    name: Windows x64 installer
+    runs-on: windows-2022
+    timeout-minutes: 90
+    steps:
+      - name: Check out the fork
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up the upstream toolchain
+        uses: ./.github/actions/setup-ci-environment
+        with:
+          node-version: '24.19.0'
+          arch: x64
+
+      - name: Validate translation and menu behavior
+        run: yarn test:unit app/test/unit/main-process/menu-localization-test.ts app/test/unit/main-process/menu-test.ts
+        env:
+          RELEASE_CHANNEL: development
+
+      - name: Compile localized Windows app
+        run: yarn build:prod
+        env:
+          NODE_ENV: production
+          RELEASE_CHANNEL: development
+          npm_config_arch: x64
+          TARGET_ARCH: x64
+
+      - name: Package unsigned Windows installer
+        run: yarn package
+        env:
+          NODE_ENV: production
+          RELEASE_CHANNEL: development
+          npm_config_arch: x64
+          TARGET_ARCH: x64
+
+      - name: Verify installer and calculate SHA-256
+        shell: pwsh
+        run: |
+          $installer = 'dist/GitHubDesktopTWSetup-x64.exe'
+          if (-not (Test-Path $installer)) {
+            throw "Installer missing: $installer"
+          }
+          $size = (Get-Item $installer).Length
+          if ($size -lt 1000000) {
+            throw "Installer unexpectedly small: $size bytes"
+          }
+          (Get-FileHash $installer -Algorithm SHA256).Hash | Set-Content 'dist/GitHubDesktopTWSetup-x64.sha256'
+          Write-Host "Verified: $installer ($size bytes)"
+
+      - name: Upload installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: GitHubDesktop-zh-TW-Windows-x64
+          path: |
+            dist/GitHubDesktopTWSetup-x64.exe
+            dist/GitHubDesktopTWSetup-x64.sha256
+          if-no-files-found: error
+          retention-days: 14
