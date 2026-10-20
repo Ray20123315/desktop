@@ -42,15 +42,15 @@ export class NoPullRequests extends React.Component<INoPullRequestsProps, {}> {
 
   private renderTitle() {
     if (this.props.isSearch) {
-      return <div className="title">Sorry, I can't find that pull request!</div>
+      return <div className="title">找不到這個 Pull Request。</div>
     } else if (this.props.isLoadingPullRequests) {
-      return <div className="title">Hang tight</div>
+      return <div className="title">請稍候</div>
     } else {
       return (
         <div>
-          <div className="title">You're all set!</div>
+          <div className="title">目前沒有開啟中的 Pull Request</div>
           <div className="no-prs">
-            No open pull requests in <Ref>{this.props.repositoryName}</Ref>
+            儲存庫 <Ref>{this.props.repositoryName}</Ref> 沒有開啟中的 Pull Request
           </div>
         </div>
       )
@@ -61,7 +61,7 @@ export class NoPullRequests extends React.Component<INoPullRequestsProps, {}> {
     if (this.props.isLoadingPullRequests) {
       return (
         <div className="call-to-action">
-          Loading pull requests as fast as I can!
+          正在載入 Pull Request…
         </div>
       )
     }
@@ -69,21 +69,19 @@ export class NoPullRequests extends React.Component<INoPullRequestsProps, {}> {
     if (this.props.isOnDefaultBranch) {
       return (
         <div className="call-to-action">
-          Would you like to{' '}
+          要開始下一個專案嗎？你可以{' '}
           <LinkButton onClick={this.props.onCreateBranch}>
-            create a new branch
-          </LinkButton>{' '}
-          and get going on your next project?
+            建立新分支
+          </LinkButton>。
         </div>
       )
     } else {
       return (
         <div className="call-to-action">
-          Would you like to{' '}
+          要從目前分支{' '}
           <LinkButton onClick={this.props.onCreatePullRequest}>
-            create a pull request
-          </LinkButton>{' '}
-          from the current branch?
+            建立 Pull Request
+          </LinkButton>嗎？
         </div>
       )
     }
