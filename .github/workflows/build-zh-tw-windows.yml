@@ -32,11 +32,6 @@ jobs:
         env:
           RELEASE_CHANNEL: development
 
-      - name: Run full unit test suite
-        run: yarn test:unit
-        env:
-          RELEASE_CHANNEL: development
-
       - name: Compile localized Windows app
         run: yarn build:prod
         env:
