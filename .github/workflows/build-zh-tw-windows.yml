@@ -28,7 +28,7 @@ jobs:
           arch: x64
 
       - name: Validate translation and menu behavior
-        run: yarn test:unit app/test/unit/main-process/menu-localization-test.ts app/test/unit/main-process/menu-test.ts
+        run: yarn test:unit app/test/unit/main-process/menu-localization-test.ts app/test/unit/main-process/menu-test.ts app/test/unit/ui/relative-time-test.tsx
         env:
           RELEASE_CHANNEL: development
 
