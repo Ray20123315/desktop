@@ -276,10 +276,9 @@ export class SelectedCommits extends React.Component<
 
   private renderFileHeader() {
     const fileCount = this.props.changesetData.files.length
-    const filesPlural = fileCount === 1 ? '檔案' : '檔案'
     return (
       <div className="file-list-header">
-        {fileCount} changed {filesPlural}
+        已變更 {fileCount} 個檔案
       </div>
     )
   }

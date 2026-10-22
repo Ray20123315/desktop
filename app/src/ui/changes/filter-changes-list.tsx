@@ -1261,9 +1261,10 @@ export class FilterChangesList extends React.Component<
       files.length === 0 || isCommitting || rebaseConflictState !== null
 
     const checkAllLabel = `${
-      visibleFiles !== files.length ? `${formatNumber(visibleFiles)} of ` : ''
-    }
-    ${formatNumber(files.length)} changed file${plural(files.length)}`
+      visibleFiles !== files.length
+        ? `顯示 ${formatNumber(visibleFiles)}／`
+        : ''
+    }${formatNumber(files.length)} 個變更的檔案`
 
     return (
       <div className="checkbox-container">
@@ -1323,7 +1324,7 @@ export class FilterChangesList extends React.Component<
 
   private getListAriaLabel = () => {
     const { files } = this.props.workingDirectory
-    return `${formatNumber(files.length)} changed file${plural(files.length)}`
+    return `${formatNumber(files.length)} 個變更的檔案`
   }
 
   public render() {
