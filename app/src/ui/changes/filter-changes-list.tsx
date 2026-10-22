@@ -65,7 +65,6 @@ import { IMatches } from '../../lib/fuzzy-find'
 import { TextBox } from '../lib/text-box'
 import { Button } from '../lib/button'
 import { LinkButton } from '../lib/link-button'
-import { plural } from '../lib/plural'
 import {
   isCommittingFileHiddenByFilter,
   getNoResultsMessage,
