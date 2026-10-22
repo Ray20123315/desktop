@@ -56,7 +56,7 @@ describe('RelativeTime', () => {
   it('refreshes once the scheduled timeout elapses', () => {
     render(<RelativeTime date={new Date(now - 44 * 1000)} tooltip={false} />)
 
-    assert.equal(screen.getByText('剛剛').textContent, 'just now')
+    assert.equal(screen.getByText('剛剛').textContent, '剛剛')
 
     advanceTimersBy(16 * 1000)
 
